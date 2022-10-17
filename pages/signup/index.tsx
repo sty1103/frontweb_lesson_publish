@@ -1,9 +1,10 @@
 import Button from '@/components/common/Button';
 import SignContainer from '@/components/sign/SignContainer';
 import styles from '@/styles/sign/SignUp.module.scss';
+import { NextPage } from 'next';
 import router from 'next/router';
 
-export default function SignUp() {
+const SignUp: NextPage = () => {
   return (
     <SignContainer className={styles.signup}>
       <div className={styles.content}>
@@ -35,3 +36,5 @@ export default function SignUp() {
     }
   }
 }
+
+export default SignUp;

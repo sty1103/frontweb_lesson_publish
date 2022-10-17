@@ -7,8 +7,9 @@ import { Form } from 'react-bootstrap';
 import Router from 'next/router';
 import router from 'next/router';
 import SignContainer from '@/components/sign/SignContainer';
+import { NextPage } from 'next';
 
-export default function ForgotPass() {
+const ForgotPass: NextPage = () => {
   const [ stepNum, setStepNum ] = useState<number>(1);
   const middleRef = useRef<HTMLDivElement>(null);
 
@@ -85,3 +86,5 @@ export default function ForgotPass() {
     router.push('/signin');
   }
 }
+
+export default ForgotPass;

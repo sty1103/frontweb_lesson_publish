@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import router, { useRouter } from 'next/router';
-import { NextResponse, NextRequest } from 'next/server'
 import SignContainer from '@/components/sign/SignContainer';
 import styles from '@/styles/sign/SignUpStep.module.scss';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
@@ -12,17 +11,15 @@ import termsService from '@/public/terms/service';
 import termsPrivacy from '@/public/terms/privacy';
 import termsPromotion from '@/public/terms/promotion';
 import { nl2br } from '@/lib/utils';
-import Image from 'next/image';
-import { useEffect } from 'react';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
+import ErrorPage from '@/components/common/ErrorPage';
+import { NextPage, GetStaticProps, GetStaticPathsResult, GetStaticPaths } from 'next';
 
-export default function SignUpStep() {
-  const Router = useRouter();
+interface Props {
+  target: string;
+}
 
-  if ( Router.query.target !== 'student' && Router.query.target !== 'teacher' ) {
-    // NextResponse.redirect('/signup') 
-  }
-
+const SignUpStep: NextPage<Props> = ({ target }) => {
   const [ stepNum, setStepNum ] = useState<number>(1);
   const middleRef = useRef<HTMLDivElement>(null);
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -239,3 +236,25 @@ export default function SignUpStep() {
     router.push('/');
   }
 }
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const paths = [
+    { params: { target:'student'} },
+    { params: { target:'teacher'} },
+  ]
+
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+export const getStaticProps: GetStaticProps = ({ params }) => {
+  return {
+    props: {
+      target: params?.target
+    }
+  }
+}
+
+export default SignUpStep;

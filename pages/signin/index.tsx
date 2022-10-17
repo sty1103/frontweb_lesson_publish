@@ -8,12 +8,13 @@ import { BsApple} from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import router from 'next/router';
 import SignContainer from '@/components/sign/SignContainer';
+import { NextPage } from 'next';
 
 interface Props {
   socials: [];
 }
 
-export default function SignIn({ socials }: Props) {
+const SignIn: NextPage<Props> = ({ socials }) => {
   return (
     <SignContainer className={styles.signin}>
       <div className={styles.logo}>
@@ -73,3 +74,5 @@ export function getStaticProps() {
     }
   }
 }
+
+export default SignIn;

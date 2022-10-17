@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "git": "git push -u origin main && git push -u deploy main",
+    "neltify-deploy": "npm build"
   },
   "dependencies": {
     "@types/react-slick": "^0.23.10",

@@ -1,0 +1,23 @@
+@import '../common.scss';
+
+.container {
+  @include center;
+  width: 100%;
+  height: 100%;
+  background: $gray_light;
+  overflow: auto;
+
+  div {
+    width: 100%;
+  }
+  
+  .inner {
+    flex: 0;
+    flex-direction: column;
+    border: 1px solid $gray_medium;
+    background: white;
+    min-width: 540px;
+    height: 620px;
+    max-height: 620px;
+  }
+}

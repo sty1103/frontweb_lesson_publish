@@ -1,0 +1,50 @@
+/* 공통 */
+
+$gray_light: #f2f4f7;
+$gray_medium: #ddd;
+$gray_dark: #767676;
+$green_light: rgb(91 255 212);
+$blue_light: rgb(222, 255, 246);
+$blue_dark: rgb(30 206 238);
+$red_light: rgb(255, 222, 228);
+$red_dark: rgb(227, 85, 111);
+
+$radius_default: 4px;
+$radius_half: 980px;
+
+$width_desktop: 1060px;
+
+// 가로/세로 중앙
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// 게시물 아래 버튼 공통 스타일
+@mixin post_bottom {
+  @include center;
+
+  button {
+    flex: 1;
+    font-size: 1em;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 8px;
+
+    svg {
+      font-size: 1.4em;
+      margin-right: 6px;
+    }
+  }
+
+  button:first-child {
+    border-left: 0;
+  }
+}

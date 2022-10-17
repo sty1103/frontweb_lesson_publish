@@ -1,0 +1,28 @@
+@import './common.scss';
+
+.banner {
+  overflow: hidden;
+  margin-top: 60px;
+  margin-bottom: 50px;
+
+  div {
+    outline: none!important;
+    height: 100%;
+  }
+
+  .banner-item {
+    @include center;
+    height: 550px;
+    overflow: hidden;
+    padding:0 12px;
+    cursor: pointer;
+    position: relative;
+
+    > span {
+      margin: 10px 5px!important;
+      border-radius: 4px;
+    }
+  }
+
+  
+}

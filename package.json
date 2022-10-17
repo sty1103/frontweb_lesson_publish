@@ -1,0 +1,35 @@
+{
+  "name": "frontweb-lesson-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/react-slick": "^0.23.10",
+    "bootstrap": "^5.2.2",
+    "next": "12.3.1",
+    "opensheetmusicdisplay": "^1.5.7",
+    "popper.js": "^1.16.1",
+    "raw-loader": "^4.0.2",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "18.2.0",
+    "react-hook-geolocation": "^1.1.0",
+    "react-icons": "^4.4.0",
+    "react-slick": "^0.29.0",
+    "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.23",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.24.0",
+    "eslint-config-next": "12.3.1",
+    "slick-carousel": "^1.8.1",
+    "typescript": "4.8.4"
+  }
+}

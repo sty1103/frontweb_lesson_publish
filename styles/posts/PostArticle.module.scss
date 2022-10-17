@@ -1,0 +1,70 @@
+@import '../common.scss';
+
+.article {
+  @include center;
+  flex-direction: column;
+  border: 1px solid $gray_dark;
+
+  > div {
+    width: 100%;
+  }
+
+  .top {
+    display: flex;
+    padding: 20px;
+
+    .info {
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        .type {
+          background: $blue_light;
+          color: $blue_dark;
+          padding: 2px 4px;
+          border-radius: $radius_default;
+          font-size: .9em;
+          margin-right: 10px;
+          font-weight: normal;  
+        }
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: .8em;
+        color: $gray_dark;
+
+        :nth-child(2) {
+          width: 1px;
+          height: 10px;
+          border-right: 1px solid $gray_dark;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  .middle {
+    @include center;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+
+    .img {
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .desc {
+      padding: 20px;
+    }
+  }
+
+  .bottom {
+    @include post_bottom;
+  }
+}

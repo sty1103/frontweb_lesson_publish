@@ -1,0 +1,76 @@
+@import '../common.scss';
+
+.popularVideos {
+  margin-bottom: 50px;
+
+  .title {
+    min-width: $width_desktop;
+    max-width: $width_desktop;
+    text-transform: uppercase;
+    color: $gray_dark;
+    font-size: 16px;
+    margin: auto;
+    margin-bottom: 20px;
+    
+    & > div {
+      font-size: 18px;
+      color: black;
+      margin: 4px 0 10px 0;
+    }
+  }
+
+  .items {
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 300px;
+      width: 170px;
+      min-width: 170px;
+      padding: 12px;
+
+      .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: black;
+      }
+
+      .text {
+        z-index: 1;
+        color: white;
+
+        .top {
+          word-break: keep-all;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          max-height: 48px;
+          white-space: normal;
+        }
+        
+        .bottom {
+          @include center;
+          justify-content: flex-start;
+          color: $gray_light;
+          font-size: 12px;
+          margin-top: 8px;
+
+          svg {
+            font-size: 14px;
+            margin-right: 4px;
+          }
+
+          svg:nth-of-type(2) {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}

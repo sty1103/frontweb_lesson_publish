@@ -1,0 +1,83 @@
+@import './common.scss';
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  padding: 0px 50px;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+  background: white;
+
+  .logo {
+    cursor: pointer;
+    margin-right: 50px;
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+
+    li {
+      cursor: pointer;
+      padding: 18px 0px;
+      padding-bottom: 15px;
+      color: $gray_dark;
+    }
+    
+    li.active {
+      border-bottom: 3px solid $green_light;
+      color: black;
+    }
+  }
+
+  .search {
+    @include center;
+    gap: 6px;
+    padding: 3px 12px;
+    padding-right: 60px;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 16px;
+    cursor: pointer;
+
+    color: $gray_dark;
+    background: $gray_light;
+    border-radius: $radius_half;
+    border: 1px solid $gray_dark;
+
+    & > :first-child {
+      font-size: 22px;
+    }
+  }
+
+  .sign-wrapper {
+    @include center;
+    border-radius: $radius_half;
+    overflow: hidden;
+    background: $blue_dark;
+
+    button {
+      border-radius: 0;
+      color: white;
+    }
+
+    .seperator {
+      border-left: 1px solid white;
+      height: 12px;
+    }
+  }
+
+  .upload {
+    & > :first-child {
+      font-size: 18px;
+      margin-right: 4px;
+    }
+  }
+}

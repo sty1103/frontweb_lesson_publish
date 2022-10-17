@@ -1,0 +1,114 @@
+@import '../common.scss';
+
+.practice {
+  @include center;
+  flex-direction: column;
+  border: 1px solid $gray_dark;
+
+  > div {
+    width: 100%;
+  }
+
+  .top {
+    display: flex;
+    padding: 20px;
+
+    .info {
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        .type {
+          background: $blue_light;
+          color: $blue_dark;
+          padding: 2px 4px;
+          border-radius: $radius_default;
+          font-size: .9em;
+          margin-right: 10px;
+          font-weight: normal;  
+        }
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: .8em;
+        color: $gray_dark;
+
+        :nth-child(1) {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: black;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+        :nth-child(2) {
+          color: black;
+          font-weight: bold;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+        :nth-child(4) {
+          width: 1px;
+          height: 10px;
+          border-right: 1px solid $gray_dark;
+          margin: 0 5px;
+        }
+      }
+    }
+
+    button {
+      margin-left: auto;
+
+      svg {
+        margin-right: 4px;
+        font-size: 1.2em;
+        color: $blue_light;
+      }
+    }
+  }
+
+  .middle {
+    @include center;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+
+    .title {
+      @include center;
+      width: fit-content;
+      padding: 4px 14px;
+      font-size: .9em;
+      border-radius: $radius-half;
+      background: $gray_light;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      svg {
+        font-size: 1.4em;
+        color: $blue_dark;
+        margin-right: 4px;
+      }
+    }
+
+    .score {
+      max-height: 240px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      padding: 20px;
+    }
+  }
+
+  .bottom {
+    @include post_bottom;
+  }
+}

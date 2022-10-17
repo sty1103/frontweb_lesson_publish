@@ -20,7 +20,7 @@ export default function SignUpStep() {
   const Router = useRouter();
 
   if ( Router.query.target !== 'student' && Router.query.target !== 'teacher' ) {
-    NextResponse.redirect('/signup') 
+    // NextResponse.redirect('/signup') 
   }
 
   const [ stepNum, setStepNum ] = useState<number>(1);

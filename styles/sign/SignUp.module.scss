@@ -15,14 +15,15 @@
         width: 300px;
         font-size: 1.1em;
         margin-bottom: 10px;
-        border: 1px solid $gray_medium;
+        border: 1px solid $color--gray--5;
         border-radius: $radius_default;
-        transition: all .3s;
+        // transition: all .1s;
       }
 
       button:hover {
-        border: 1px solid $blue_dark;
-        background-color: $blue_light;
+        border: 1px solid $color--system--2;
+        background: $color--system--6;
+        color: white;
       }
     }
   }

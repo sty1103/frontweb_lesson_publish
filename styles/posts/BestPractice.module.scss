@@ -7,7 +7,7 @@
     min-width: $width_desktop;
     max-width: $width_desktop;
     text-transform: uppercase;
-    color: $gray_dark;
+    color: $color--gray--3;
     font-size: 16px;
     margin: auto;
     margin-bottom: 20px;
@@ -57,7 +57,7 @@
         .bottom {
           @include center;
           justify-content: flex-start;
-          color: $gray_light;
+          color: $color--gray--5;
           font-size: 12px;
           margin-top: 8px;
 

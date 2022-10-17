@@ -28,12 +28,12 @@
       cursor: pointer;
       padding: 18px 0px;
       padding-bottom: 15px;
-      color: $gray_dark;
+      color: $color--gray--2;
     }
     
     li.active {
-      border-bottom: 3px solid $green_light;
-      color: black;
+      border-bottom: 3px solid $color--system--2;
+      color: $color--gray--1;
     }
   }
 
@@ -47,13 +47,14 @@
     margin-right: 16px;
     cursor: pointer;
 
-    color: $gray_dark;
-    background: $gray_light;
+    color: $color--gray--4;
+    background: $color--gray--6;
     border-radius: $radius_half;
-    border: 1px solid $gray_dark;
+    border: 1px solid $color--gray--5;
 
     & > :first-child {
       font-size: 22px;
+      color: $color--gray--4;
     }
   }
 
@@ -61,10 +62,11 @@
     @include center;
     border-radius: $radius_half;
     overflow: hidden;
-    background: $blue_dark;
+    background: $color--system--6;
 
     button {
       border-radius: 0;
+      background: transparent;
       color: white;
     }
 

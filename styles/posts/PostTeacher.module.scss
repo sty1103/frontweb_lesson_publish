@@ -3,7 +3,7 @@
 .teacher {
   @include center;
   flex-direction: column;
-  border: 1px solid $gray_dark;
+  border: 1px solid $color--gray--5;
 
   > div {
     width: 100%;
@@ -19,8 +19,8 @@
         margin-bottom: 10px;
 
         .type {
-          background: $gray_light;
-          color: $gray_dark;
+          background: $color--gray--6;
+          color: $color--gray--3;
           padding: 2px 4px;
           border-radius: $radius_default;
           font-size: .9em;
@@ -41,7 +41,7 @@
     }
 
     .profile {
-      border-bottom: 1px solid $gray_light;
+      border-bottom: 1px solid $color--gray--6;
 
       > div {
         flex: 1;
@@ -71,7 +71,7 @@
 
         .sub {
           font-size: .8em;
-          color: $gray_dark;
+          color: $color--gray--3;
           margin-top: 6px;
 
           svg {
@@ -80,7 +80,7 @@
           }
 
           span {
-            background: $blue_dark;
+            background: $color--system--5;
             color: black;
             padding: 2px 8px;
             border-radius: $radius_half;
@@ -107,7 +107,7 @@
 
         .instruments {
           span {
-            background: $blue_light;
+            background: $color--system--7;
             border-radius: $radius_default;
             font-size: .8em;
             padding: 2px 4px;
@@ -127,7 +127,7 @@
       > div {
         flex: 1;
         flex-direction: column;
-        border-right: 1px solid $gray_light;
+        border-right: 1px solid $color--gray--6;
 
         > span:first-child {
           font-size: 1.4em;

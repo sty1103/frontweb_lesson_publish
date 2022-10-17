@@ -2,8 +2,8 @@
 
 .map {
   width: 100%;
-  height: 100%;
-  border: 1px solid $gray_medium;
+  height: 300px;
+  border: 1px solid $color--gray--5;
 }
 
 .map.error {
@@ -13,8 +13,8 @@
 .sub {
   @include center;
   font-size: .9em;
-  color: $blue_dark;
-  border: 1px solid $gray_medium;
+  color: $color--system--5;
+  border: 1px solid $color--gray--5;
   padding: 6px;
   margin-bottom: 30px;
 }

@@ -12,12 +12,12 @@
 
   .top {
     flex-direction: row;
-    color: $gray_dark;
+    color: $color--gray--4;
     font-size: .8em;
     margin-bottom: 20px;
 
     > :first-child {
-      color: $blue_dark;
+      color: $color--system--1;
       font-weight: bold;
     }
 
@@ -32,7 +32,7 @@
 
   .prev {
     font-size: 1.4em;
-    color: $gray_dark;
+    color: $color--gray--2;
     cursor: pointer;
     margin-bottom: 15px;
   }
@@ -51,7 +51,7 @@
     }
 
     .warn {
-      color: red;
+      color: $color--red--2;
       font-size: .9em;
       opacity: .9;
       display: none;
@@ -64,7 +64,7 @@
     button {
       width: 100%;
       border-radius: $radius_default;
-      background: $blue_dark;
+      background: $color--system--5;
       border: 0;
       margin-top: auto;
       padding: 10px;
@@ -78,8 +78,9 @@
         margin: 15px 0;
   
         > .term {
-          border-bottom: 1px solid $gray_medium;
+          border-bottom: 1px solid $color--gray--5;
           margin-bottom: 6px;
+          overflow: hidden;
   
           > div {
             padding: 12px;
@@ -89,7 +90,7 @@
             @include center;
             flex-direction: row;
             justify-content: flex-start;
-            border: 1px solid $gray_medium;
+            border: 1px solid $color--gray--5;
             border-bottom: 0;
             font-size: .9em;
     
@@ -111,8 +112,8 @@
                 }
     
                 input:checked {
-                  background-color: $blue_dark;
-                  border-color: $blue_dark;
+                  background-color: $color--system--5;
+                  border-color: $color--system--5;
                 }
   
                 input:disabled {
@@ -123,8 +124,8 @@
               span {
                 margin-left: 6px;
                 border-radius: $radius_half;
-                border: 1px solid $blue_dark;
-                color: $blue_dark;
+                border: 1px solid $color--system--5;
+                color: $color--system--5;
                 font-size: .8em;
                 padding: 0 8px;
               }
@@ -137,7 +138,7 @@
     
               svg {
                 font-size: 1.4em;
-                color: $gray_dark;
+                color: $color--gray--3;
                 margin-left: auto;
               }
             }
@@ -145,7 +146,7 @@
           }
     
           .content {
-            border: 1px solid $gray_medium;
+            border: 1px solid $color--gray--5;
             border-bottom: 0;
             border-top: 0;
             height: 0px;
@@ -170,7 +171,7 @@
   
       .term.active {
         .content {
-          border-top: 1px solid $gray_medium;
+          border-top: 1px solid $color--gray--5;
           padding: 12px;
           height: 150px;
         }
@@ -184,7 +185,7 @@
     .verify {
       @include center;
       padding: 30px;
-      border: 1px solid $gray_medium;
+      border: 1px solid $color--gray--5;
       margin-top: 15px;
       cursor: pointer;
     }
@@ -201,8 +202,8 @@
           @include center;
           width: 80px;
           height: 80px;
-          background: $gray_light;
-          border: 1px solid $gray_medium;
+          background: $color--gray--6;
+          border: 1px solid $color--gray--5;
           flex-shrink: 0;
           overflow: hidden;
           margin-right: 20px;
@@ -210,7 +211,7 @@
           cursor: pointer;
           
           svg {
-            color: $gray_dark;
+            color: $color--gray--2;
             font-size: 2.4em;
           }
         }
@@ -229,7 +230,15 @@
   }
 
   .step4 {
-
+    .items {
+      @include center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .item {
+        flex: 1 1 25%;
+        height: 100px;
+      }
+    }
   }
 
   .step5 {

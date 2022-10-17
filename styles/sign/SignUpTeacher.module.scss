@@ -12,12 +12,12 @@
 
   .top {
     flex-direction: row;
-    color: $gray_dark;
+    color: $color--gray--5;
     font-size: .8em;
     margin-bottom: 20px;
 
     > :first-child {
-      color: $blue_dark;
+      color: $color--system--5;
       font-weight: bold;
     }
 

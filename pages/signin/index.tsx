@@ -27,7 +27,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
         <Form.Control type='email' placeholder='이메일을 입력해 주세요' />
         <label>비밀번호</label>
         <Form.Control type='password' placeholder='비밀번호를 입력해 주세요' />
-        <Button shape='rect' onClick={login}>
+        <Button onClick={login}>
           로그인
         </Button>
       </div>

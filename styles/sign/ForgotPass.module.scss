@@ -12,12 +12,12 @@
 
   .top {
     flex-direction: row;
-    color: $gray_dark;
+    color: $color--gray--3;
     font-size: .8em;
     margin-bottom: 20px;
 
     :first-child {
-      color: $blue_dark;
+      color: $color--system--5;
       font-weight: bold;
     }
 
@@ -32,7 +32,7 @@
 
   .prev {
     font-size: 1.4em;
-    color: $gray_dark;
+    color: $color--gray--2;
     cursor: pointer;
     margin-bottom: 15px;
   }
@@ -73,7 +73,7 @@
     button {
       width: 100%;
       border-radius: $radius_default;
-      background: $blue_dark;
+      background: $color--system--5;
       border: 0;
       margin-top: auto;
       padding: 10px;

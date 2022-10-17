@@ -2,7 +2,7 @@
 
 .signin {
   > div {
-    padding: 50px 120px;
+    padding: 50px 110px;
   }
   
   .logo {
@@ -19,15 +19,13 @@
 
     input {
       width: 100%;
-      border: 1px solid $gray_medium;
+      border: 1px solid $color--gray--5;
       margin-top: 6px;
       margin-bottom: 15px;
     }
 
     button {
       width: 100%;
-      background: $blue_dark;
-      color: white;
       border: 0;
       border-radius: $radius_default;
       font-size: 1em;
@@ -62,7 +60,7 @@
     @include center;
     flex-direction: column;
     font-size: .9em;
-    color: $gray_dark;
+    color: $color--gray--2;
 
     .buttons {
       @include center;
@@ -81,7 +79,7 @@
       }
 
       > span:nth-child(1) {
-        border: 1px solid $gray_medium;
+        border: 1px solid $color--gray--5;
         padding: 8px;
         font-size: 3em;
       }

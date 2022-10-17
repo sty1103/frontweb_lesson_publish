@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import router, { useRouter } from 'next/router';
+import router from 'next/router';
 import SignContainer from '@/components/sign/SignContainer';
 import styles from '@/styles/sign/SignUpStep.module.scss';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
@@ -12,8 +12,7 @@ import termsPrivacy from '@/public/terms/privacy';
 import termsPromotion from '@/public/terms/promotion';
 import { nl2br } from '@/lib/utils';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
-import ErrorPage from '@/components/common/ErrorPage';
-import { NextPage, GetStaticProps, GetStaticPathsResult, GetStaticPaths } from 'next';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 
 interface Props {
   target: string;
@@ -25,12 +24,16 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
   const step1Ref = useRef<HTMLDivElement>(null);
   const step1WarnRef = useRef<HTMLLabelElement>(null);
 
+  const instruments = [
+    "드럼", "드럼", "바이올린", "아코디언", "피아노", "하프", "기타", "실로폰", "팀파니", "오르간", "드럼", "아코디언"
+  ];
+
   return (
     <SignContainer className={styles.signup}>
       <div className={styles.top}>
         <span>0{stepNum}</span>
         <span className={styles.seperator}>/</span>
-        06
+        04
         <span>회원가입</span>
       </div>
 
@@ -143,7 +146,16 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
         </div>
 
         <div className={styles.step4}>
-
+          연주할 수 있는 악기를 선택해주세요
+          <div className={styles.items}>
+            {instruments.map((v, k) => {
+              return (
+                <div className={styles.item} key={k}>
+                  {v}
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         <div className={styles.step5}>

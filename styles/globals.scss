@@ -1,7 +1,8 @@
 @import "./common.scss";
 
-body {
-  // font-family: 'Noto Sans KR', sans-serif!important;
+body main {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: $color--gray--1;
 }
 
 textarea:focus,

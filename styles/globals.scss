@@ -1,7 +1,7 @@
 @import "./common.scss";
 
 body main {
-  font-family: 'Noto Sans KR', sans-serif;
+  // font-family: 'Noto Sans KR', sans-serif;
   color: $color--gray--1;
 }
 
@@ -21,4 +21,26 @@ main {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+
+  .dropdown {
+    button {
+      @include center;
+      justify-content: flex-start;
+      border: 1px solid $color--gray--5;
+      background: $color--gray--8;
+      color: $color--gray--1;
+      width: 100%;
+
+      &:after {
+        color: $color--gray--5;
+        margin-left: auto;
+      }
+    }
+
+    button:hover {
+      // border: 1px solid $color--gray--5;
+      // background: $color--gray--8;
+      // color: $color--gray--1;
+    }
+  }
 }

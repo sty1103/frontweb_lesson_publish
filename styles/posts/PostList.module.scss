@@ -16,32 +16,17 @@
     justify-content: flex-start;
 
     .dropdown {
-      margin-left: auto;
-
-      button {
-        @include center;
-        justify-content: flex-start;
-        background: white;
-        border: 1px solid $color--gray--5;
-        color: black;
-
-        &:after {
-          color: $color--gray--5;
-          margin-left: auto;
-        }
-      }
-
       > * {
-        min-width: 134px;
+        min-width: 150px;
       }
     }
 
     .dropdown:nth-child(2) {
-      margin-right: 15px;
+      margin-left: auto;
     }
 
     .dropdown:nth-child(3) {
-      margin-left: 0;
+      margin-left: 10px;
     }
   }
 

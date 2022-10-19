@@ -2,15 +2,24 @@
 
 .signup {
   > div {
-    padding: 40px;
-  }
-
-  div {
     display: flex;
-    flex-direction: column;
+    padding: 40px;
+
+    .middle {
+      > div {
+        display: flex;
+        flex-direction: column;
+
+        > button {
+          margin-top: auto;
+          background: $color--system--6;
+        }
+      }
+    }
   }
 
   .top {
+    display: flex;
     flex-direction: row;
     color: $color--gray--4;
     font-size: .8em;
@@ -51,7 +60,7 @@
     }
 
     .warn {
-      color: $color--red--2;
+      color: red;
       font-size: .9em;
       opacity: .9;
       display: none;
@@ -61,7 +70,7 @@
       display: block;
     }
 
-    button {
+    > div > button {
       width: 100%;
       border-radius: $radius_default;
       background: $color--system--5;
@@ -194,37 +203,71 @@
   .step3 {
     .form {
       flex-direction: column;
-      margin-top: 20px;
+      padding: 20px;
+      padding-top: 0;
+      padding-bottom: 30px;
+      margin: 10px 0;
       overflow-y: auto;
 
-      .top {
-        .top--left {
-          @include center;
-          width: 80px;
-          height: 80px;
-          background: $color--gray--6;
-          border: 1px solid $color--gray--5;
+      .picture {
+        @include center;
+        width: 120px;
+        height: 120px;
+        background: $color--gray--6;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        margin: 40px auto;
+        flex-shrink: 0;
+  
+        svg {
+          font-size: 2.6em;
+          color: $color--gray--4
+        }
+  
+        img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      > div:not(.picture) {
+        flex-direction: row;
+        margin-bottom: 20px;
+
+        span {
           flex-shrink: 0;
-          overflow: hidden;
-          margin-right: 20px;
-          border-radius: 50%;
+        }
+
+        label {
+          margin-right: 15px;
           cursor: pointer;
-          
-          svg {
-            color: $color--gray--2;
-            font-size: 2.4em;
+
+          input[type=radio] {
+            margin-right: 6px;
           }
         }
 
-        .top--right {
-          flex-direction: column;
-          justify-content: center;
-          gap: 5px;
+        > :last-child {
+          margin-top: 8px;
         }
       }
 
       textarea {
         resize: none;
+      }
+
+      .required {
+        span:after {
+          content: '*';
+          color: red;
+          margin-left: 4px;
+        }
       }
     }
   }
@@ -234,15 +277,102 @@
       @include center;
       flex-direction: row;
       flex-wrap: wrap;
+      align-items: stretch;
+      height: 100%;
+      margin-top: 20px;
+      gap: 10px;
+      margin-bottom: 20px;
+      
       .item {
-        flex: 1 1 25%;
-        height: 100px;
+        @include center;
+        flex-direction: column;
+        flex: 1 1 calc(25% - 30px);
+        border: 2px solid $color--gray--5;
+        color: $color--gray--4;
+        cursor: pointer;
+        border-radius: $radius_default;
+
+        svg {
+          color: $color--gray--4;
+          font-size: 2.4em;
+          margin-bottom: 6px;
+        }
+      }
+
+      .item.active {
+        color: $color--gray--1;
+        border: 2px solid $color--system--3;
+
+        svg {
+          color: $color--system--5;
+        }
       }
     }
   }
 
   .step5 {
+    .items {
+      @include center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 10px;
+      height: 100%;
+      margin: 20px 0;
 
+      .item {
+        flex: 1 1 calc(33% - 20px);
+        @include center;
+        flex-direction: column;
+        text-align: center;
+        border: 2px solid $color--gray--5;
+        font-size: .8em;
+        color: $color--gray--4;
+        padding: 20px;
+        word-break: keep-all;
+        border-radius: $radius_default;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        > div {
+          font-size: 1.2em;
+        }
+
+        .dropdown {
+          margin-top: 10px;
+          > * {
+            min-width: 100px;
+          }
+        }
+      }
+      
+      > .item.active {
+        border: 2px solid $color--system--3;
+
+        > div {
+          color: $color--system--5;
+        }
+      }
+    }
+  }
+
+  .step5.teacher {
+    .items {
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-size: 1.2em;
+      height: auto;
+
+      .item {
+        // flex: 0 0 calc(25% - 30px);
+        flex: 1 0 calc(25% - 30px);
+      }
+    }
+
+    .items:after {
+      content: '';
+      flex: 1 1 calc(75% - 30px);
+    }
   }
 
   .step6 {

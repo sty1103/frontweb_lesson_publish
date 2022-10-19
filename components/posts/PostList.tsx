@@ -17,16 +17,34 @@ interface Props {
   data: Data[];
 }
 
-// 나중에 const로 변경
-// const filter_inst = {
-let filterInstList: any = { all:'전체악기', piano:'피아노', guitar:'기타', drum:'드럼', violin:'바이올린', ukulele:'우쿨렐레', saxophone:'섹소폰', hamonikr:'하모니카' }
-const filterOrderList: any = { popular:'인기순', recent:'최신순' };
-const filterPostList: any = { all:'전체보기', practice:'게시물', article:'아티클', curriculum:'커리큘럼', teacher:'선생님' };
-
 export default function PostList({ data }: Props) {
+  // 나중에 const로 변경
+  // const filter_inst = {
+  let filterInstList: any = {
+    all: { name: '전체악기' },
+    piano: { name: '피아노' },
+    guitar: { name: '기타' },
+    drum: { name: '드럼' },
+    violin: { name: '바이올린' },
+    ukulele: { name: '우쿨렐레' },
+    saxophone: { name: '섹소폰' },
+    hamonikr: { name: '하모니카'}
+  }
+  const filterOrderList: any = {
+    popular: { name: '인기순' },
+    recent:{ name: '최신순' } 
+  };
+  const filterPostList: any = {
+    all: { name: '전체보기' },
+    practice: { name: '게시물' },
+    article: { name: '아티클' },
+    curriculum: { name: '커리큘럼' },
+    teacher: { name: '선생님' }
+  };
+
   // 임시 데이터 삽입
   for( let i=1; i<=30; i++ ) {
-    filterInstList[`etc${i}`] = '피아노';
+    filterInstList[`etc${i}`] = { name: '피아노' };
   }
 
   // 악기 필터 드래그 이벤트에 사용
@@ -45,7 +63,7 @@ export default function PostList({ data }: Props) {
         <SSRProvider>
           <Dropdown className={styles.dropdown}>
             <Dropdown.Toggle>
-              <span>{filterOrderList[filterOrder]}</span>
+              <span>{filterOrderList[filterOrder].name}</span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -55,7 +73,7 @@ export default function PostList({ data }: Props) {
                     key={k}
                     onClick={(e)=>clickFilterOrder(e, k)}
                   >
-                    {filterOrderList[k]}
+                    {filterOrderList[k].name}
                   </Dropdown.Item>
                 )
               })}
@@ -64,7 +82,7 @@ export default function PostList({ data }: Props) {
 
           <Dropdown className={styles.dropdown}>
             <Dropdown.Toggle>
-              <span>{filterPostList[filterPost]}</span>
+              <span>{filterPostList[filterPost].name}</span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -74,7 +92,7 @@ export default function PostList({ data }: Props) {
                     key={k}
                     onClick={(e)=>clickFilterPost(e, k)}
                   >
-                    {filterPostList[k]}
+                    {filterPostList[k].name}
                   </Dropdown.Item>
                 )
               })}
@@ -88,14 +106,14 @@ export default function PostList({ data }: Props) {
         clientX={clientX}
         setClientX={setClientX}
       >
-        {Object.keys(filterInstList).map((k) => {
+        {Object.keys(filterInstList).map((v) => {
           return (
             <div
-              key={k}
-              className={filterInst==k ? styles.active:''}
-              onClick={(e)=>clickFilterInst(e, k)}
+              key={v}
+              className={filterInst==v ? styles.active:''}
+              onClick={(e)=>clickFilterInst(e, v)}
             >
-              {filterInstList[k]}
+              {filterInstList[v].name}
             </div>
           )
         })}

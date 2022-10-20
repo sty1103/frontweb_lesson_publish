@@ -4,10 +4,9 @@ import styles from '@/styles/sign/ForgotPass.module.scss';
 import { Next } from 'react-bootstrap/esm/PageItem';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { Form } from 'react-bootstrap';
-import Router from 'next/router';
-import router from 'next/router';
 import SignContainer from '@/components/sign/SignContainer';
 import { NextPage } from 'next';
+import { moveUrl } from '@/lib/utils';
 
 const ForgotPass: NextPage = () => {
   const [ stepNum, setStepNum ] = useState<number>(1);
@@ -66,7 +65,7 @@ const ForgotPass: NextPage = () => {
 
   function prev() {
     if ( stepNum === 1 ) {
-      router.push('/signin');
+      moveUrl('/signin');
     } else {
       const prevStepNum = stepNum - 1;
       middleRef?.current!.classList.remove(`${styles[`step${stepNum}`]}`);
@@ -83,7 +82,7 @@ const ForgotPass: NextPage = () => {
   }
 
   function clickDone() {
-    router.push('/signin');
+    moveUrl('/signin');
   }
 }
 

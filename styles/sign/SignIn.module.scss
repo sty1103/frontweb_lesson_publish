@@ -24,6 +24,10 @@
       margin-bottom: 15px;
     }
 
+    input.active {
+      border: 2px solid $color--red--2;
+    }
+
     button {
       width: 100%;
       border: 0;

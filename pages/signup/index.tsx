@@ -2,7 +2,7 @@ import Button from '@/components/common/Button';
 import SignContainer from '@/components/sign/SignContainer';
 import styles from '@/styles/sign/SignUp.module.scss';
 import { NextPage } from 'next';
-import router from 'next/router';
+import { moveUrl } from '@/lib/utils';
 
 const SignUp: NextPage = () => {
   return (
@@ -30,9 +30,9 @@ const SignUp: NextPage = () => {
 
   function clickButton(target: string) {
     if ( target === "student" ) {
-      router.push('/signup/student');
+      moveUrl('/signup/student');
     } else {
-      router.push('/signup/teacher');
+      moveUrl('/signup/teacher');
     }
   }
 }

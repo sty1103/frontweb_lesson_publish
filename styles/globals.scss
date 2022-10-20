@@ -22,6 +22,10 @@ main {
   height: 100vh;
   overflow-x: hidden;
 
+  > section:first-child {
+    margin-top: 80px;
+  }
+
   .dropdown {
     button {
       @include center;

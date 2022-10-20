@@ -1,10 +1,11 @@
 import '../styles/globals.scss'
 import Head from 'next/head';
 import type { AppProps } from 'next/app'
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import TopNav from '@/components/TopNav';
 import { useRouter } from 'next/router';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   let topNav = <TopNav />;
@@ -20,15 +21,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   
   return (
-    <>
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' user-scalable='no' />
-      </Head>
-      {topNav}
-      <main>
-        <Component {...pageProps} />
-      </main>
-    </>
+    <RecoilRoot>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' user-scalable='no' />
+        </Head>
+        {topNav}
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </Suspense>
+    </RecoilRoot>
   )
 }
 

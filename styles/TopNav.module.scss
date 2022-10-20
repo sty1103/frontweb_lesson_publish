@@ -29,11 +29,12 @@
       padding: 18px 0px;
       padding-bottom: 15px;
       color: $color--gray--2;
+      border-bottom: 3px solid $color--gray--8;
     }
     
     li.active {
-      border-bottom: 3px solid $color--system--2;
       color: $color--gray--1;
+      border-bottom: 3px solid $color--system--2;
     }
   }
 
@@ -58,7 +59,7 @@
     }
   }
 
-  .sign-wrapper {
+  .sign {
     @include center;
     border-radius: $radius_half;
     overflow: hidden;
@@ -77,9 +78,36 @@
   }
 
   .upload {
-    & > :first-child {
-      font-size: 18px;
+    margin-right: 40px;
+    svg {
       margin-right: 4px;
+      font-size: 1.2em;
+      color: $color--system--3;
+    }
+  }
+
+  .alert {
+    padding: 4px;
+    margin-right: 12px;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.5em;
+      color: $color--gray--4;
+    }
+  }
+
+  .profile {
+    button {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: black;
+    }
+    
+
+    img {
+      @include img;
     }
   }
 }

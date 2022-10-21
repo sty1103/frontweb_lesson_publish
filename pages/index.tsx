@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss'
 import 'bootstrap/dist/css/bootstrap.css';
-import PostListContainer from 'containers/posts/PostListContainer';
+import PostListContainer from '@/containers/posts/PostsContainer';
 import BestPracticeContainer from '@/containers/posts/BestPracticeContainer';
 import MainBannerContainer from 'containers/MainBannerContainer';
 

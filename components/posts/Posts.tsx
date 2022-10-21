@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import styles from '@/styles/posts/PostList.module.scss';
+import styles from '@/styles/posts/Posts.module.scss';
 import Dropdown from 'react-bootstrap/Dropdown';
 import PostPracticeContainer from 'containers/posts/PostPracticeContainer';
 import React, { useRef, useState } from 'react';
@@ -17,7 +17,7 @@ interface Props {
   data: Data[];
 }
 
-export default function PostList({ data }: Props) {
+export default function Posts({ data }: Props) {
   // 나중에 const로 변경
   // const filter_inst = {
   let filterInstList: any = {

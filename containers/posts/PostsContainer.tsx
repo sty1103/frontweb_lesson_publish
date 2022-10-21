@@ -1,6 +1,6 @@
-import PostList from '@/components/posts/PostList'
+import Posts from '@/components/posts/Posts'
 
-export default function PostListContainer() {
+export default function PostsContainer() {
   const props = {
     data: [
       { type: 'practice' },
@@ -10,5 +10,5 @@ export default function PostListContainer() {
     ]
   }
 
-  return <PostList {...props} />;
+  return <Posts {...props} />;
 }

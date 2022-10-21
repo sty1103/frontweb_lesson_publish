@@ -1,8 +1,8 @@
-import PostListContainer from "@/containers/posts/PostListContainer";
+import PostsContainer from "@/containers/posts/PostsContainer";
 import { NextPage } from "next";
 
-const Posts: NextPage = () => {
-  return <PostListContainer />;
+const PostList: NextPage = () => {
+  return <PostsContainer />;
 }
 
-export default Posts;
+export default PostList;

@@ -8,13 +8,8 @@ import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  let topNav = <TopNav />;
   const router = useRouter();
-  const noNavUrl = [ '/signin', '/signup', '/forgot' ];
-
-  if ( noNavUrl.some(v => router.asPath.includes(v)) ) {
-    topNav = <></>;
-  }
+  const noNavPage = ['/signin', '/signup', '/forgot'];
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -26,7 +21,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1.0' user-scalable='no' />
         </Head>
-        {topNav}
+        
+        { !noNavPage.some(v => router.asPath.includes(v)) &&
+          <TopNav />
+        }
+
         <main>
           <Component {...pageProps} />
         </main>

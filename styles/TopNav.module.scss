@@ -86,28 +86,227 @@
     }
   }
 
+  .dropbox {
+    display: none;
+    position: absolute;
+    background: $color--gray--8;
+    border-radius: $radius_default;
+    box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 30%);
+    border: 1px solid $color--gray--5;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      height: 14px;
+      width: 14px;
+      background: white;
+      transform: rotate(225deg) translate(-50%);
+      border-bottom: 1px solid $color--gray--5;
+      border-right: 1px solid $color--gray--5;
+    }
+  }
+
+  .dropbox.active {
+    display: block;
+  }
+
   .alert {
     padding: 4px;
     margin-right: 12px;
-    cursor: pointer;
 
     svg {
       font-size: 1.5em;
       color: $color--gray--4;
+      cursor: pointer;
+    }
+
+    .dropbox {
+      top: 100%;
+      right: 20px;
+      min-width: 350px;
+      padding: 6px;
+
+      > div {
+        @include center;
+      }
+
+      .top {
+        padding: 12px;
+        justify-content: flex-start;  
+
+        .logout {
+          margin-left: auto;
+          background: $color--gray--8;
+          color: $color--gray--4;
+          border: 1px solid $color--gray--5;
+          padding: 2px 15px;
+          font-size: .7em;
+        }
+      }
+
+      .middle {
+        min-height: 400px;
+        max-height: 400px;
+        overflow-y: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          border-bottom: 1px solid $color--gray--5;
+          padding: 6px 0;
+
+          .item {
+            padding: 10px;
+            border-radius: $radius_default;
+            cursor: pointer;
+
+            .title {
+              display: flex;
+              font-size: .8em;
+              margin-bottom: 6px;
+              color: $color--system--1;
+  
+              span {
+                margin-left: auto;
+                color: $color--gray--4;
+              }
+            }
+  
+            .content:first-child {
+              font-size: .9em;
+            }
+          }
+
+          .item:hover {
+            background: $color--gray--6;
+          }
+        }
+
+        .wrapper:first-child {
+          padding-top: 0;
+        }
+
+        .wrapper:last-child {
+          padding-bottom: 0;
+          border: 0;
+        }
+      }
+      &:after {
+        right: 80px;
+      }
     }
   }
 
   .profile {
-    button {
+    .img {
       width: 26px;
       height: 26px;
       border-radius: 50%;
       background: black;
+      position: relative;
+      cursor: pointer;
     }
     
+    .dropbox{
+      top: 100%;
+      right: 40px;
+      min-width: 400px;
 
-    img {
-      @include img;
+      > div {
+        @include center;
+      }
+
+      .top {
+        padding: 18px;
+        justify-content: flex-start;  
+
+        .logout {
+          margin-left: auto;
+          background: $color--gray--8;
+          color: $color--gray--4;
+          border: 1px solid $color--gray--5;
+          padding: 2px 15px;
+          font-size: .7em;
+        }
+      }
+
+      .middle {
+        max-width: 440px;
+        padding: 0 18px;
+        margin-bottom: 24px;
+        justify-content: flex-start;
+
+        .left {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: black;
+        }
+
+        .right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding: 0 20px;
+          gap: 4px;
+          font-weight: bold;
+
+          .level {
+            width: fit-content;
+            border: 1px solid $color--system--5;
+            border-radius: $radius_half;
+            color: $color--system--5;
+            font-size: .8em;
+            padding: 0 12px;
+            font-weight: normal;
+          }
+
+          .rate {
+            font-weight: normal;
+
+            svg {
+              color: $color--system--3;
+              margin-right: 4px;
+            }
+          }
+
+          .instruments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+
+            > span {
+              flex: 1 1 calc(25% - 10px);
+              max-width: calc(25% - 10px);
+              @include center;
+              border-radius: $radius_default;
+              font-size: .8em;
+              font-weight: normal;
+              background: $color--gray--6;
+            }
+          }
+        }
+      }
+
+      .bottom {
+        border-top: 1px solid $color--gray--5;
+        padding: 12px;
+        cursor: pointer;
+        font-size: .9em;
+
+        svg {
+          font-size: 1.5em;
+          margin-right: 6px;
+          color: $color--gray--4;
+        }
+      }
     }
+    
   }
 }

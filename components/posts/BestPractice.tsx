@@ -12,7 +12,7 @@ export default function PopularVideos() {
   for( let i=0; i<items.length; i++ ) items[i] = i;
 
   return (
-    <section className={styles.popularVideos}>
+    <section className={styles.bestpractice}>
       <div className={styles.title}>
         best practice
         <div>지금, 인기연습 영상</div>

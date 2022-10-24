@@ -4,7 +4,7 @@ import { ImLocation2 } from 'react-icons/im';
 import { BiComment } from 'react-icons/bi';
 import { IoMdMusicalNote } from 'react-icons/io';
 import { useState } from 'react';
-import ReviewPopUp from './ReviewPopup';
+import ReviewPopUp from './common/ReviewPopup';
 
 export default function PostTeacher() {
   const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);

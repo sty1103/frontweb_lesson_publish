@@ -4,6 +4,7 @@
   @include center;
   flex-direction: column;
   border: 1px solid $color--gray--5;
+  cursor: pointer;
 
   > div {
     width: 100%;
@@ -35,13 +36,6 @@
         align-items: center;
         font-size: .8em;
         color: $color--gray--3;
-
-        :nth-child(2) {
-          width: 1px;
-          height: 10px;
-          border-right: 1px solid $color--gray--3;
-          margin: 0 5px;
-        }
       }
     }
   }

@@ -11,7 +11,7 @@ export default function Button({ children, className, shape, onClick=() => {} }:
   return (
     <button
       className={`${styles.btn} ${className} ${shape==='rect' ? styles['shape-rect']:''}`}
-      onClick={() => onClick()}
+      onClick={(e) => onClick(e)}
     >
       {children}
     </button>

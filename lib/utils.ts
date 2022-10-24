@@ -6,5 +6,6 @@ export function nl2br(str: string): string {
 
 export function moveUrl(url: string) {
   router.push(`${url}`, undefined, { scroll: false });
-  document.querySelector('main')?.scrollTo(0,0);
+  setTimeout(() => document.querySelector('main')?.scrollTo(0,0), 100)
+  
 }

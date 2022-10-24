@@ -1,7 +1,9 @@
 @import '../common.scss';
 
 .postlist {
+  padding-top: $top_padding;
   padding-bottom: 100px;
+  margin-top: 20px;
   
   .title {
     min-width: $width_desktop;

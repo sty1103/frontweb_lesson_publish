@@ -1,5 +1,5 @@
 import PostArticleDetailContainer from "@/containers/posts/PostArticleDetailContainer";
-import PostCurriculumContainer from "@/containers/posts/PostCurriculumContainer";
+import PostCurriculumnDetailContainer from "@/containers/posts/PostCurriculumnDetailContainer";
 import PostPracticeDetailContainer from "@/containers/posts/PostPracticeDetailContainer";
 import { GetServerSideProps, NextPage } from "next";
 
@@ -9,28 +9,24 @@ interface Props {
 }
 
 const PostDetail: NextPage<Props> = ({ type }) => {
-  let html = <></>;
-
+  console.log( type );
   switch( type ) {
     case 'practice':
-      html = <PostPracticeDetailContainer />
-      break;
+      return <PostPracticeDetailContainer />;
     case 'article':
-      html = <PostPracticeDetailContainer />
-      break;
-    case 'curriculum':
-      html = <PostCurriculumContainer />
-      break;
+      return <PostArticleDetailContainer />;
+    default:
+      return <PostCurriculumnDetailContainer />;
   }
-
-  return html;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log( context );
+  // 글 데이터 조회
+  // const data = async fetch()
+  // console.log( context );
   const props = {
-    type: 'practice',
-    id: '12dd'
+    id: context.query.id,
+    type: context.query.type
   }
 
   return {

@@ -1,0 +1,84 @@
+@import '../common.scss';
+
+.postdetail {
+  .container {
+    .top {
+      display: flex;
+      padding: 20px;
+      align-items: center;
+  
+      .info {
+        .title {
+          font-weight: bold;
+          margin-bottom: 10px;
+          cursor: pointer;
+  
+          .type {
+            background: $color--system--7;
+            color: $color--system--5;
+            padding: 2px 4px;
+            border-radius: $radius_default;
+            font-size: .9em;
+            margin-right: 10px;
+            font-weight: normal;  
+          }
+        }
+  
+        .author {
+          display: flex;
+          align-items: center;
+          font-size: .8em;
+          color: $color--gray--3;
+
+          .seperator {
+            height: 10px;
+            max-height: 10px;
+            width: 1px;
+            border-left: 1px solid rgb(139, 151, 166);
+            margin: 0 5px;
+          }
+        }
+      }
+
+      .share {
+        font-size: 1.2em;
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 15px;
+      }
+
+      .like {
+        font-size: .9em;
+        cursor: pointer;
+
+        svg {
+          font-size: 2em;
+          margin-right: 2px;
+        }
+      }
+    }
+  
+    .middle {
+      @include center;
+      flex-direction: column;
+  
+      > * {
+        width: 100%;
+      }
+  
+      .img {
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+      }
+  
+      .desc {
+        padding: 20px;
+      }
+    }
+
+    .bottom {
+      padding: 20px;
+    }
+  }
+}

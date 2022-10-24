@@ -1,0 +1,251 @@
+@import '../common.scss';
+.postdetail {
+  > .container {
+    > .top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 20px;
+
+      .author {
+        @include center;
+
+        .left {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: black;
+          margin-right: 10px;
+        }
+
+        .right {
+          .name {
+            font-weight: bold;
+          }
+
+          .sub {
+            @include center;
+            font-size: .8em;
+            color: $color--gray--4;
+
+            .seperator {
+              height: 10px;
+              max-height: 10px;
+              width: 1px;
+              border-left: 1px solid $color--gray--4;
+              margin: 0 5px;
+            }
+
+            .report {
+              @include center;
+              cursor: pointer;
+
+              svg {
+                margin-right: 2px;
+                font-size: 1.2em;
+              }
+            }
+          }
+        }
+      }
+
+      > button {
+        margin-left: auto;
+        margin-right: 16px;
+      }
+
+      .share {
+        margin-right: 16px;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+
+      .like {
+        font-size: .9em;
+        cursor: pointer;
+
+        svg {
+          font-size: 2em;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+
+  .middle {
+    @include center;
+    flex-direction: column;
+    padding: 20px;
+
+    > * {
+      width: 100%;
+    }
+
+    .title {
+      @include center;
+      width: fit-content;
+      padding: 4px 14px;
+      font-size: .9em;
+      border-radius: $radius-half;
+      background: $color--gray--6;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      svg {
+        font-size: 1.4em;
+        color: $color--system--5;
+        margin-right: 4px;
+      }
+    }
+
+    .score {
+      // max-height: 240px;
+      // overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .desc {
+      padding: 20px;
+    }
+  }
+
+  .bottom {
+    > div {
+      display: flex;
+      border-top: 1px solid $color--gray--5;
+    }
+
+    .write {
+      position: relative;
+      padding: 20px 34px;
+
+      input {
+        width: 100%;
+        max-height: 36px;
+        border-radius: $radius-half;
+        border: 1px solid $color--gray--5;
+        padding: 6px 12px;
+        padding-right: 90px;
+      }
+
+      input::placeholder {
+        color: $color--gray--4;
+      }
+
+      button {
+        position: absolute;
+        height: 36px;
+        font-size: .9em;
+        top: 20px;
+        right: 24px;
+      }
+    }
+
+    .comments {
+      display: flex;
+      flex-direction: column;
+      
+      .comment {
+        display: flex;
+        align-items: center;
+        padding: 20px 34px;
+        border-bottom: 1px solid $color--gray--5;
+
+        .img {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          background: black;
+          cursor: pointer;
+          margin-right: 16px;
+        }
+
+        .wrapper {
+          .name {
+            @include center;
+            gap: 10px;
+            margin-bottom: 4px;
+            font-size: .9em;
+            font-weight: bold;
+
+            .type {
+              @include center;
+              color: $color--system--5;
+              border: 1px solid $color--system--5;
+              border-radius: $radius-half;
+              padding: 2px 6px;
+              font-size: .8em;
+              max-height: 22px;
+              font-weight: normal;
+            }
+  
+            .time {
+              color: $color--gray--4;
+              font-size: .8em;
+              font-weight: normal;
+            }
+          }
+        }
+
+        .reply {
+          width: fit-content;
+          color: $color--gray--4;
+          font-size: .9em;
+          cursor: pointer;
+        }
+
+        button {
+          display: none;
+          width: 30px;
+          height: 30px;
+          position: relative;
+          background: $color--gray--8;
+          border-radius: 50%;
+          color: $color--gray--1;
+          border: 1px solid $color--gray--4;
+          margin-left: auto;
+          padding: 0;
+          font-size: 1.4em;
+          color: $color--gray--4;
+
+          .dropbox {
+            display: none;
+            position: absolute;
+            top: 34px;
+            min-width: 100px;
+            right: 0;
+            font-size: .7em;
+            color: $color--gray--1;
+            box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 30%);
+            border: 1px solid $color--gray--5;
+            border-radius: $radius-default;
+            background: white;
+            z-index: 100;
+
+            > .item {
+              display: flex;
+              align-items: center;
+              padding: 8px;
+            }
+
+            > .item:hover {
+              background: $color--gray--6;
+            }
+          }
+
+          .dropbox.active {
+            display: block;
+          }
+        }
+
+        
+      }
+
+      .comment:hover {
+        button {
+          display: flex;
+        }
+      }
+    }
+  }
+}

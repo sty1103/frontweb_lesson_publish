@@ -13,7 +13,7 @@
   scrollbar-width: none;
 
   > * {
-    transform: translateX(calc(max(1024px, 100vw)/2 - 530px));
+    transform: translateX(calc(max(1024px, 100vw)/2 - 540px));
     scroll-snap-align: center;
     position: relative;
     cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 .container:after {
-  transform: translateX(calc(max(1024px, 100vw)/2 - 530px));
+  transform: translateX(calc(max(1024px, 100vw)/2 - 540px));
   content: "";
   flex: 0 0 16px;
   height: 1px;

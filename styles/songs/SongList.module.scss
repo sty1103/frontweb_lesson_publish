@@ -3,9 +3,11 @@
 .songlist {
   @include center;
   flex-direction: column;
+  padding-top: $top_padding;
   padding-bottom: 110px;
   
   .container {
+    margin-top: 20px;
     min-width: $width_desktop;
     max-width: $width_desktop;
 

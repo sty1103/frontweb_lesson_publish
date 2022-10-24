@@ -4,13 +4,15 @@ import { IoMdMusicalNote } from 'react-icons/io';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BiComment } from 'react-icons/bi';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
+import router from 'next/router';
+import { moveUrl } from '@/lib/utils';
 
 export default function PostPractice() {
   return (
     <div className={styles.practice}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <div className={styles.title}>
+          <div className={styles.title} onClick={() => moveUrl(`/post/${'1a2b3c'}?type=practice`)}>
             <span className={styles.type}>게시글</span>
             유명한 곡 연주해봤어요. 한번 들어주세요
           </div>

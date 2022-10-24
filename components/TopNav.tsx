@@ -15,7 +15,6 @@ import Image from 'next/image';
 export default function TopNav() {
   const [user, setUser] = useRecoilState(userAtom);
   const navRef = useRef<HTMLElement>(null);
-  const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -172,7 +171,7 @@ export default function TopNav() {
   }
 
   function initDropbox() {
-    const dropboxes = navRef.current?.querySelectorAll(`.${styles.dropbox}`);
+    const dropboxes = navRef.current?.querySelectorAll(`.${styles.dropbox}.${styles.active}`);
 
     dropboxes?.forEach((elem) => {
       elem.classList.remove(styles.active);

@@ -24,6 +24,8 @@ $radius_half: 980px;
 
 $width_desktop: 1060px;
 
+$top_padding: 60px;
+
 // 가로/세로 중앙
 @mixin center {
   display: flex;

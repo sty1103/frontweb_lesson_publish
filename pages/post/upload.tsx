@@ -30,7 +30,7 @@ const PostUpload: NextPage = () => {
   return (
     <section className={styles.postupload}>
       <div className={styles.container}>
-      <AiOutlineArrowLeft className={styles.prev} onClick={prev}/>
+      <AiOutlineArrowLeft className={styles.prev} onClick={clickPrev}/>
 
         <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
 
@@ -101,7 +101,7 @@ const PostUpload: NextPage = () => {
     </section>
   )
 
-  function prev() {
+  function clickPrev() {
     router.back();
   }
 

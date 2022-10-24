@@ -9,10 +9,8 @@ interface Props {
 }
 
 export default function PopUp({ children, show=false, onClose=()=>{}, className }: Props) {
-  const popupRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div className={`${styles.popup} ${className} ${show ? styles.show:''}`} ref={popupRef}>
+    <div className={`${styles.popup} ${className} ${show ? styles.show:''}`}>
       <div className={styles.background} onClick={() => onClose()} />
       <div className={styles.content}>
         {children}

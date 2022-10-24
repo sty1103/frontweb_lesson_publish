@@ -106,7 +106,7 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
         <span>회원가입</span>
       </div>
 
-      <AiOutlineArrowLeft className={styles.prev} onClick={prev}/>
+      <AiOutlineArrowLeft className={styles.prev} onClick={clickPrev}/>
 
       {/* <div className={styles.middle} ref={middleRef}> */}
       <div className={`${styles.middle} ${styles.step1}`} ref={middleRef}>
@@ -364,7 +364,7 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
     </SignContainer>
   )
 
-  function prev() {
+  function clickPrev() {
     if ( stepNum === 1 ) {
       router.back();
     } else {

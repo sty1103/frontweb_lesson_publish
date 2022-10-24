@@ -9,6 +9,8 @@ import Button from '../common/Button';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
 import ReviewPopUpContainer from '@/containers/posts/ReviewPopupContainer';
+import router from 'next/router';
+import { moveUrl } from '@/lib/utils';
 
 interface Data {
   title: string;
@@ -27,28 +29,25 @@ export default function PostCurriculum({ data }: Props) {
     <div className={styles.curriculum}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <div className={styles.title}>
+          <div className={styles.title} onClick={() => moveUrl(`/post/123?type=curriculum`)}>
             <span className={styles.type}>커리큘럼</span>
             피아노 입문자들을 위한 커리큘럼
           </div>
           <div className={styles.author}>
-            <span>
+            <span className={styles.img}>
               {/* <img /> */}
             </span>
-
-            <span>김도우 선생님</span>
-
-            <span>
-              <AiFillStar />
-              3.8
+            <span className={styles.name}>
+              김도우 선생님
             </span>
-
-            <span>
+            <span className={styles.rate}>
+              <AiFillStar /> 3.8
+            </span>
+            <span className={styles.location}>
               <ImLocation2 />
               1.2km 대치동
             </span>
-
-            <span>
+            <span className={styles.instrument}>
               <span>피아노</span>
               <span>기타</span>
               <span>드럼</span>
@@ -68,7 +67,7 @@ export default function PostCurriculum({ data }: Props) {
         <div className={styles.score}>
           <ScoreDisplayContainer file={data[0].xml} />
           <div className={styles.overlay} />
-          <Button onClick={() => {}}>
+          <Button onClick={() => moveUrl(`/post/123?type=curriculum`)}>
             <FaSearchPlus />
             자세히 보기
           </Button>
@@ -130,7 +129,6 @@ export default function PostCurriculum({ data }: Props) {
   }
 
   function closeReview() {
-    console.log(1);
     setReviewPopup(false);
   }
 }

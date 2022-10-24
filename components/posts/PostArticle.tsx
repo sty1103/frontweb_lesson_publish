@@ -1,20 +1,20 @@
 import styles from '@/styles/posts/PostArticle.module.scss';
 import Button from '../common/Button';
 import Image from 'next/image';
+import router from 'next/router';
+import { moveUrl } from '@/lib/utils';
 
 export default function PostArticle() {
   return (
-    <div className={styles.article}>
+    <div className={styles.article} onClick={() => moveUrl(`/post/123?type=article`)}>
       <div className={styles.top}>
         <div className={styles.info}>
           <div className={styles.title}>
-            <span className={styles.type}>게시글</span>
+            <span className={styles.type}>아티클</span>
             사랑받는 프로포즈 테마곡
           </div>
           <div className={styles.author}>
             <span>1시간 전</span>
-            <span></span>
-            <span>아티클</span>
           </div>
         </div>
       </div>

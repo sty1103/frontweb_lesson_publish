@@ -1,0 +1,140 @@
+@import '../common.scss';
+
+.review {
+  .container {
+    height: 800px;
+    min-width: 700px;
+    max-width: 700px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    
+    > .top {
+      @include center;
+      padding: 0;
+      margin-bottom: 16px;
+
+      svg {
+        margin-left: auto;
+        font-size: 1.2em;
+        cursor: pointer;
+        color: $color--gray--4;
+      }
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      gap: 16px;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        border: 1px solid $color--gray--5;
+        border-radius: $radius-default;
+
+        .title {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid $color--gray--5;
+          padding-bottom: 16px;
+          margin-bottom: 16px;
+
+          .left {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: black;
+            margin-right: 16px;
+          }
+
+          .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .profile {
+              display: flex;
+              font-size: 1.2em;
+              font-weight: bold;
+              margin-bottom: 6px;
+
+              .location {
+                @include center;
+                color: $color--gray--4;
+                font-size: .7em;
+                font-weight: normal;
+                margin-left: 6px;
+                margin-right: 16px;
+  
+                svg {
+                  font-size: 1.2em;
+                }
+              }
+
+              .instruments {
+                @include center;
+                gap: 6px;
+                font-size: .6em;
+
+                > span {
+                  color: $color--gray--1;
+                  padding: 2px 10px;
+                  background: $color--system--7;
+                }
+              }
+            }
+
+            .song {
+              @include center;
+              font-size: .9em;
+              background: $color--gray--6;
+              border-radius: $radius-half;
+              width: fit-content;
+              padding: 2px 10px;
+
+              svg {
+                font-size: 1.2em;
+                margin-right: 4px;
+                color: $color--system--3;
+              }
+            }
+          }
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+
+          .rate {
+            margin-bottom: 10px;
+
+            svg {
+              font-size: 1.4em;
+              color: $color--gray--5;
+              margin-right: 2px;
+            }
+
+            svg.active {
+              color: $color--system--3;
+              
+            }
+
+            span {
+              margin-left: 10px;
+              color: $color--gray--1;
+            }
+          }
+
+          > div:last-child {
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+    
+  }
+}

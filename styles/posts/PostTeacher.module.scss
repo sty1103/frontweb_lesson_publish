@@ -42,6 +42,7 @@
 
     .profile {
       border-bottom: 1px solid $color--gray--6;
+      cursor: pointer;
 
       > div {
         flex: 1;
@@ -98,7 +99,7 @@
         flex-direction: column;
         flex: 1;
         align-items: flex-start;
-        gap: 15px;
+        gap: 16px;
 
         .title {
           font-size: 1.2em;

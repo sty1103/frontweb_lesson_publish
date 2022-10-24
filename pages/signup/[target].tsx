@@ -463,7 +463,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   const paths = [
     { params: { target:'student'} },
     { params: { target:'teacher'} },
-  ]
+  ];
 
   return {
     paths,

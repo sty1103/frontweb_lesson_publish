@@ -29,7 +29,7 @@
 .container:after {
   transform: translateX(calc(max(1024px, 100vw)/2 - 530px));
   content: "";
-  flex: 0 0 15px;
+  flex: 0 0 16px;
   height: 1px;
 }
 

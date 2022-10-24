@@ -89,7 +89,7 @@ const PostUpload: NextPage = () => {
             <input autoFocus={true} type='text' placeholder='검색어를 입력해주세요' ref={searchSongRef} />
             <BsSearch />
           </div>
-          <div className={styles.content}>
+          <div className={styles.middle}>
             <SongsContainer
               className={styles.items}
               onClick={clickSong}

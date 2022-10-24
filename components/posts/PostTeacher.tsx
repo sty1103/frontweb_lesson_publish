@@ -3,8 +3,12 @@ import Button from '../common/Button';
 import { ImLocation2 } from 'react-icons/im';
 import { BiComment } from 'react-icons/bi';
 import { IoMdMusicalNote } from 'react-icons/io';
+import { useState } from 'react';
+import ReviewPopUp from './ReviewPopup';
 
 export default function PostTeacher() {
+  const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
+
   return (
     <div className={styles.teacher}>
       <div className={styles.top}>
@@ -77,7 +81,7 @@ export default function PostTeacher() {
       </div>
 
       <div className={styles.bottom}>
-        <Button shape='rect' onClick={() => {}}>
+        <Button shape='rect' onClick={clickReview}>
           <BiComment />
           리뷰보기
         </Button>
@@ -86,6 +90,16 @@ export default function PostTeacher() {
           레슨 신청하기
         </Button>
       </div>
+
+      <ReviewPopUp show={reviewPopup} onClose={closeReview} />
     </div>
   )
+
+  function clickReview() {
+    setReviewPopup(true);
+  }
+
+  function closeReview() {
+    setReviewPopup(false);
+  }
 }

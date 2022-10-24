@@ -7,6 +7,8 @@ import { AiFillStar } from 'react-icons/ai';
 import { ImLocation2 } from 'react-icons/im';
 import Button from '../common/Button';
 import Image from 'next/image';
+import { useState, useRef } from 'react';
+import ReviewPopUpContainer from '@/containers/posts/ReviewPopupContainer';
 
 interface Data {
   title: string;
@@ -19,6 +21,8 @@ interface Props  {
 }
 
 export default function PostCurriculum({ data }: Props) {
+  const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
+
   return (
     <div className={styles.curriculum}>
       <div className={styles.top}>
@@ -107,7 +111,7 @@ export default function PostCurriculum({ data }: Props) {
       </div>
 
       <div className={styles.bottom}>
-        <Button shape='rect' onClick={()=>{}}>
+        <Button shape='rect' onClick={clickReview}>
           <BiComment />
           리뷰보기
         </Button>
@@ -115,7 +119,18 @@ export default function PostCurriculum({ data }: Props) {
           <IoMdMusicalNote />
           레슨 신청하기
         </Button>
-      </div>      
+      </div>
+
+      <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
     </div>
   )
+
+  function clickReview() {
+    setReviewPopup(true);
+  }
+
+  function closeReview() {
+    console.log(1);
+    setReviewPopup(false);
+  }
 }

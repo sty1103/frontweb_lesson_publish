@@ -1,4 +1,4 @@
-import styles from '@/styles/posts/common/ReviewPopup.module.scss';
+import styles from '@/styles/posts/common/ReviewPopUp.module.scss';
 import PopUp from '@/components/common/PopUp';
 import { FaTimes } from 'react-icons/fa';
 import { HiLocationMarker } from 'react-icons/hi';

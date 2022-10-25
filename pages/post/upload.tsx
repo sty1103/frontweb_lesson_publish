@@ -9,6 +9,9 @@ import { FaTimes } from 'react-icons/fa';
 import router from 'next/router';
 import PopUp from '@/components/common/PopUp';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import PageRoot from '@/components/common/layout/PageRoot';
+import PageNav from '@/components/common/layout/PageNav';
+import PageContent from '@/components/common/layout/PageContent';
 
 const PostUpload: NextPage = () => {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -28,10 +31,9 @@ const PostUpload: NextPage = () => {
   })
 
   return (
-    <section className={styles.postupload}>
-      <div className={styles.container}>
-      <AiOutlineArrowLeft className={styles.prev} onClick={clickPrev}/>
-
+    <PageRoot className={styles.postupload}>
+      <PageNav prevButton={true} />
+      <PageContent className={styles.content}>
         <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
 
         <div className={styles.buttons}>
@@ -81,7 +83,7 @@ const PostUpload: NextPage = () => {
         <Button onClick={() => {}}>
           업로드
         </Button>
-      </div>
+      </PageContent>
 
       <PopUp show={songPopup} onClose={closeSearchSong}>
         <div className={styles.songs}>
@@ -92,13 +94,13 @@ const PostUpload: NextPage = () => {
           <div className={styles.middle}>
             <SongsContainer
               className={styles.items}
-              onClick={clickSong}
+              onItemClick={clickSong}
               data={songData}
             />
           </div>
         </div>
       </PopUp>
-    </section>
+    </PageRoot>
   )
 
   function clickPrev() {

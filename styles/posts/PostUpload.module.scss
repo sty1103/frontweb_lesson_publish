@@ -6,18 +6,7 @@
   flex-direction: column;
   align-items: center;
 
-  .container {
-    width: 100%;
-    max-width: $width_desktop;
-    margin-top: 20px;
-
-    .prev {
-      font-size: 1.6em;
-      color: $color--gray--4;
-      cursor: pointer;
-      margin-bottom: 16px;
-    }
-
+  .content {
     input[type=text] {
       width: 100%;
       border: none;

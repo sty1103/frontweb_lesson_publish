@@ -1,0 +1,8 @@
+@import '../../common.scss';
+
+.root {
+  @include center;
+  flex-direction: column;
+  padding-top: $top_padding;
+  padding-bottom: 110px;
+}

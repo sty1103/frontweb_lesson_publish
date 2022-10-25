@@ -8,6 +8,8 @@ import PostArticleContainer from '@/containers/posts/PostArticleContainer';
 import PostCurriculumContainer from '@/containers/posts/PostCurriculumContainer';
 import PostTeacherContainer from '@/containers/posts/PostTeacherContainer';
 import HorizontalSlider from '../common/HorizontalSlider';
+import { useRouter } from 'next/router';
+import PageContent from '../common/layout/PageContent';
 
 interface Data {
   type: string;
@@ -18,6 +20,7 @@ interface Props {
 }
 
 export default function Posts({ data }: Props) {
+  const router = useRouter();
   // 나중에 const로 변경
   // const filter_inst = {
   let filterInstList: any = {
@@ -58,10 +61,12 @@ export default function Posts({ data }: Props) {
   return (
     <section className={styles.postlist}>
       <div className={styles.title}>
-        <div>practice post</div>
+        { router.asPath==='/' && 
+          <div>practice post</div>
+        }
 
         <SSRProvider>
-          <Dropdown className={styles.dropdown}>
+          <Dropdown className={`${styles.dropdown} ${styles.order}`}>
             <Dropdown.Toggle>
               <span>{filterOrderList[filterOrder].name}</span>
             </Dropdown.Toggle>
@@ -119,12 +124,13 @@ export default function Posts({ data }: Props) {
         })}
       </HorizontalSlider>
 
-      <div className={styles.items}>
+      {/* <div className={styles.items}> */}
+      <PageContent className={styles.content}>
         <PostPracticeContainer />
         <PostArticleContainer />
         <PostCurriculumContainer />
         <PostTeacherContainer />
-      </div>
+      </PageContent>
     </section>
   )
 

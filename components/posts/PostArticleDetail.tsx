@@ -4,9 +4,9 @@ import Image from 'next/image';
 import router from 'next/router';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsShare } from 'react-icons/bs';
-import PostDetailContainer from './common/PostDetailContainer';
-import PostDetailNav from './common/PostDetailNav';
-import PostDetailRoot from './common/PostDetailRoot';
+import PageContent from '../common/layout/PageContent';
+import PageNav from '../common/layout/PageNav';
+import PageRoot from '../common/layout/PageRoot';
 
 export default function PostArticle() {
   const songData: IData[] = [ ...Array(3) ];
@@ -15,12 +15,12 @@ export default function PostArticle() {
   })
 
   return (
-    <PostDetailRoot className={styles.postdetail}>
-      <PostDetailNav>
+    <PageRoot className={styles.postdetail}>
+      <PageNav className={styles.nav} prevButton={true}>
         사랑받는 프로포즈 테마곡
-      </PostDetailNav>
+      </PageNav>
 
-      <PostDetailContainer className={styles.container}>
+      <PageContent className={styles.content}>
         <div className={styles.top}>
           <div className={styles.info}>
             <div className={styles.author}>
@@ -60,8 +60,8 @@ export default function PostArticle() {
         <div className={styles.bottom}>
           <SongsContainer data={songData} />
         </div>
-      </PostDetailContainer>
-    </PostDetailRoot>
+      </PageContent>
+    </PageRoot>
   )
 
   function clickPrev() {

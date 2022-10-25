@@ -7,9 +7,9 @@ import { IoIosMore, IoMdMusicalNote } from 'react-icons/io';
 import { BsShare } from 'react-icons/bs';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import React, { useEffect, useRef } from 'react';
-import PostDetailRoot from './common/PostDetailRoot';
-import PostDetailNav from './common/PostDetailNav';
-import PostDetailContainer from './common/PostDetailContainer';
+import PageRoot from '../common/layout/PageRoot';
+import PageNav from '../common/layout/PageNav';
+import PageContent from '../common/layout/PageContent';
 
 export default function PostPracticeDetail() {
   const commentsRef = useRef<HTMLDivElement>(null);
@@ -21,12 +21,12 @@ export default function PostPracticeDetail() {
   });
 
   return (
-    <PostDetailRoot className={styles.postdetail}>
-      <PostDetailNav>
+    <PageRoot className={styles.postdetail}>
+      <PageNav className={styles.nav} prevButton={true}>
         유명한 곡 연주해봤어요. 한번 들어주세요
-      </PostDetailNav>
+      </PageNav>
 
-      <PostDetailContainer className={styles.container}>
+      <PageContent className={styles.content}>
         <div className={styles.top}>
           <div className={styles.author}>
             <div className={styles.left}>
@@ -125,8 +125,8 @@ export default function PostPracticeDetail() {
             
           </div>
         </div>
-      </PostDetailContainer>
-    </PostDetailRoot>
+      </PageContent>
+    </PageRoot>
   )
 
   function clickPrev() {

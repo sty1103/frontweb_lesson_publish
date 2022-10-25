@@ -2,7 +2,7 @@ import Songs from '@/components/songs/Songs'
 
 export interface Props {
   className?: string;
-  onClick?: Function;
+  onItemClick?: Function;
   data: IData[]
 }
 

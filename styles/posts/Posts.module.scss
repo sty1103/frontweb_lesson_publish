@@ -23,12 +23,9 @@
       }
     }
 
-    .dropdown:nth-child(2) {
+    .dropdown.order {
       margin-left: auto;
-    }
-
-    .dropdown:nth-child(3) {
-      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 
@@ -43,6 +40,7 @@
       min-width: 70px;
       padding: 6px;
       border-radius: $radius_default;
+      transform: translateX(calc(max(1024px, 100vw) / 2 - 540px))
     }
 
     > div.active {
@@ -59,6 +57,14 @@
     
     > div {
       margin-bottom: 20px;
+    }
+  }
+
+  > .content {
+    margin: 0 auto;
+    
+    > div {
+      margin-bottom: 16px;
     }
   }
 }

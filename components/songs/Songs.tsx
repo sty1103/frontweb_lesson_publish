@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import styles from '@/styles/songs/Songs.module.scss';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { IoMdMusicalNote } from "react-icons/io";
@@ -8,15 +7,15 @@ import { IData } from '@/containers/songs/SongsContainer'
 interface Props {
   data: IData[];
   className?: string;
-  onClick?: Function;
+  onItemClick?: Function;
 }
 
-export default function Songs({ data, className, onClick=()=>{} }: Props) {
+export default function Songs({ data, className, onItemClick=()=>{} }: Props) {
   return (
     <div className={`${styles.items} ${className}`}>
       {data.map((v, k) => {
         return (
-          <div className={styles.item} onClick={() => onClick()} key={k}>
+          <div className={styles.item} onClick={() => onItemClick()} key={k}>
             <Image
               src='/images/albumart.jpeg'
               alt=''

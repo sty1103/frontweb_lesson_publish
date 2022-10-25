@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import SongsContainer, { IData } from "@/containers/songs/SongsContainer";
 import styles from '@/styles/songs/SongList.module.scss';
+import PageRoot from "@/components/common/layout/PageRoot";
+import PageContent from "@/components/common/layout/PageContent";
 
 const SongList: NextPage = () => {
   const songData: IData[] = [ ...Array(16) ];
@@ -9,15 +11,11 @@ const SongList: NextPage = () => {
   })
 
   return (
-    <section className={styles.songlist}>
-      <div className={styles.container}>
-        <div className={styles.title}>
-          곡 목록
-        </div>
+    <PageRoot className={styles.songlist}>
+      <PageContent className={styles.content}>
         <SongsContainer data={songData} />
-      </div>
-    </section>
-    
+      </PageContent>
+    </PageRoot>
   )
 }
 

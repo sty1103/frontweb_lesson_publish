@@ -1,7 +1,15 @@
 @import '../common.scss';
 
 .postdetail {
-  .container {
+  background: $color--gray--6;
+
+  > .nav {
+    border-bottom: 1px solid $color--gray--5;
+  }
+  
+  .content {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    
     .top {
       display: flex;
       padding: 20px;

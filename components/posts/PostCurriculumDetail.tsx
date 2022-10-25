@@ -9,10 +9,10 @@ import { FaSearchPlus } from 'react-icons/fa';
 import { ImLocation2 } from 'react-icons/im';
 import { IoMdMusicalNote } from 'react-icons/io';
 import Button from '../common/Button';
-import PostDetailContainer from './common/PostDetailContainer';
-import PostDetailNav from './common/PostDetailNav';
-import PostDetailRoot from './common/PostDetailRoot';
 import { useState } from 'react';
+import PageRoot from '../common/layout/PageRoot';
+import PageNav from '../common/layout/PageNav';
+import PageContent from '../common/layout/PageContent';
 
 interface Data {
   title: string;
@@ -27,12 +27,12 @@ export default function PostCurriculumDetail({ data }: Props) {
   const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
 
   return (
-    <PostDetailRoot className={styles.postdetail}>
-      <PostDetailNav>
+    <PageRoot className={styles.postdetail}>
+      <PageNav className={styles.nav} prevButton={true}>
         피아노 입문자들을 위한 커리큘럼
-      </PostDetailNav>
+      </PageNav>
 
-      <PostDetailContainer className={styles.container}>
+      <PageContent className={styles.content}>
         <div className={styles.top}>
           <div className={styles.info}>
             <div className={styles.author}>
@@ -116,8 +116,8 @@ export default function PostCurriculumDetail({ data }: Props) {
         </div>
 
         <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
-      </PostDetailContainer>
-    </PostDetailRoot>
+      </PageContent>
+    </PageRoot>
   )
 
   function clickReview() {

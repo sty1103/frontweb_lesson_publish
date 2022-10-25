@@ -13,7 +13,7 @@ const SongDetail: NextPage = () => {
   return (
     <PageRoot className={styles.songdetail}>
       <PageNav prevButton={true}>
-        곡 상세보기
+        곡 상세
       </PageNav>
 
       <div className={styles.content}>
@@ -85,7 +85,7 @@ const SongDetail: NextPage = () => {
           
         </div>
         <div className={styles.score}>
-            <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
+          <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
           </div>
       </div>
     </PageRoot>

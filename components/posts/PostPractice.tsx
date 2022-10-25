@@ -36,7 +36,7 @@ export default function PostPractice() {
       </div>
 
       <div className={styles.middle}>
-        <div className={styles.title}>
+        <div className={styles.title} onClick={() => moveUrl('/song/1a2b3c')}>
           <IoMdMusicalNote />
           베토벤 교향곡 제2번 D장조 Op.36
         </div>

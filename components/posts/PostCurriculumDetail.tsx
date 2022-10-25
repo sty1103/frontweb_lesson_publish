@@ -13,6 +13,7 @@ import { useState } from 'react';
 import PageRoot from '../common/layout/PageRoot';
 import PageNav from '../common/layout/PageNav';
 import PageContent from '../common/layout/PageContent';
+import LessonPopup from '../common/popup/LessonPopup';
 
 interface Data {
   title: string;
@@ -25,6 +26,7 @@ interface Props  {
 }
 export default function PostCurriculumDetail({ data }: Props) {
   const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
+  const [ lessonPopup, setLessonPopup ] = useState<boolean>(false);
 
   return (
     <PageRoot className={styles.postdetail}>
@@ -60,7 +62,7 @@ export default function PostCurriculumDetail({ data }: Props) {
         </div>
 
         <div className={styles.middle}>
-          <div className={styles.title}>
+          <div className={styles.title} onClick={() => moveUrl('/song/1a2b3c')}>
             <IoMdMusicalNote />
             <span>LESSON 01</span>
             <span>헤이즈 - 헤픈우연</span>
@@ -109,13 +111,14 @@ export default function PostCurriculumDetail({ data }: Props) {
             <BiComment />
             리뷰보기
           </Button>
-          <Button shape='rect' onClick={()=>{}}>
+          <Button shape='rect' onClick={clickLesson}>
             <IoMdMusicalNote />
             레슨 신청하기
           </Button>
         </div>
 
         <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
+        <LessonPopup show={lessonPopup} onClose={closeLesson} />
       </PageContent>
     </PageRoot>
   )
@@ -125,7 +128,14 @@ export default function PostCurriculumDetail({ data }: Props) {
   }
 
   function closeReview() {
-    console.log(1);
     setReviewPopup(false);
+  }
+
+  function clickLesson() {
+    setLessonPopup(true);
+  }
+
+  function closeLesson() {
+    setLessonPopup(false);
   }
 }

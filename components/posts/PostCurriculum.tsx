@@ -60,7 +60,7 @@ export default function PostCurriculum({ data }: Props) {
       </div>
 
       <div className={styles.middle}>
-        <div className={styles.title}>
+        <div className={styles.title} onClick={() => moveUrl('/song/1a2b3c')}>
           <IoMdMusicalNote />
           <span>LESSON 01</span>
           <span>헤이즈 - 헤픈우연</span>
@@ -142,5 +142,4 @@ export default function PostCurriculum({ data }: Props) {
   function closeLesson() {
     setLessonPopup(false);
   }
-
 }

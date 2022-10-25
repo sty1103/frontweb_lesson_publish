@@ -11,6 +11,7 @@ import PageRoot from '../common/layout/PageRoot';
 import PageNav from '../common/layout/PageNav';
 import PageContent from '../common/layout/PageContent';
 import { useRouter } from 'next/router';
+import { moveUrl } from '@/lib/utils';
 
 export default function PostPracticeDetail() {
   const commentsRef = useRef<HTMLDivElement>(null);
@@ -72,7 +73,7 @@ export default function PostPracticeDetail() {
         </div>
 
         <div className={styles.middle}>
-          <div className={styles.title}>
+          <div className={styles.title} onClick={() => moveUrl('/song/1a2b3c')}>
             <IoMdMusicalNote />
             베토벤 교향곡 제2번 D장조 Op.36
           </div>

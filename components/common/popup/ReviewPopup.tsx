@@ -1,5 +1,5 @@
-import styles from '@/styles/posts/common/ReviewPopUp.module.scss';
-import PopUp from '@/components/common/PopUp';
+import styles from '@/styles/common/popup/ReviewPopUp.module.scss';
+import PopUp from '@/components/common/popup/PopUp';
 import { FaTimes } from 'react-icons/fa';
 import { HiLocationMarker } from 'react-icons/hi';
 import { IoMdMusicalNote } from 'react-icons/io';
@@ -15,7 +15,11 @@ export default function ReviewPopUp({ show, onClose=()=>{} }: Props) {
   const reviewRef = useRef<HTMLDivElement>(null);
   //test
   return (
-    <PopUp className={styles.review} show={show} onClose={() => onClose()}>
+    <PopUp
+      className={styles.review}
+      show={show} 
+      onClose={() => onClose()}
+    >
       <div className={styles.container}>
         <div className={styles.top}>
           리뷰보기

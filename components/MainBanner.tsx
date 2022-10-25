@@ -87,7 +87,7 @@ export default function MainBanner() {
       clientXMouseDown !== e.clientY) {
       e.preventDefault()
     } else {
-      alert('clicked banner...');
+      console.log('clicked banner...');
     }
   }
 }

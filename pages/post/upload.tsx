@@ -7,7 +7,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
 import router from 'next/router';
-import PopUp from '@/components/common/PopUp';
+import PopUp from '@/components/common/popup/PopUp';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import PageRoot from '@/components/common/layout/PageRoot';
 import PageNav from '@/components/common/layout/PageNav';

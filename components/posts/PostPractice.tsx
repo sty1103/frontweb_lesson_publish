@@ -1,13 +1,15 @@
 import styles from '@/styles/posts/PostPractice.module.scss';
 import Button from '../common/Button';
 import { IoMdMusicalNote } from 'react-icons/io';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BiComment } from 'react-icons/bi';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
+import React, { useState } from 'react';
 
 export default function PostPractice() {
+  const [ like, setLike ] = useState<boolean>(false);
   return (
     <div className={styles.practice}>
       <div className={styles.top}>
@@ -54,15 +56,24 @@ export default function PostPractice() {
       </div>
 
       <div className={styles.bottom}>
-        <Button shape='rect' onClick={()=>{}}>
-          <AiOutlineHeart />
+        <Button className={`${styles.like} ${like ? styles.active:''}`} shape='rect' onClick={clickLike}>
+          <AiOutlineHeart className={styles.off} />
+          <AiFillHeart className={styles.on} />
           좋아요
         </Button>
-        <Button shape='rect' onClick={()=>{}}>
+        <Button className={styles.comment} shape='rect' onClick={clickComment}>
           <BiComment />
           댓글
         </Button>
       </div>      
     </div>
   )
+
+  function clickLike(e: React.MouseEvent) {
+    setLike(!like);
+  }
+
+  function clickComment() {
+    moveUrl('/post/1a2b3c?type=practice&comment=1', false);
+  }
 }

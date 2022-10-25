@@ -1,0 +1,137 @@
+@import '../../common.scss';
+
+.lesson {
+  padding: 20px;
+  
+  .title {
+    @include center;
+    justify-content: flex-start;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+
+  > div:last-child {
+    padding: 20px;
+  }
+
+  > div > .title {
+    svg {
+      margin-left: auto;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: $color--gray--4;
+    }
+  }
+
+  .container {
+    height: 800px;
+    min-width: 700px;
+    max-width: 700px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+    .songs {  
+      margin-bottom: 26px;
+
+      > div {
+        flex: 1 1 calc(25% - 10px);
+        max-width: calc(25% - 10px);
+      }
+    }
+
+    .curriculum {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background: $color--gray--6;
+      border-radius: $radius-default;
+      margin-bottom: 50px;
+
+      .desc {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .rate {
+          color: $color--gray--5;
+          margin-left: 10px;
+          .active {
+            color: $color--system--5;
+          }
+        }
+
+        > :last-child {
+          margin-left: auto;
+          font-size: .8em;
+          border-radius: $radius-default;
+          background: $color--system--7;
+          padding: 2px 8px;
+        }
+      }
+
+      .lesson {
+        @include center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+        background: $color--gray--8;
+        border-radius: $radius-half;
+        border: 2px solid $color--gray--6;
+        padding: 5px;
+
+        .order {
+          background: $color--gray--6;
+          border-radius: $radius-half;
+          padding: 6px 14px;
+          font-size: .9em;
+          text-transform: uppercase;
+          margin-right: 20px;
+
+          svg {
+            font-size: 1.4em;
+            color: $color--system--5;
+            margin-right: 4px;
+          }
+        }
+
+        .title {
+          margin: 0;
+          text-transform: capitalize;
+        }
+
+        .rate {
+          padding: 0;
+          margin-left: auto;
+          margin-right: 10px;
+
+          svg {
+            color: $color--gray--5;
+
+            &.active {
+              color: $color--system--5;
+            }
+          }
+        }
+      }
+
+      .lesson:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 40px;
+    margin-top: auto;   
+    font-size: 1em;
+    border-radius: $radius-default;
+    background: $color--gray--5;
+    color: $color--gray--2;
+    cursor: default;
+  }
+}

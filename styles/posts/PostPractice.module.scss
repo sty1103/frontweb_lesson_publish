@@ -111,5 +111,15 @@
 
   .bottom {
     @include post_bottom;
+
+    .like {
+      .on { color: $color--red--2; display: none; }
+      .off { display: block; }
+    }
+
+    .like.active {
+      .on { display: block; }
+      .off { display: none; }
+    }
   }
 }

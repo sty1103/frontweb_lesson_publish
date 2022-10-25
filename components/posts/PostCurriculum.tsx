@@ -8,9 +8,10 @@ import { ImLocation2 } from 'react-icons/im';
 import Button from '../common/Button';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
-import ReviewPopUpContainer from '@/containers/posts/ReviewPopupContainer';
+import ReviewPopUpContainer from '@/containers/popup/ReviewPopupContainer';
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
+import LessonPopup from '../common/popup/LessonPopup';
 
 interface Data {
   title: string;
@@ -24,6 +25,7 @@ interface Props  {
 
 export default function PostCurriculum({ data }: Props) {
   const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
+  const [ lessonPopup, setLessonPopup ] = useState<boolean>(false);
 
   return (
     <div className={styles.curriculum}>
@@ -114,13 +116,14 @@ export default function PostCurriculum({ data }: Props) {
           <BiComment />
           리뷰보기
         </Button>
-        <Button shape='rect' onClick={()=>{}}>
+        <Button shape='rect' onClick={clickLesson}>
           <IoMdMusicalNote />
           레슨 신청하기
         </Button>
       </div>
 
       <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
+      <LessonPopup show={lessonPopup} onClose={closeLesson} />
     </div>
   )
 
@@ -131,4 +134,13 @@ export default function PostCurriculum({ data }: Props) {
   function closeReview() {
     setReviewPopup(false);
   }
+
+  function clickLesson() {
+    setLessonPopup(true);
+  }
+
+  function closeLesson() {
+    setLessonPopup(false);
+  }
+
 }

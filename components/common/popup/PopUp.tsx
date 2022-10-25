@@ -1,4 +1,4 @@
-import styles from '@/styles/common/PopUp.module.scss';
+import styles from '@/styles/common/popup/PopUp.module.scss';
 import { useEffect, useRef } from 'react';
 
 interface Props {

@@ -1,3 +1,4 @@
+import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/posts/BestPractice.module.scss';
 import React, { useRef, useState } from 'react';
 import { AiFillEye } from 'react-icons/ai';
@@ -51,7 +52,7 @@ export default function PopularVideos() {
     if (clientX !== e.clientX ) {
       e.preventDefault()
     } else {
-      alert('clicked video item...');
+      moveUrl('/post/1a2b3c?type=practice');
     }
   }
 }

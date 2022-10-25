@@ -1,4 +1,4 @@
-import ReviewPopUpContainer from '@/containers/posts/ReviewPopupContainer';
+import ReviewPopUpContainer from '@/containers/popup/ReviewPopupContainer';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/posts/PostCurriculumDetail.module.scss';

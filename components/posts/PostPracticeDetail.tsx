@@ -10,14 +10,23 @@ import React, { useEffect, useRef } from 'react';
 import PageRoot from '../common/layout/PageRoot';
 import PageNav from '../common/layout/PageNav';
 import PageContent from '../common/layout/PageContent';
+import { useRouter } from 'next/router';
 
 export default function PostPracticeDetail() {
   const commentsRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener('click', () => {
       initDropbox();
     })
+
+    // 댓글로 자동 이동
+    if ( router.query.comment ) {
+      setTimeout(()=>{
+        commentsRef.current?.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
+      }, 200);
+    }
   });
 
   return (

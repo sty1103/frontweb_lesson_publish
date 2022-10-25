@@ -7,15 +7,15 @@ import { IData } from '@/containers/songs/SongsContainer'
 interface Props {
   data: IData[];
   className?: string;
-  onItemClick?: Function;
+  onClickSong?: Function;
 }
 
-export default function Songs({ data, className, onItemClick=()=>{} }: Props) {
+export default function Songs({ data, className, onClickSong=()=>{} }: Props) {
   return (
     <div className={`${styles.items} ${className}`}>
       {data.map((v, k) => {
         return (
-          <div className={styles.item} onClick={() => onItemClick()} key={k}>
+          <div className={styles.item} onClick={() => onClickSong()} key={k}>
             <Image
               src='/images/albumart.jpeg'
               alt=''

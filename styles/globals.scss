@@ -3,6 +3,8 @@
 body main {
   // font-family: 'Noto Sans KR', sans-serif;
   color: $color--gray--1;
+  width: 100vw;
+  height: 100vh;
 }
 
 textarea:focus,

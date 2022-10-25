@@ -1,3 +1,124 @@
+@import '../common.scss';
+
 .songdetail {
-  
+  width: 100%;
+
+  .content {
+    width: 100%;
+    
+
+    .wrapper {
+      border-bottom: 1px solid $color--gray--5;
+      margin-bottom: 40px;
+
+      .album { 
+        width: $width_desktop;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        display: flex;
+
+        > .left {
+          width: 200px;
+          height: 200px;
+          background: black;
+          margin-right: 30px;
+          position: relative;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        > .right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          > .top {
+            display: flex;
+
+            > .left {
+              .title {
+                font-size: 1.2em;
+                font-weight: bold;
+              }
+
+              .name {
+                font-size: 1.1em;
+              }
+
+              .rate {
+                margin: 20px 0;
+
+                svg {
+                  font-size: 1.4em;
+                  color: $color--gray--5;
+                }
+
+                svg.active {
+                  color: $color--system--5;
+                }
+              }
+            }
+
+            > .right {
+              margin-left: auto;
+
+              > div {
+                display: flex;
+                margin-bottom: 6px;
+
+                > div:first-child {
+                  width: 80px;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          > .bottom {
+            margin-top: auto;
+            @include center;
+            gap: 15px;
+
+            > button {
+              height: 40px;
+              font-size: 1em;
+              font-weight: bold;
+              border-radius: $radius_default;
+              background: white;
+              border: 1px solid $color--gray--4;
+              color: $color--gray--1;
+              flex: 1;
+
+              svg {
+                color: $color--gray--4;
+                font-size: 1.2em;
+                margin-right: 6px;
+              }
+            }
+
+            > button:nth-child(2) {
+              border: 1px solid $color--system--5;
+              svg {
+                color: $color--system--3;
+              }
+            }
+
+            > button:last-child {
+              border: 0;
+              background: $color--system--3;
+
+              svg {
+                color: $color--gray--1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .score {
+      width: $width_desktop;
+      min-width: $width_desktop;
+      margin: 0 auto;
+    }
+  }
 }

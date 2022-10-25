@@ -1,8 +1,9 @@
-import { NextPage } from "next";
-import SongsContainer, { IData } from "@/containers/songs/SongsContainer";
+import { NextPage } from 'next';
+import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import styles from '@/styles/songs/SongList.module.scss';
-import PageRoot from "@/components/common/layout/PageRoot";
-import PageContent from "@/components/common/layout/PageContent";
+import PageRoot from '@/components/common/layout/PageRoot';
+import PageContent from '@/components/common/layout/PageContent';
+import { moveUrl } from '@/lib/utils';
 
 const SongList: NextPage = () => {
   const songData: IData[] = [ ...Array(16) ];
@@ -13,10 +14,14 @@ const SongList: NextPage = () => {
   return (
     <PageRoot className={styles.songlist}>
       <PageContent className={styles.content}>
-        <SongsContainer data={songData} />
+        <SongsContainer data={songData} onClickSong={clickSong} />
       </PageContent>
     </PageRoot>
   )
+
+  function clickSong() {
+    moveUrl('/song/123');
+  }
 }
 
 export default SongList;

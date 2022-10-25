@@ -94,7 +94,7 @@ const PostUpload: NextPage = () => {
           <div className={styles.middle}>
             <SongsContainer
               className={styles.items}
-              onItemClick={clickSong}
+              onClickSong={clickSong}
               data={songData}
             />
           </div>

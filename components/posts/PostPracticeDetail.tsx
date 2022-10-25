@@ -122,7 +122,6 @@ export default function PostPracticeDetail() {
                 </div>
               )
             })}
-            
           </div>
         </div>
       </PageContent>

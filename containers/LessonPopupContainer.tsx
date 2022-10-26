@@ -1,4 +1,4 @@
-import LessonPopup from "@/components/common/popup/LessonPopup";
+import LessonPopup from "@/components/LessonPopup";
 
 export interface Props {
   className?: string;

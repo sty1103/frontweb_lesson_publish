@@ -8,10 +8,10 @@ import { ImLocation2 } from 'react-icons/im';
 import Button from '../common/Button';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
-import ReviewPopUpContainer from '@/containers/popup/ReviewPopupContainer';
+import ReviewPopUpContainer from '@/containers/ReviewPopupContainer';
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
-import LessonPopup from '../common/popup/LessonPopup';
+import LessonPopup from '../LessonPopup';
 
 interface Data {
   title: string;

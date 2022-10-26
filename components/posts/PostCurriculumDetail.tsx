@@ -1,4 +1,4 @@
-import ReviewPopUpContainer from '@/containers/popup/ReviewPopupContainer';
+import ReviewPopUpContainer from '@/containers/ReviewPopupContainer';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/posts/PostCurriculumDetail.module.scss';
@@ -13,7 +13,7 @@ import { useState } from 'react';
 import PageRoot from '../common/layout/PageRoot';
 import PageNav from '../common/layout/PageNav';
 import PageContent from '../common/layout/PageContent';
-import LessonPopup from '../common/popup/LessonPopup';
+import LessonPopup from '../LessonPopup';
 
 interface Data {
   title: string;

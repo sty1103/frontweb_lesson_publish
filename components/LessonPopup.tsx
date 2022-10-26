@@ -1,8 +1,8 @@
-import styles from '@/styles/common/popup/LessonPopup.module.scss';
-import { Props } from '@/containers/popup/LessonPopupContainer';
-import PopUp from './PopUp';
+import styles from '@/styles/LessonPopup.module.scss';
+import { Props } from '@/containers/LessonPopupContainer';
+import PopUp from './common/PopUp';
 import { FaTimes } from 'react-icons/fa';
-import Button from '../Button';
+import Button from './common/Button';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import { IoMdMusicalNote } from 'react-icons/io';
 

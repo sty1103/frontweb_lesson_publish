@@ -1,0 +1,179 @@
+@import '../common.scss';
+
+.root {
+  position: relative;
+
+  .nav {
+    border-bottom: 1px solid $color--gray--5;
+    margin-bottom: 40px;
+  }
+
+  > .content {
+    width: 100%;
+    min-width: 100%;
+
+    .profile {
+      width: $width_desktop;
+      margin: 0 auto;
+      margin-bottom: 20px;
+
+      span {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+          margin-left: 6px;
+          font-size: 1em;
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      width: $width_desktop;
+      margin: 0 auto;
+      padding-bottom: 40px;
+
+      .img {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+        background: $color--gray--1;;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+
+      .basic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        .top {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+  
+        .middle {
+          @include center;
+          width: fit-content;
+          font-size: .8em;
+          border: 1px solid $color--system--5;
+          color: $color--system--5;
+          border-radius: $radius_half;
+          padding: 0px 12px;
+        }
+  
+        .bottom {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 6px;
+
+          span {
+            background: $color--gray--6;
+            border-radius: $radius_default;
+            padding: 0 12px;
+            font-size: .8em;
+          }
+        }
+      }
+  
+      .settings {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $color--gray--6;
+        gap: 10px;
+        border-radius: $radius_default;
+        padding: 16px;
+        width: 300px;
+
+        .top {
+          font-weight: bold;
+        }
+  
+        .middle {
+          cursor: pointer;
+          font-size: .9em;
+          color: $color--gray--4;
+        }
+  
+        .bottom {
+          display: flex;
+          align-items: center;
+
+          span {
+            font-size: .8em;
+            text-decoration: underline;
+            cursor: pointer;
+            color: $color--gray--4;
+          }
+
+          button {
+            font-size: .7em;
+            padding: 0px 12px;
+            background: transparent;
+            color: $color--gray--4;
+            border: 1px solid $color--gray--4;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+
+    .submenu {
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+      background: $color--gray--8;
+      border-top: 1px solid $color--gray--5;
+      border-bottom: 1px solid $color--gray--5;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: $width_desktop;
+        margin: 0 auto;
+
+        li {
+          color: $color--gray--4;
+          cursor: pointer;
+        }
+
+        li.active {
+          border-bottom: 3px solid $color--system--3;
+          color: $color--gray--1;
+          padding: 16px 0 13px 0;
+        }
+      }
+    }
+
+    > .content {
+      padding-top: 40px;
+      width: $width_desktop;
+      margin: 0 auto;
+
+      .songs {
+        > div {
+          flex: 1 1 calc(20% - 10px);
+          max-width: calc(20% - 10px);
+          height: 200px;
+        }
+      }
+    }
+  }
+
+  .posts {
+    margin-top: 40px;
+  }
+}

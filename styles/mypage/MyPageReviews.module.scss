@@ -1,0 +1,8 @@
+@import '../common.scss';
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 16px;
+}

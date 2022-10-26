@@ -10,16 +10,9 @@ import PostTeacherContainer from '@/containers/posts/PostTeacherContainer';
 import HorizontalSlider from '../common/HorizontalSlider';
 import { useRouter } from 'next/router';
 import PageContent from '../common/layout/PageContent';
+import { IData, Props } from '@/containers/posts/PostsContainer';
 
-interface Data {
-  type: string;
-}
-
-interface Props {
-  data: Data[];
-}
-
-export default function Posts({ data }: Props) {
+export default function Posts({ className, showFilterOrder=true, showFilterPost=true, showFilterInstrument=true }: Props) {
   const router = useRouter();
   // 나중에 const로 변경
   // const filter_inst = {
@@ -59,70 +52,76 @@ export default function Posts({ data }: Props) {
   const [ filterInst, setFilterInst ] = useState<string>('all');
 
   return (
-    <section className={styles.postlist}>
+    <section className={`${styles.postlist} ${className}`}>
       <div className={styles.title}>
         { router.asPath==='/' && 
           <div>practice post</div>
         }
 
         <SSRProvider>
-          <Dropdown className={`${styles.dropdown} ${styles.order}`}>
-            <Dropdown.Toggle>
-              <span>{filterOrderList[filterOrder].name}</span>
-            </Dropdown.Toggle>
+          { showFilterOrder && 
+            <Dropdown className={`${styles.dropdown} ${styles.order}`}>
+              <Dropdown.Toggle>
+                <span>{filterOrderList[filterOrder].name}</span>
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {Object.keys(filterOrderList).map((k) => {
-                return (
-                  <Dropdown.Item
-                    key={k}
-                    onClick={(e)=>clickFilterOrder(e, k)}
-                  >
-                    {filterOrderList[k].name}
-                  </Dropdown.Item>
-                )
-              })}
-            </Dropdown.Menu>
-          </Dropdown>
+              <Dropdown.Menu>
+                {Object.keys(filterOrderList).map((k) => {
+                  return (
+                    <Dropdown.Item
+                      key={k}
+                      onClick={(e)=>clickFilterOrder(e, k)}
+                    >
+                      {filterOrderList[k].name}
+                    </Dropdown.Item>
+                  )
+                })}
+              </Dropdown.Menu>
+            </Dropdown>
+          }
+          
+          { showFilterPost && 
+            <Dropdown className={`${styles.dropdown} ${styles.post}`}>
+              <Dropdown.Toggle>
+                <span>{filterPostList[filterPost].name}</span>
+              </Dropdown.Toggle>
 
-          <Dropdown className={styles.dropdown}>
-            <Dropdown.Toggle>
-              <span>{filterPostList[filterPost].name}</span>
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              {Object.keys(filterPostList).map((k) => {
-                return (
-                  <Dropdown.Item
-                    key={k}
-                    onClick={(e)=>clickFilterPost(e, k)}
-                  >
-                    {filterPostList[k].name}
-                  </Dropdown.Item>
-                )
-              })}
-            </Dropdown.Menu>
-          </Dropdown>
+              <Dropdown.Menu>
+                {Object.keys(filterPostList).map((k) => {
+                  return (
+                    <Dropdown.Item
+                      key={k}
+                      onClick={(e)=>clickFilterPost(e, k)}
+                    >
+                      {filterPostList[k].name}
+                    </Dropdown.Item>
+                  )
+                })}
+              </Dropdown.Menu>
+            </Dropdown>
+          }
         </SSRProvider>
       </div>
 
-      <HorizontalSlider
-        className={styles.filters}
-        clientX={clientX}
-        setClientX={setClientX}
-      >
-        {Object.keys(filterInstList).map((v) => {
-          return (
-            <div
-              key={v}
-              className={filterInst==v ? styles.active:''}
-              onClick={(e)=>clickFilterInst(e, v)}
-            >
-              {filterInstList[v].name}
-            </div>
-          )
-        })}
-      </HorizontalSlider>
+      { showFilterInstrument && 
+        <HorizontalSlider
+          className={styles.filters}
+          clientX={clientX}
+          setClientX={setClientX}
+        >
+          {Object.keys(filterInstList).map((v) => {
+            return (
+              <div
+                key={v}
+                className={filterInst==v ? styles.active:''}
+                onClick={(e)=>clickFilterInst(e, v)}
+              >
+                {filterInstList[v].name}
+              </div>
+            )
+          })}
+        </HorizontalSlider>
+      }
 
       {/* <div className={styles.items}> */}
       <PageContent className={styles.content}>

@@ -1,0 +1,40 @@
+@import '../common.scss';
+
+.likes {
+   .submenu {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+
+    li {
+      padding: 4px 12px;
+      border-radius: $radius_default;
+      color: $color--gray--4;
+      cursor: pointer;
+    }
+
+    li.active {
+      background: $color--gray--6;
+      color: $color--gray--1;
+    }
+  }
+
+  .song {
+    margin-top: 40px;
+    > div {
+      flex: 1 1 calc(20% - 10px);
+      max-width: calc(20% - 10px);
+      height: 200px;
+    }
+  }
+
+  .teachers {
+    @include center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: $width_desktop;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+}

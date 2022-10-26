@@ -1,4 +1,4 @@
-import ReviewPopUp from '@/components/common/popup/ReviewPopup';
+import ReviewPopUp from '@/components/ReviewPopup';
 
 interface Props {
   show?: boolean;

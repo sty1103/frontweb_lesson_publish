@@ -40,13 +40,13 @@
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: black;
+          background: $color--gray--1;;
           margin-right: 10px;
           cursor: pointer;
         }
 
         :nth-child(2) {
-          color: black;
+          color: $color--gray--1;;
           font-weight: bold;
           margin-right: 10px;
           cursor: pointer;

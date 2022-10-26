@@ -6,10 +6,8 @@ import PageContent from '@/components/common/layout/PageContent';
 import { Dropdown, SSRProvider } from 'react-bootstrap';
 import React, { useRef, useState } from 'react';
 import HorizontalSlider from '@/components/common/HorizontalSlider';
-import { AiOutlineHeart } from 'react-icons/ai';
-import Image from 'next/image';
-import { BsCheckLg } from 'react-icons/bs';
 import Button from '@/components/common/Button';
+import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
 
 interface Props {
   song: string;
@@ -106,51 +104,14 @@ const LessonRequest: NextPage<Props> = ({ song }) => {
         </HorizontalSlider>
 
         <div className={styles.teachers} ref={teachersRef}>
-          {[...Array(6)].map((v,k) => {
-            return (
-              <div
-                className={`${styles.teacher}`}
-                key={k}
-                onClick={clickTeacher}
-              >
-                <div className={styles.top}>
-                  <AiOutlineHeart /> 300
-                </div>
-
-                <div className={styles.middle}>
-                  <div className={styles.img}>
-                    {/* <Image /> */}
-                    <div className={styles.checked}>
-                      <BsCheckLg />
-                    </div>
-                  </div>
-                  <div className={styles.name}>
-                    김비단
-                  </div>
-                  <div className={styles.career}>
-                    경력 12년차
-                  </div>
-                  <div className={styles.instrument}>
-                    피아노
-                  </div>
-                </div>
-
-                <div className={styles.bottom}>
-                  <div className={styles.students}>
-                    <span>324</span>
-                    <span>레슨 학생</span>
-                  </div>
-                  <div className={styles.rate}>
-                    <span>4.5</span>
-                    <span>별점(레슨 파워)</span>
-                  </div>
-                  <div className={styles.lessons}>
-                    <span>546</span>
-                    <span>레슨 완료</span>
-                  </div>
-                </div>
-              </div>
-            )
+            {[...Array(6)].map((v,k) => {
+              return (
+                <TeacherBoxContainer
+                  key={k}
+                  className={styles.teacher}
+                  onClick={clickTeacher}
+                />
+              )
           })}
         </div>
       </PageContent>

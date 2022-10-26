@@ -22,7 +22,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 
     li {
       cursor: pointer;
@@ -207,7 +207,7 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: black;
+      background: $color--gray--1;;
       position: relative;
       cursor: pointer;
     }
@@ -245,7 +245,7 @@
           width: 100px;
           height: 100px;
           border-radius: 50%;
-          background: black;
+          background: $color--gray--1;;
         }
 
         .right {

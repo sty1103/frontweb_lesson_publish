@@ -122,7 +122,7 @@ export default function TopNav() {
                   </div>
                 </div>
               </div>
-              <div className={styles.bottom}>
+              <div className={styles.bottom} onClick={() => moveUrl('/mypage')}>
                 <BsPerson />마이페이지
               </div>
             </div>

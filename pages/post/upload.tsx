@@ -79,11 +79,11 @@ const PostUpload: NextPage = () => {
 
         <textarea placeholder='내용을 입력해주세요'>
         </textarea>
-
-        <Button onClick={() => {}}>
-          업로드
-        </Button>
       </PageContent>
+
+      <Button onClick={() => {}}>
+        업로드
+      </Button>
 
       <PopUp show={songPopup} onClose={closeSearchSong}>
         <div className={styles.songs}>

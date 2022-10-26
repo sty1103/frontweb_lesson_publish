@@ -62,3 +62,17 @@ $top_padding: 60px;
     border-left: 0;
   }
 }
+
+@mixin fixedButton {
+  width: 100%;
+  height: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 0;
+  background: $color--system--6;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  color: $color--gray--1;  
+  z-index: 1;
+}

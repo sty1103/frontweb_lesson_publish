@@ -67,13 +67,10 @@
     textarea::placeholder {
       color: $color--gray--4;
     }
+  }
 
-    button {
-      width: 100%;
-      height: 46px;
-      font-size: 1.2em;
-      border-radius: $radius_default;
-    }
+  > button {
+    @include fixedButton;
   }
 
   .songs {

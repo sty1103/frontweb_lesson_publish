@@ -13,6 +13,7 @@ import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import MyPageLessonsContainer from '@/containers/mypage/MyPageLessonsContainer';
 import MyPageRequestsContainer from '@/containers/mypage/MyPageRequestsContainer';
 import MyPageReviewsContainer from '@/containers/mypage/MyPageReviewsContainer';
+import { moveUrl } from '@/lib/utils';
 
 const MyPage: NextPage = () => {
   const subMenuData: any = {
@@ -38,7 +39,7 @@ const MyPage: NextPage = () => {
       </PageNav>
       <PageContent className={styles.content}>
         <div className={styles.profile}>
-          <span>
+          <span onClick={() => moveUrl('/mypage/profile')}>
             내 프로필 정보 <MdArrowForwardIos />
           </span>
         </div>

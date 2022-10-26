@@ -32,7 +32,9 @@ const PostUpload: NextPage = () => {
 
   return (
     <PageRoot className={styles.root}>
-      <PageNav prevButton={true} />
+      <PageNav prevButton={true}>
+        게시글 업로드
+      </PageNav>
       <PageContent className={styles.content}>
         <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
 

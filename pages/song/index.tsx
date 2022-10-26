@@ -12,7 +12,7 @@ const SongList: NextPage = () => {
   })
 
   return (
-    <PageRoot className={styles.songlist}>
+    <PageRoot className={styles.root}>
       <PageContent className={styles.content}>
         <SongsContainer data={songData} onClickSong={clickSong} />
       </PageContent>

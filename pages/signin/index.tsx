@@ -22,7 +22,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
   const pwdRef = useRef<HTMLInputElement>(null);
 
   return (
-    <SignContainer className={styles.signin}>
+    <SignContainer className={styles.container}>
       <div className={styles.logo}>
         {/* <img src='' /> */}
         LESSON NOTE

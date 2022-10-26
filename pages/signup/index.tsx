@@ -6,7 +6,7 @@ import { moveUrl } from '@/lib/utils';
 
 const SignUp: NextPage = () => {
   return (
-    <SignContainer className={styles.signup}>
+    <SignContainer className={styles.container}>
       <div className={styles.content}>
         레슨노트에서 이용하실 서비스를 선택해 주세요
 

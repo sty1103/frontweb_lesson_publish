@@ -5,9 +5,11 @@ import { BiComment } from 'react-icons/bi';
 import { IoMdMusicalNote } from 'react-icons/io';
 import { useState } from 'react';
 import ReviewPopUp from '../common/popup/ReviewPopup';
+import LessonPopup from '../common/popup/LessonPopup';
 
 export default function PostTeacher() {
   const [ reviewPopup, setReviewPopup ] = useState<boolean>(false);
+  const [ lessonPopup, setLessonPopup ] = useState<boolean>(false);
 
   return (
     <div className={styles.teacher}>
@@ -85,13 +87,14 @@ export default function PostTeacher() {
           <BiComment />
           리뷰보기
         </Button>
-        <Button shape='rect' onClick={() => {}}>
+        <Button shape='rect' onClick={clickLesson}>
           <IoMdMusicalNote />
           레슨 신청하기
         </Button>
       </div>
 
       <ReviewPopUp show={reviewPopup} onClose={closeReview} />
+      <LessonPopup show={lessonPopup} onClose={closeLesson} />
     </div>
   )
 
@@ -101,5 +104,13 @@ export default function PostTeacher() {
 
   function closeReview() {
     setReviewPopup(false);
+  }
+
+  function clickLesson() {
+    setLessonPopup(true);
+  }
+
+  function closeLesson() {
+    setLessonPopup(false);
   }
 }

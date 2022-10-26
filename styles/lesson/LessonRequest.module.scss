@@ -1,0 +1,243 @@
+@import '../common.scss';
+
+.root {
+  .content {
+    min-width: 100%;
+    max-width: 100%;
+
+    .title {
+      display: flex;
+      align-items: center;
+      width: $width_desktop;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      
+      .text {
+        font-size: 1.2em;
+      }
+      
+      .face {
+        @include center;
+        margin-left: 16px;
+        border-radius: $radius_half;
+        border: 1px solid $color--gray--5;
+        overflow: hidden;
+        position: relative;
+        width: 105px;
+        height: 30px;
+        background: $color--gray--5;
+        cursor: pointer;
+        
+        span {
+          @include center;
+          position: absolute;
+          padding: 4px 8px;
+          background: $color--gray--5;
+          font-size: .9em;
+          border-radius: $radius_half;
+        }
+  
+        span:first-child {
+          z-index: 1;
+          width: 55px;
+          left: 0;
+          top: 0;
+          background: $color--gray--8;
+        }
+  
+        span:last-child {
+          width: 55px;
+          right: 0px;
+          top: 0;
+        }
+      }
+  
+      .face.active {
+        span:first-child {
+          background: $color--gray--5;
+        }
+  
+        span:last-child {
+          z-index: 1;
+          background: $color--gray--8;
+        }
+      }
+  
+      .dropdown {
+        margin-left: auto;
+  
+        > * {
+          min-width: 150px;
+        }
+      }
+    }
+  
+    .instruments {
+      margin-bottom: 20px;
+    
+      > div {
+        @include center;
+        color: $color--gray--3;
+        text-transform: uppercase;
+        font-size: .9em;
+        min-width: 70px;
+        padding: 6px;
+        border-radius: $radius_default;
+        transform: translateX(calc(max(1024px, 100vw) / 2 - 540px))
+      }
+  
+      > div.active {
+        background: $color--gray--6;
+        color: black;
+        font-weight: bold;
+      }
+    }
+  
+    .teachers {
+      @include center;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: $width_desktop;
+      margin: 0 auto;
+
+      .teacher {
+        padding: 16px;
+        flex: 1 1 calc(33% - 10px);
+        max-width: 1 1 calc(33% - 10px);
+        border: 1px solid $color--gray--5;
+        border-radius: 26px;
+        cursor: pointer;
+
+        .top {
+          display: flex;
+          align-items: center;
+          font-size: 1.2em;
+          color: $color--gray--1;
+          margin-bottom: 20px;
+
+          svg {
+            font-size: 1.2em;
+            margin-right: 6px;
+          }
+        }
+
+        .middle {
+          @include center;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: 20px;
+
+          .img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            background: $color--gray--1;
+
+            .checked {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              margin: auto;
+              font-size: 3em;
+              display: none;
+              z-index: 1;
+              color: $color--system--5;
+            }
+          }
+
+          .name {
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+
+          .career {
+            font-size: .8em;
+            color: $color--system--5;
+            background: $color--gray--6;
+            border-radius: $radius_default;
+            padding: 2px 10px;
+          }
+
+          .instrument {
+            font-size: .8em;
+            background: $color--gray--6;
+            border-radius: $radius_default;
+            padding: 2px 10px;
+          }
+        }
+
+        .bottom {
+          @include center;
+
+          > div {
+            @include center;
+            flex-direction: column;
+            border-right: 1px solid $color--gray--5;
+            padding: 0 16px;
+
+            > span:first-child {
+              font-weight: bold;
+            }
+
+            > span:last-child {
+              color: $color--gray--4;
+              font-size: .8em;
+            }
+          }
+
+          > div:last-child {
+            border: 0;
+          }
+        }
+      }
+
+      .teacher.active {
+        padding: 14px;
+        border: 3px solid $color--system--3;
+        background: rgb(92, 254, 212, .1);
+
+        > div {
+          opacity: .5;
+        }
+
+        .middle {
+          opacity: 1;
+
+          > div {
+            opacity: .5;
+          }
+
+          .img {
+            opacity: 1;
+            background: rgba(0, 0, 0, .5);
+            
+            .checked {
+              @include center;
+            }
+          }
+
+          .name {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  
+  > button {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0;
+    background: $color--system--6;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: $color--gray--1;   
+  }
+}

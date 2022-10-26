@@ -98,7 +98,7 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
   }
 
   return (
-    <SignContainer className={styles.signup}>
+    <SignContainer className={styles.container}>
       <div className={styles.top}>
         <span>0{stepNum}</span>
         <span className={styles.seperator}>/</span>

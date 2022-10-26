@@ -8,10 +8,11 @@ import { IoMdMusicalNote } from 'react-icons/io';
 import Button from '@/components/common/Button';
 import { BsList } from 'react-icons/bs';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
+import { moveUrl } from '@/lib/utils';
 
 const SongDetail: NextPage = () => {
   return (
-    <PageRoot className={styles.songdetail}>
+    <PageRoot className={styles.root}>
       <PageNav prevButton={true}>
         곡 상세
       </PageNav>
@@ -76,7 +77,7 @@ const SongDetail: NextPage = () => {
                 <Button onClick={()=>{}}>
                 <IoMdMusicalNote /> 연습하기
                 </Button>
-                <Button onClick={()=>{}}>
+                <Button onClick={() => moveUrl('/lesson/request/1a2b3c')}>
                   <IoMdMusicalNote /> 레슨 신청하기
                 </Button>
               </div>

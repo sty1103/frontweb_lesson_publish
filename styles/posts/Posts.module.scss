@@ -42,7 +42,7 @@
       min-width: 70px;
       padding: 6px;
       border-radius: $radius_default;
-      transform: translateX(calc(max(1024px, 100vw) / 2 - 540px))
+      transform: translateX($space_desktop);
     }
 
     > div.active {

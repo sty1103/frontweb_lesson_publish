@@ -15,52 +15,9 @@
       .text {
         font-size: 1.2em;
       }
-      
+
       .face {
-        @include center;
         margin-left: 16px;
-        border-radius: $radius_half;
-        border: 1px solid $color--gray--5;
-        overflow: hidden;
-        position: relative;
-        width: 105px;
-        height: 30px;
-        background: $color--gray--5;
-        cursor: pointer;
-        
-        span {
-          @include center;
-          position: absolute;
-          padding: 4px 8px;
-          background: $color--gray--5;
-          font-size: .9em;
-          border-radius: $radius_half;
-        }
-  
-        span:first-child {
-          z-index: 1;
-          width: 55px;
-          left: 0;
-          top: 0;
-          background: $color--gray--8;
-        }
-  
-        span:last-child {
-          width: 55px;
-          right: 0px;
-          top: 0;
-        }
-      }
-  
-      .face.active {
-        span:first-child {
-          background: $color--gray--5;
-        }
-  
-        span:last-child {
-          z-index: 1;
-          background: $color--gray--8;
-        }
       }
   
       .dropdown {
@@ -83,7 +40,7 @@
         min-width: 70px;
         padding: 6px;
         border-radius: $radius_default;
-        transform: translateX(calc(max(1024px, 100vw) / 2 - 540px))
+        transform: translateX($space_desktop);
       }
   
       > div.active {

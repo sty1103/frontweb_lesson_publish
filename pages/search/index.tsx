@@ -17,7 +17,8 @@ const Search: NextPage = () => {
       <PageContent className={styles.content}>
         <SearchInput
           className={styles.input}
-          onEnter={onInputEnter}
+          onEnter={onSearch}
+          onClickButton={onSearch}
           ref={inputRef}
         />
 
@@ -97,7 +98,7 @@ const Search: NextPage = () => {
     </PageRoot>
   )
 
-  function onInputEnter() {
+  function onSearch() {
     moveUrl(`/search/${inputRef.current!.value}`);
   }
 }

@@ -1,5 +1,15 @@
 @import '../common.scss';
 
 .root {
-  
+  .nav > span {
+    span:first-child {
+      color: $color--system--5;
+      margin-right: 10px;
+    }
+
+    span:last-child {
+      color: $color--gray--4;
+      font-weight: normal;
+    }
+  }
 }

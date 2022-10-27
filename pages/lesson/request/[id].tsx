@@ -8,6 +8,7 @@ import React, { useRef, useState } from 'react';
 import HorizontalSlider from '@/components/common/HorizontalSlider';
 import Button from '@/components/common/Button';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
+import TextToggleButton from '@/components/common/TextToggleButton';
 
 interface Props {
   song: string;
@@ -55,13 +56,11 @@ const LessonRequest: NextPage<Props> = ({ song }) => {
             선생님을 선택해주세요
           </span>
 
-          <div
-            className={`${styles.face} ${filterFace ? styles.active:''}`}
-            onClick={clickFilterFace}
-          >
-            <span>비대면</span>
-            <span>동네</span>
-          </div>
+          <TextToggleButton 
+            className={styles.face}
+            leftText={'비대면'}
+            rightText={'동네'}
+          />
 
           <SSRProvider>
             <Dropdown className={`${styles.dropdown}`}>

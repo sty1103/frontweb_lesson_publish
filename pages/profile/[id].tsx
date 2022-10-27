@@ -43,7 +43,7 @@ const Profile: NextPage<Props> = ({ id }) => {
       </PageNav>
       <PageContent className={styles.content}>
         <div className={styles.profile}>
-          <span onClick={() => moveUrl('/mypage/profile')}>
+          <span onClick={() => moveUrl('/profile/update')}>
             내 프로필 수정 <MdArrowForwardIos />
           </span>
         </div>

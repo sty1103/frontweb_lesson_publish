@@ -70,7 +70,7 @@ const Search: NextPage = () => {
 
         <div className={styles.teacher}>
           <div className={styles.subtitle}>
-            비대면
+            내 동네
           </div>
           <div className={styles.wrapper}>
             {[...Array(4)].map((v,k) => {

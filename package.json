@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "git": "npm run build && git push -u origin main && git push -u deploy main"
+    "git": "npm run build && git push -u origin main && git push -u deploy main && npm run dev"
   },
   "dependencies": {
     "@types/react-slick": "^0.23.10",

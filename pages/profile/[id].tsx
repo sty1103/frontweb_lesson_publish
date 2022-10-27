@@ -38,9 +38,9 @@ const Profile: NextPage<Props> = ({ id }) => {
 
   return (
     <PageRoot className={styles.root}>
-      <PageNav className={styles.nav}>
+      {/* <PageNav className={styles.nav}>
         프로필
-      </PageNav>
+      </PageNav> */}
       <PageContent className={styles.content}>
         <div className={styles.profile}>
           <span onClick={() => moveUrl('/profile/update')}>

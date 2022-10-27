@@ -28,20 +28,23 @@
             margin-right: 4px;
           }
   
-          .img {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: black;
-            margin-right: 10px;
+          > :first-child {
+            display: flex;
             cursor: pointer;
-          }
-  
-          .name {
-            color: black;
-            font-weight: bold;
-            margin-right: 10px;
-            cursor: pointer;
+
+            .img {
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              background: black;
+              margin-right: 10px;
+            }
+    
+            .name {
+              color: black;
+              font-weight: bold;
+              margin-right: 10px;
+            }
           }
   
           .rate {

@@ -1,4 +1,4 @@
-import MyPageLikes from '@/components/mypage/MyPageLikes';
+import MyPageLikes from '@/components/profile/ProfileLikes';
 
 interface Props {
   className?: string;

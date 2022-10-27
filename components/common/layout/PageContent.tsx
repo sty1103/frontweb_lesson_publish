@@ -7,8 +7,8 @@ interface Props {
 
 export default function PageContent({ className, children }: Props) {
   return (
-    <section className={`${styles.content} ${className}`}>
+    <div className={`${styles.content} ${className}`}>
       {children}
-    </section>
+    </div>
   )
 }

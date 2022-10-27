@@ -19,10 +19,12 @@ export default function PostPractice() {
             유명한 곡 연주해봤어요. 한번 들어주세요
           </div>
           <div className={styles.author}>
-            <span>
-              {/* <img /> */}
+            <span onClick={() => moveUrl('/profile/f0kjflakdjf')}>
+              <span>
+                {/* <img /> */}
+              </span>
+              <span>방구석뮤지션</span>
             </span>
-            <span>방구석뮤지션</span>
             <span>1시간 전</span>
             <span></span>
             <span>피아노</span>

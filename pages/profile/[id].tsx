@@ -1,21 +1,25 @@
-import styles from '@/styles/mypage/MyPage.module.scss';
+import styles from '@/styles/profile/Profile.module.scss';
 import PageNav from "@/components/common/layout/PageNav";
 import PageRoot from "@/components/common/layout/PageRoot";
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import PageContent from '@/components/common/layout/PageContent';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Image from 'next/image';
 import Button from '@/components/common/Button';
 import React, { useState } from 'react';
 import PostsContainer from '@/containers/posts/PostsContainer';
-import MyPageLikesContainer from '@/containers/mypage/MyPageLikesContainer';
+import MyPageLikesContainer from '@/containers/profile/ProfileLikesContainer';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
-import MyPageLessonsContainer from '@/containers/mypage/MyPageLessonsContainer';
-import MyPageRequestsContainer from '@/containers/mypage/MyPageRequestsContainer';
-import MyPageReviewsContainer from '@/containers/mypage/MyPageReviewsContainer';
+import MyPageLessonsContainer from '@/containers/profile/ProfileLessonsContainer';
+import MyPageRequestsContainer from '@/containers/profile/ProfileRequestsContainer';
+import MyPageReviewsContainer from '@/containers/profile/ProfileReviewsContainer';
 import { moveUrl } from '@/lib/utils';
 
-const MyPage: NextPage = () => {
+interface Props {
+  id: string;
+}
+
+const Profile: NextPage<Props> = ({ id }) => {
   const subMenuData: any = {
     posts: '게시글',
     likes: '좋아요',
@@ -35,12 +39,12 @@ const MyPage: NextPage = () => {
   return (
     <PageRoot className={styles.root}>
       <PageNav className={styles.nav}>
-        마이페이지
+        프로필
       </PageNav>
       <PageContent className={styles.content}>
         <div className={styles.profile}>
           <span onClick={() => moveUrl('/mypage/profile')}>
-            내 프로필 정보 <MdArrowForwardIos />
+            내 프로필 수정 <MdArrowForwardIos />
           </span>
         </div>
         <div className={styles.info}>
@@ -127,4 +131,14 @@ const MyPage: NextPage = () => {
   }
 }
 
-export default MyPage;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const props = {
+    id: context.query.id
+  }
+
+  return {
+    props
+  }
+};
+
+export default Profile;

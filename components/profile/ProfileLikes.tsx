@@ -1,7 +1,7 @@
 import PostsContainer from '@/containers/posts/PostsContainer';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
-import styles from '@/styles/mypage/MyPageLikes.module.scss';
+import styles from '@/styles/profile/ProfileLikes.module.scss';
 import React, { useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';

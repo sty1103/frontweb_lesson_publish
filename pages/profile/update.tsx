@@ -3,7 +3,7 @@ import PageContent from '@/components/common/layout/PageContent';
 import PageNav from '@/components/common/layout/PageNav';
 import PageRoot from '@/components/common/layout/PageRoot';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
-import styles from '@/styles/mypage/Profile.module.scss';
+import styles from '@/styles/profile/ProfileUpdate.module.scss';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -12,7 +12,7 @@ import { CgPiano } from 'react-icons/cg';
 import { FaGuitar } from 'react-icons/fa';
 import { GiAccordion, GiDrumKit, GiHarp, GiPipeOrgan, GiViolin, GiXylophone } from 'react-icons/gi';
 
-const Profile: NextPage = () => {
+const ProfileUpdate: NextPage = () => {
   const instData: any = {
     drum: { name: '드럼', icon: <GiDrumKit /> },
     drum2: { name: '드럼', icon: <GiDrumKit /> },
@@ -69,9 +69,9 @@ const Profile: NextPage = () => {
   }
 
   return (
-    <PageRoot className={styles.profile}>
+    <PageRoot className={styles.root}>
       <PageNav className={styles.nav} prevButton={true}>
-        내 프로필 정보
+        내 프로필 수정
       </PageNav>
       <PageContent className={styles.content}>
         <div className={styles.img}>
@@ -159,4 +159,4 @@ const Profile: NextPage = () => {
   }
 }
 
-export default Profile;
+export default ProfileUpdate;

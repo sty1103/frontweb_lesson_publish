@@ -1,4 +1,4 @@
-import MyPageRequests from '@/components/mypage/MyPageRequests';
+import MyPageRequests from '@/components/profile/ProfileRequests';
 import { IData } from '../songs/SongsContainer';
 
 interface Props {

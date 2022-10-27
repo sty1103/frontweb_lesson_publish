@@ -38,12 +38,14 @@ export default function PostCurriculumDetail({ data }: Props) {
         <div className={styles.top}>
           <div className={styles.info}>
             <div className={styles.author}>
-              <span className={styles.img}>
-                {/* <img /> */}
-              </span>
-              <span className={styles.name}>
-                김도우 선생님
+              <span onClick={() => moveUrl('/profile/f0kjflakdjf')}>
+                <span className={styles.img}>
+                  {/* <img /> */}
                 </span>
+                <span className={styles.name}>
+                  김도우 선생님
+                </span>
+              </span>
               <span className={styles.rate}>
                 <AiFillStar /> 3.8
               </span>

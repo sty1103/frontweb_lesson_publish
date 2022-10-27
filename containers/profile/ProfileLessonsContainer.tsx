@@ -1,4 +1,4 @@
-import MyPageLessons from '@/components/mypage/MyPageLessons';
+import MyPageLessons from '@/components/profile/ProfileLessons';
 import { IData } from '../songs/SongsContainer';
 
 interface Props {

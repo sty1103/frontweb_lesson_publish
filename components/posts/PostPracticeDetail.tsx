@@ -39,11 +39,11 @@ export default function PostPracticeDetail() {
       <PageContent className={styles.content}>
         <div className={styles.top}>
           <div className={styles.author}>
-            <div className={styles.left}>
+            <div className={styles.left} onClick={() => moveUrl('/profile/f0kjflakdjf')}>
               {/* <Image /> */}
             </div>
             <div className={styles.right}>
-              <div className={styles.name}>
+              <div className={styles.name} onClick={() => moveUrl('/profile/f0kjflakdjf')}>
                 방구석뮤지션
               </div>
               <div className={styles.sub}>

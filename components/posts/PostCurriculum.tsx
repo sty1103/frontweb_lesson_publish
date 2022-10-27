@@ -36,11 +36,13 @@ export default function PostCurriculum({ data }: Props) {
             피아노 입문자들을 위한 커리큘럼
           </div>
           <div className={styles.author}>
-            <span className={styles.img}>
-              {/* <img /> */}
-            </span>
-            <span className={styles.name}>
-              김도우 선생님
+            <span onClick={() => moveUrl('/profile/f0kjflakdjf')}>
+              <span className={styles.img}>
+                {/* <img /> */}
+              </span>
+              <span className={styles.name}>
+                김도우 선생님
+              </span>
             </span>
             <span className={styles.rate}>
               <AiFillStar /> 3.8

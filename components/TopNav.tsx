@@ -43,7 +43,7 @@ export default function TopNav() {
         <li onClick={e => clickMenu(e, 'song')}>곡 목록</li>
       </ul>
 
-      <div className={styles.search}>
+      <div className={styles.search} onClick={()=>{moveUrl('/search')}}>
         <BiSearch />
         검색어를 입력해주세요
       </div>
@@ -122,7 +122,7 @@ export default function TopNav() {
                   </div>
                 </div>
               </div>
-              <div className={styles.bottom} onClick={() => moveUrl('/mypage')}>
+              <div className={styles.bottom} onClick={() => moveUrl('/profile/1a2b3c')}>
                 <BsPerson />마이페이지
               </div>
             </div>

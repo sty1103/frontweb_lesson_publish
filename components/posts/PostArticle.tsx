@@ -28,7 +28,6 @@ export default function PostArticle() {
             objectFit='cover'
           />
         </div>
-        
 
         <div className={styles.desc}>
           인생에 한 번 뿐인 프로포즈, 정말 이대로 괜찮으신가요?

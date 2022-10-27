@@ -1,15 +1,16 @@
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
-import styles from '@/styles/mypage/MyPageLessons.module.scss';
+import styles from '@/styles/profile/ProfileRequest.module.scss';
 import Image from 'next/image';
+import { MdArrowForwardIos } from 'react-icons/md';
 
 interface Props {
   className?: string;
   data: IData[];
 }
 
-export default function MyPageLessons({ className, data }: Props) {
+export default function MyPageRequest({ className, data }: Props) {
   return (
-    <div className={styles.lessons}>
+    <div className={styles.requests}>
       {data.map((v,k) => {
         const song = [ v ];
         return (
@@ -23,8 +24,10 @@ export default function MyPageLessons({ className, data }: Props) {
                 김은수
               </div>
               <div className={styles.status}>
-                레슨완료
+                신청중
               </div>
+
+              <MdArrowForwardIos />
             </div>
           </div>
         )

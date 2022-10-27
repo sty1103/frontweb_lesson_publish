@@ -1,5 +1,5 @@
 import ReviewBoxContainer from '@/containers/ReviewBoxContainer';
-import styles from '@/styles/mypage/MyPageReviews.module.scss';
+import styles from '@/styles/profile/ProfileReviews.module.scss';
 
 interface Props {
   className?: string;

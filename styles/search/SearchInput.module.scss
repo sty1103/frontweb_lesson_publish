@@ -1,0 +1,27 @@
+@import '../common.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 2px solid $color--system--5;
+  border-radius: $radius_half;
+  overflow: hidden;
+  padding: 0 20px;
+  
+  input {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: $color--gray--4;
+  }
+
+  svg {
+    font-size: 1.6em;
+    color: $color--gray--4;
+    cursor: pointer;
+  }
+}

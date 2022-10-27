@@ -1,4 +1,4 @@
-import MyPageReviews from '@/components/mypage/MyPageReviews';
+import MyPageReviews from '@/components/profile/ProfileReviews';
 
 interface Props {
   className?: string;

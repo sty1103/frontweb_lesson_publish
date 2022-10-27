@@ -25,8 +25,8 @@ const SearchResult: NextPage<Props> = ({ word }) => {
       <PageContent className={styles.content}>
         <SearchInput className={styles.input} defaultValue={word} />
 
-        <div className={styles.title} onClick={() => moveUrl(`/search/song?word=${word}`)}>
-          <div className={styles.link}>
+        <div className={styles.title}>
+          <div className={styles.link} onClick={() => moveUrl(`/search/song?word=${word}`)}>
             곡 <span>127</span> 
             <MdArrowForwardIos />
           </div>
@@ -35,8 +35,8 @@ const SearchResult: NextPage<Props> = ({ word }) => {
           <SongsContainer data={songData} onClickSong={() => moveUrl('/song/1a2b3c')} />
         </div>
 
-        <div className={styles.title} onClick={() => moveUrl(`/search/teacher?word=${word}`)}>
-          <div className={styles.link}>
+        <div className={styles.title}>
+          <div className={styles.link} onClick={() => moveUrl(`/search/teacher?word=${word}`)}>
             선생님 <span>31</span> 
             <MdArrowForwardIos />
           </div>

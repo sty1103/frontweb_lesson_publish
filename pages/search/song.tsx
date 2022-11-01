@@ -23,7 +23,7 @@ const SearchSong: NextPage = () => {
         <span>127</span>
       </PageNav>
       <PageContent className={styles.content}>
-        <SongsContainer data={songData} onClickSong={() => moveUrl('/song/1a2b3c')} />
+        <SongsContainer data={songData} onClickSong={() => moveUrl('/song/"songId"')} />
       </PageContent>
     </PageRoot>
   )

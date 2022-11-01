@@ -84,7 +84,7 @@
         border: 2px solid $color--gray--5;
         color: $color--gray--4;
         cursor: pointer;
-        border-radius: $radius_default;
+        border-radius: $radius--default;
         height: 160px;
 
         svg {
@@ -124,7 +124,7 @@
         color: $color--gray--4;
         padding: 20px;
         word-break: keep-all;
-        border-radius: $radius_default;
+        border-radius: $radius--default;
         cursor: pointer;
         box-sizing: border-box;
 

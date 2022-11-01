@@ -1,0 +1,116 @@
+@import './common.scss';
+
+.alert {
+  padding: 4px;
+  margin-right: 12px;
+  position: relative;
+
+  svg {
+    font-size: 1.5em;
+    color: $color--gray--4;
+    cursor: pointer;
+  }
+
+  .dropbox {
+    display: none;
+    position: absolute;
+    background: $color--gray--8;
+    border-radius: $radius--default;
+    box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 30%);
+    border: 1px solid $color--gray--5;
+    top: 45px;
+    right: -67px;
+    min-width: 350px;
+    padding: 6px;
+    z-index: 2147483647;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      height: 14px;
+      width: 14px;
+      background: white;
+      transform: rotate(225deg) translate(-50%);
+      border-bottom: 1px solid $color--gray--5;
+      border-right: 1px solid $color--gray--5;
+    }
+
+    > div {
+      @include center;
+    }
+
+    .top {
+      padding: 12px;
+      justify-content: flex-start;  
+
+      .logout {
+        margin-left: auto;
+        background: $color--gray--8;
+        color: $color--gray--4;
+        border: 1px solid $color--gray--5;
+        padding: 2px 15px;
+        font-size: .7em;
+      }
+    }
+
+    .middle {
+      min-height: 400px;
+      max-height: 400px;
+      overflow-y: auto;
+      flex-direction: column;
+      justify-content: flex-start;
+      
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-bottom: 1px solid $color--gray--5;
+        padding: 6px 0;
+
+        .item {
+          padding: 10px;
+          border-radius: $radius--default;
+          cursor: pointer;
+
+          .title {
+            display: flex;
+            font-size: .8em;
+            margin-bottom: 6px;
+            color: $color--system--1;
+
+            span {
+              margin-left: auto;
+              color: $color--gray--4;
+            }
+          }
+
+          .content:first-child {
+            font-size: .9em;
+          }
+        }
+
+        .item:hover {
+          background: $color--gray--6;
+        }
+      }
+
+      .wrapper:first-child {
+        padding-top: 0;
+      }
+
+      .wrapper:last-child {
+        padding-bottom: 0;
+        border: 0;
+      }
+    }
+    &:after {
+      right: 80px;
+    }
+  }
+  
+  .dropbox.active {
+    display: block;
+  }
+}

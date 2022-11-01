@@ -1,312 +1,93 @@
 @import './common.scss';
 
-.nav {
+.root {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -6px;
   width: 100%;
-  display: flex;
-  align-items: center; 
-  padding: 0px 50px;
   border-bottom: 1px solid #ddd;
   z-index: 10;
-  background: white;
+  background: $color--gray--8;
 
-  .logo {
-    cursor: pointer;
-    margin-right: 50px;
-  }
-
-  .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .content {
+    max-width: $width--fit;
+    margin: 0 auto;
     display: flex;
-    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
 
-    li {
+    .logo {
       cursor: pointer;
-      padding: 18px 0px;
-      padding-bottom: 15px;
-      color: $color--gray--2;
-      border-bottom: 3px solid $color--gray--8;
-    }
-    
-    li.active {
-      color: $color--gray--1;
-      border-bottom: 3px solid $color--system--2;
-    }
-  }
-
-  .search {
-    @include center;
-    gap: 6px;
-    padding: 3px 12px;
-    padding-right: 60px;
-    font-size: 12px;
-    margin-left: auto;
-    margin-right: 16px;
-    cursor: pointer;
-
-    color: $color--gray--4;
-    background: $color--gray--6;
-    border-radius: $radius_half;
-    border: 1px solid $color--gray--5;
-
-    & > :first-child {
-      font-size: 22px;
-      color: $color--gray--4;
-    }
-  }
-
-  .sign {
-    @include center;
-    border-radius: $radius_half;
-    overflow: hidden;
-    background: $color--system--6;
-
-    button {
-      border-radius: 0;
-      background: transparent;
-      color: white;
+      margin-right: 50px;
     }
 
-    .seperator {
-      border-left: 1px solid white;
-      height: 12px;
-    }
-  }
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 30px;
 
-  .upload {
-    margin-right: 40px;
-    svg {
-      margin-right: 4px;
-      font-size: 1.2em;
-      color: $color--system--3;
-    }
-  }
-
-  .dropbox {
-    display: none;
-    position: absolute;
-    background: $color--gray--8;
-    border-radius: $radius_default;
-    box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 30%);
-    border: 1px solid $color--gray--5;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      height: 14px;
-      width: 14px;
-      background: white;
-      transform: rotate(225deg) translate(-50%);
-      border-bottom: 1px solid $color--gray--5;
-      border-right: 1px solid $color--gray--5;
-    }
-  }
-
-  .dropbox.active {
-    display: block;
-  }
-
-  .alert {
-    padding: 4px;
-    margin-right: 12px;
-
-    svg {
-      font-size: 1.5em;
-      color: $color--gray--4;
-      cursor: pointer;
-    }
-
-    .dropbox {
-      top: 100%;
-      right: 20px;
-      min-width: 350px;
-      padding: 6px;
-
-      > div {
-        @include center;
-      }
-
-      .top {
-        padding: 12px;
-        justify-content: flex-start;  
-
-        .logout {
-          margin-left: auto;
-          background: $color--gray--8;
-          color: $color--gray--4;
-          border: 1px solid $color--gray--5;
-          padding: 2px 15px;
-          font-size: .7em;
-        }
-      }
-
-      .middle {
-        min-height: 400px;
-        max-height: 400px;
-        overflow-y: auto;
-        flex-direction: column;
-        justify-content: flex-start;
-        
-        .wrapper {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          border-bottom: 1px solid $color--gray--5;
-          padding: 6px 0;
-
-          .item {
-            padding: 10px;
-            border-radius: $radius_default;
-            cursor: pointer;
-
-            .title {
-              display: flex;
-              font-size: .8em;
-              margin-bottom: 6px;
-              color: $color--system--1;
-  
-              span {
-                margin-left: auto;
-                color: $color--gray--4;
-              }
-            }
-  
-            .content:first-child {
-              font-size: .9em;
-            }
-          }
-
-          .item:hover {
-            background: $color--gray--6;
-          }
-        }
-
-        .wrapper:first-child {
-          padding-top: 0;
-        }
-
-        .wrapper:last-child {
-          padding-bottom: 0;
-          border: 0;
-        }
-      }
-      &:after {
-        right: 80px;
-      }
-    }
-  }
-
-  .profile {
-    .img {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: $color--gray--1;;
-      position: relative;
-      cursor: pointer;
-    }
-    
-    .dropbox{
-      top: 100%;
-      right: 40px;
-      min-width: 400px;
-
-      > div {
-        @include center;
-      }
-
-      .top {
-        padding: 18px;
-        justify-content: flex-start;  
-
-        .logout {
-          margin-left: auto;
-          background: $color--gray--8;
-          color: $color--gray--4;
-          border: 1px solid $color--gray--5;
-          padding: 2px 15px;
-          font-size: .7em;
-        }
-      }
-
-      .middle {
-        max-width: 440px;
-        padding: 0 18px;
-        margin-bottom: 24px;
-        justify-content: flex-start;
-
-        .left {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          background: $color--gray--1;;
-        }
-
-        .right {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          padding: 0 20px;
-          gap: 4px;
-          font-weight: bold;
-
-          .level {
-            width: fit-content;
-            border: 1px solid $color--system--5;
-            border-radius: $radius_half;
-            color: $color--system--5;
-            font-size: .8em;
-            padding: 0 12px;
-            font-weight: normal;
-          }
-
-          .rate {
-            font-weight: normal;
-
-            svg {
-              color: $color--system--3;
-              margin-right: 4px;
-            }
-          }
-
-          .instruments {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-
-            > span {
-              flex: 1 1 calc(25% - 10px);
-              max-width: calc(25% - 10px);
-              @include center;
-              border-radius: $radius_default;
-              font-size: .8em;
-              font-weight: normal;
-              background: $color--gray--6;
-            }
-          }
-        }
-      }
-
-      .bottom {
-        border-top: 1px solid $color--gray--5;
-        padding: 12px;
+      li {
         cursor: pointer;
-        font-size: .9em;
-
-        svg {
-          font-size: 1.5em;
-          margin-right: 6px;
-          color: $color--gray--4;
-        }
+        padding: 18px 0px;
+        padding-bottom: 15px;
+        color: $color--gray--2;
+        border-bottom: 3px solid $color--gray--8;
+      }
+      
+      li.active {
+        color: $color--gray--1;
+        border-bottom: 3px solid $color--system--2;
       }
     }
-    
+
+    .search {
+      @include center;
+      gap: 6px;
+      padding: 3px 12px;
+      padding-right: 60px;
+      font-size: 12px;
+      margin-left: auto;
+      margin-right: 16px;
+      cursor: pointer;
+
+      color: $color--gray--4;
+      background: $color--gray--6;
+      border-radius: $radius--half;
+      border: 1px solid $color--gray--5;
+
+      & > :first-child {
+        font-size: 22px;
+        color: $color--gray--4;
+      }
+    }
+
+    .sign {
+      @include center;
+      border-radius: $radius--half;
+      overflow: hidden;
+      background: $color--system--6;
+
+      button {
+        border-radius: 0;
+        background: transparent;
+        color: white;
+      }
+
+      .seperator {
+        border-left: 1px solid white;
+        height: 12px;
+      }
+    }
+
+    .upload {
+      margin-right: 40px;
+      svg {
+        margin-right: 4px;
+        font-size: 1.2em;
+        color: $color--system--3;
+      }
+    }
   }
 }

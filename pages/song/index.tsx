@@ -20,7 +20,7 @@ const SongList: NextPage = () => {
   )
 
   function clickSong() {
-    moveUrl('/song/123');
+    moveUrl('/song/"songId"');
   }
 }
 

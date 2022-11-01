@@ -31,7 +31,7 @@ export default function PostCurriculum({ data }: Props) {
     <div className={styles.curriculum}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <div className={styles.title} onClick={() => moveUrl(`/post/123?type=curriculum`)}>
+          <div className={styles.title} onClick={() => moveUrl(`/post/"postId"?type=curriculum`)}>
             <span className={styles.type}>커리큘럼</span>
             피아노 입문자들을 위한 커리큘럼
           </div>

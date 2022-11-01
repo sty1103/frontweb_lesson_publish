@@ -9,7 +9,7 @@ import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const noNavPage = ['/signin', '/signup', '/forgot'];
+  const noNavPage = ['/signin', '/signup', '/forgot', '/lesson'];
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");

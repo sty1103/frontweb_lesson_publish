@@ -1,4 +1,4 @@
-import styles from '@/styles/lesson/LessonRequest.module.scss';
+import styles from '@/styles/songs/RequestLesson.module.scss';
 import PageNav from "@/components/common/layout/PageNav";
 import PageRoot from "@/components/common/layout/PageRoot";
 import { GetServerSideProps, NextPage } from "next";
@@ -14,7 +14,7 @@ interface Props {
   song: string;
 }
 
-const LessonRequest: NextPage<Props> = ({ song }) => {
+const RequestLesson: NextPage<Props> = ({ song }) => {
   let filterInstList: any = {
     all: { name: '전체악기' },
     piano: { name: '피아노' },
@@ -148,4 +148,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default LessonRequest;
+export default RequestLesson;

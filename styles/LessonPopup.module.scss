@@ -49,7 +49,7 @@
       height: 100%;
       padding: 20px;
       background: $color--gray--6;
-      border-radius: $radius-default;
+      border-radius: $radius--default;
       margin-bottom: 50px;
 
       .desc {
@@ -68,7 +68,7 @@
         > :last-child {
           margin-left: auto;
           font-size: .8em;
-          border-radius: $radius-default;
+          border-radius: $radius--default;
           background: $color--system--7;
           padding: 2px 8px;
         }
@@ -79,13 +79,13 @@
         justify-content: flex-start;
         margin-bottom: 10px;
         background: $color--gray--8;
-        border-radius: $radius-half;
+        border-radius: $radius--half;
         border: 2px solid $color--gray--6;
         padding: 5px;
 
         .order {
           background: $color--gray--6;
-          border-radius: $radius-half;
+          border-radius: $radius--half;
           padding: 6px 14px;
           font-size: .9em;
           text-transform: uppercase;
@@ -129,7 +129,7 @@
     height: 40px;
     margin-top: auto;   
     font-size: 1em;
-    border-radius: $radius-default;
+    border-radius: $radius--default;
     background: $color--gray--5;
     color: $color--gray--2;
     cursor: default;

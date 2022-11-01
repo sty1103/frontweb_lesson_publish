@@ -14,7 +14,7 @@ export default function PostPractice() {
     <div className={styles.practice}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <div className={styles.title} onClick={() => moveUrl(`/post/${'1a2b3c'}?type=practice`)}>
+          <div className={styles.title} onClick={() => moveUrl(`/post/"postId"?type=practice`)}>
             <span className={styles.type}>게시글</span>
             유명한 곡 연주해봤어요. 한번 들어주세요
           </div>

@@ -52,7 +52,7 @@ export default function PopularVideos() {
     if (clientX !== e.clientX ) {
       e.preventDefault()
     } else {
-      moveUrl('/post/1a2b3c?type=practice');
+      moveUrl('/post/"postId"?type=practice');
     }
   }
 }

@@ -9,7 +9,7 @@
 
     li {
       padding: 4px 12px;
-      border-radius: $radius_default;
+      border-radius: $radius--default;
       color: $color--gray--4;
       cursor: pointer;
     }
@@ -33,7 +33,7 @@
     @include center;
     flex-wrap: wrap;
     gap: 15px;
-    width: $width_desktop;
+    width: $width--fit;
     margin: 0 auto;
     margin-top: 40px;
   }

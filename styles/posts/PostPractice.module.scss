@@ -23,7 +23,7 @@
           background: $color--system--7;
           color: $color--system--5;
           padding: 2px 4px;
-          border-radius: $radius_default;
+          border-radius: $radius--default;
           font-size: .9em;
           margin-right: 10px;
           font-weight: normal;  
@@ -90,7 +90,7 @@
       width: fit-content;
       padding: 4px 14px;
       font-size: .9em;
-      border-radius: $radius-half;
+      border-radius: $radius--half;
       background: $color--gray--6;
       margin-bottom: 20px;
       cursor: pointer;

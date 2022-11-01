@@ -4,8 +4,8 @@
   padding-bottom: 100px;
   
   .title {
-    min-width: $width_desktop;
-    max-width: $width_desktop;
+    min-width: $width--fit;
+    max-width: $width--fit;
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;
@@ -41,8 +41,8 @@
       font-size: .9em;
       min-width: 70px;
       padding: 6px;
-      border-radius: $radius_default;
-      transform: translateX($space_desktop);
+      border-radius: $radius--default;
+      transform: translateX($padding--fit);
     }
 
     > div.active {
@@ -53,8 +53,8 @@
   }
 
   .items {
-    min-width: $width_desktop;
-    max-width: $width_desktop;
+    min-width: $width--fit;
+    max-width: $width--fit;
     margin: auto;
     
     > div {

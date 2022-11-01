@@ -1,4 +1,5 @@
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/profile/ProfileLessons.module.scss';
 import Image from 'next/image';
 
@@ -13,7 +14,11 @@ export default function MyPageLessons({ className, data }: Props) {
       {data.map((v,k) => {
         const song = [ v ];
         return (
-          <div className={styles.wrapper} key={k}>
+          <div
+            className={styles.wrapper}
+            onClick={() => moveUrl('/lesson/"lessonId"')}
+            key={k}
+          >
             <SongsContainer className={styles.song} data={song} />
             <div className={styles.teacher}>
               <div className={styles.img}>

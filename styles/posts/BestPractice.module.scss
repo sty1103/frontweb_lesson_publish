@@ -4,8 +4,8 @@
   margin-bottom: 50px;
 
   .title {
-    min-width: $width_desktop;
-    max-width: $width_desktop;
+    min-width: $width--fit;
+    max-width: $width--fit;
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;

@@ -72,7 +72,7 @@
 
     > div > button {
       width: 100%;
-      border-radius: $radius_default;
+      border-radius: $radius--default;
       background: $color--system--5;
       border: 0;
       margin-top: auto;
@@ -132,7 +132,7 @@
     
               span {
                 margin-left: 6px;
-                border-radius: $radius_half;
+                border-radius: $radius--half;
                 border: 1px solid $color--system--5;
                 color: $color--system--5;
                 font-size: .8em;
@@ -290,7 +290,7 @@
         border: 2px solid $color--gray--5;
         color: $color--gray--4;
         cursor: pointer;
-        border-radius: $radius_default;
+        border-radius: $radius--default;
 
         svg {
           color: $color--gray--4;
@@ -330,7 +330,7 @@
         color: $color--gray--4;
         padding: 20px;
         word-break: keep-all;
-        border-radius: $radius_default;
+        border-radius: $radius--default;
         cursor: pointer;
         box-sizing: border-box;
 

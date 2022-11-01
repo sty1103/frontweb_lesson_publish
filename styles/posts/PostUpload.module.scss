@@ -1,7 +1,7 @@
 @import '../common.scss';
 
 .root {
-  padding-top: $top_padding;
+  padding-top: $padding--tpo;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@
         flex: 0 1 200px;
         padding: 16px;
         border: 1px solid $color--gray--5;
-        border-radius: $radius_default;
+        border-radius: $radius--default;
 
         .title {
           display: flex;

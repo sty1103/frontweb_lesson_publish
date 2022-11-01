@@ -19,14 +19,14 @@ $color--gray--8: #ffffff;
 $color--red--1: rgb(255, 222, 228);
 $color--red--2: rgb(230, 101, 125);
 
-$radius_default: 4px;
-$radius_half: 980px;
+$radius--default: 4px;
+$radius--half: 980px;
 
-$width_desktop: 1060px;
+$width--fit: 1060px;
 
-$space_desktop: calc(max(1024px, 100vw) / 2 - 540px);
+$padding--fit: calc(max(1024px, 100vw) / 2 - 540px);
 
-$top_padding: 60px;
+$padding--top: 60px;
 
 // 가로/세로 중앙
 @mixin center {

@@ -77,7 +77,7 @@ const SongDetail: NextPage = () => {
                 <Button onClick={()=>{}}>
                 <IoMdMusicalNote /> 연습하기
                 </Button>
-                <Button onClick={() => moveUrl('/song/lesson/"songid"')}>
+                <Button onClick={() => moveUrl('/song/request/"songid"')}>
                   <IoMdMusicalNote /> 레슨 신청하기
                 </Button>
               </div>

@@ -1,30 +1,29 @@
 import { GetServerSideProps, NextPage } from "next"
 import styles from '@/styles/lesson/LessonDetail.module.scss';
 import ScoreDisplayContainer from "@/containers/score/ScoreDisplayContainer";
-import { AiFillPicture, AiFillPlusCircle, AiOutlineArrowLeft, AiOutlinePicture, AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai";
+import { AiFillPicture, AiOutlineArrowLeft, AiOutlinePlusCircle } from "react-icons/ai";
 import AlertDropdownContainer from "@/containers/AlertDropdownContainer";
 import ProfileDropdownContainer from "@/containers/ProfileDropdownContainer";
 import router from 'next/router';
 import Button from "@/components/common/Button";
-import { BsCameraVideo, BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
+import { BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
-import ContentEditable from "react-contenteditable";
-import { IoIosSend } from "react-icons/io";
-import { Form } from "react-bootstrap";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
   const [attachDropdown, setAttachDropdown] = useState<boolean>(false);
   const messageRef = useRef<HTMLDivElement>(null);
   // const 
-  const [messageHtml, setMessageHtml] = useState<string>('');
+  const chatContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.addEventListener('click', () => {
       setAttachDropdown(false);
     });
+
+    chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
   });
   
   return (
@@ -44,7 +43,7 @@ const LessonDetail: NextPage = () => {
         </nav>
 
         <div className={styles.score}>
-          <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
+          <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' control={true} />
         </div>
 
         <div className={`${styles.buttons} ${menu ? styles.active:''}`}>
@@ -74,7 +73,7 @@ const LessonDetail: NextPage = () => {
           <FaTimes />
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.content} ref={chatContentRef}>
           <div className={styles.teacher}>
             <div className={styles.top}>
               <span className={styles.measure}>

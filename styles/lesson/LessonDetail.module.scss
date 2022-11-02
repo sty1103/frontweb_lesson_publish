@@ -232,7 +232,7 @@ $notes--width: 400px;
       overflow-y: auto;
       
       > div {
-        border: 2px solid $color--gray--5;
+        border: 1px solid $color--gray--5;
         border-radius: $radius--default;
         overflow: hidden;
         background: white;
@@ -275,18 +275,21 @@ $notes--width: 400px;
 
       .student {
         margin-left: auto;
+        background: rgba(249,255,253);
+        border: 1px solid $color--system--5;
       }
     }
 
      > .message {
       position: relative;
       width: 100%;
-      border-top: 1px solid $color--gray--5;
-      background: $color--gray--6;
+      border-top: 2px solid $color--gray--5;
+      background: rgba(249,255,253);
 
       .wrapper {
         background: white;
         border-radius: $radius--default;
+        border: 1px solid $color--gray--5;
 
         .text {
           max-height: 120px;

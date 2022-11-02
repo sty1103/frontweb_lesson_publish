@@ -7,6 +7,6 @@ interface User {
 };
 
 export const userAtom = atom<User| null>({
-  key: `userState${new Date().getTime()}`,
+  key: `userAtom${new Date().getTime()}`,
   default: null
 });

@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react';
 import ScoreDisplay from '@/components/score/ScoreDisplay';
 import OSMDExtends from '@/lib/OSMDExtends';
+import ScoreControllerContainer from './ScoreCcontrollerContainer';
+import { useSetRecoilState } from 'recoil';
+import { osmdAtom } from '@/store/score';
 
 interface Props {
   control?: boolean; // 컨트롤러 포함 여부
@@ -10,7 +13,7 @@ interface Props {
 }
 
 export default function ScoreDisplayContainer({ control=false, title=false, subtitle=false, file }: Props) {
-  const [ osmd, setOsmd ] = useState<OSMDExtends | null>(null);
+  const setOsmd = useSetRecoilState(osmdAtom);
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -30,9 +33,16 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
     });
   };
 
-  const props = { loadScore, divRef };
+  const displayProps = { loadScore, divRef };
 
   return (
-    <ScoreDisplay { ...props } />
+    <>
+      <ScoreDisplay { ...displayProps } />
+
+      { control && 
+        <ScoreControllerContainer />
+      }
+    </>
+    
   )
 }

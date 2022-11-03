@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TopNav from '@/components/TopNav';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
+import User from '@/components/common/User';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
 
         <main>
+          <User />
           <Component {...pageProps} />
         </main>
       </Suspense>

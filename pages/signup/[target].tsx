@@ -19,6 +19,8 @@ import { nl2br } from '@/lib/utils';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { tempUserData, userAtom } from '@/store/common';
 
 interface Props {
   target: string;
@@ -96,6 +98,9 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
     electronic: { name: '전자음악'},
     dance: { name: '댄스' },
   }
+
+  const setUser = useSetRecoilState(userAtom);
+  const users = useRecoilValue(tempUserData);
 
   return (
     <SignContainer className={styles.container}>
@@ -434,6 +439,13 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
   }
 
   function clickDone() {
+    users.map((v,k) => {
+      if ( v.auth === target ) {
+        setUser(v);
+        localStorage.setItem('user', target);
+      }
+    })
+
     router.push('/');
   }
 

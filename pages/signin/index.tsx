@@ -85,14 +85,18 @@ const SignIn: NextPage<Props> = ({ socials }) => {
         setUser({
           type: 0,
           email: 'student@gmail.com',
-          name: '학생'
+          name: '학생',
+          auth: 'student'
         })
+        localStorage.setItem('user', 'student');
       } else {
         setUser({
           type: 1,
           email: 'teacher@gmail.com',
-          name: '선생님'
+          name: '선생님',
+          auth: 'teacher'
         })
+        localStorage.setItem('user', 'teacher');
       }
 
       moveUrl('/');

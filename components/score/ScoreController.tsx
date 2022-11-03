@@ -10,6 +10,7 @@ import { FaStickyNote, FaVideo } from 'react-icons/fa';
 import { AiFillVideoCamera, AiOutlineVideoCamera } from 'react-icons/ai';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { Form } from 'react-bootstrap';
+import { userAtom } from '@/store/common';
 
 /*
   부모 요소가 relative이어야 하고,
@@ -34,6 +35,7 @@ export default function ScoreController({ osmd }: Props) {
   const [ hideContents, setHideContents ] = useState<boolean>(false); // 콘텐츠 숨기기 상태
   
   const noteRef = useRef<HTMLInputElement | null>(null); // 노트 작성 input reference
+  const user = useRecoilValue(userAtom);
   
   useEffect(() => {
     // 데이터베이스에서 마디 정보 fetch
@@ -101,10 +103,12 @@ export default function ScoreController({ osmd }: Props) {
                       <FaVideo />
                     </div>
                   </div>
-
-                  <Button onClick={clickMenuBtn} shape='circle' className={styles.menu}>
+                  
+                  { user?.type === 1 && 
+                    <Button onClick={clickMenuBtn} shape='circle' className={styles.menu}>
                     <HiOutlineDotsVertical />
                   </Button>
+                  }
 
                   <ul className={`${styles.dropdown} measure${i} staff${j}`}>
                     <li onClick={clickMemoBtn}><FaStickyNote /> 메모 추가</li>

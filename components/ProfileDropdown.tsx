@@ -20,6 +20,10 @@ export default function ProfileDropdown({ className }: Props) {
     window.addEventListener('click', () => {
       setDropdown(false);
     });
+
+    if ( !user ) {
+      localStorage.removeItem('user');
+    }
   })
 
   return (
@@ -76,6 +80,7 @@ export default function ProfileDropdown({ className }: Props) {
 
   function clickLogout() {
     setUser(null);
+    localStorage.removeItem('user');
     moveUrl('/');
   }
 }

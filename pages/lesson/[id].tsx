@@ -7,16 +7,22 @@ import ProfileDropdownContainer from "@/containers/ProfileDropdownContainer";
 import router from 'next/router';
 import Button from "@/components/common/Button";
 import { BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
-import { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { linkedMeasureAtom } from "@/store/score";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
   const [attachDropdown, setAttachDropdown] = useState<boolean>(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const mainContentRef = useRef<HTMLDivElement>(null);
   const messageRef = useRef<HTMLDivElement>(null);
   // const 
   const chatContentRef = useRef<HTMLDivElement>(null);
+  const [linkedMeasure, setLinkedMeasure] = useRecoilState(linkedMeasureAtom);
+  const [chatWindow, setChatWindow] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -24,11 +30,12 @@ const LessonDetail: NextPage = () => {
     });
 
     chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
-  });
-  
+    console.log(1123);
+  }, [chatWindow]);
+
   return (
-    <section className={styles.root}>
-      <div className={styles.content}>
+    <section className={`${styles.root} ${chatWindow ? styles.chat:''}`}>
+      <div className={styles.content} ref={mainContentRef}>
         <nav className={styles.nav}>
           <div className={styles.wrapper}>
             <AiOutlineArrowLeft onClick={() => router.back()} />
@@ -43,7 +50,9 @@ const LessonDetail: NextPage = () => {
         </nav>
 
         <div className={styles.score}>
-          <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' control={true} />
+          {/* <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' control={true} /> */}
+          <ScoreDisplayContainer file='/musicxml/Beethoven_AnDieFerneGeliebte.xml' control={true} isChatOpen={chatWindow} />
+          
         </div>
 
         <div className={`${styles.buttons} ${menu ? styles.active:''}`}>
@@ -70,16 +79,16 @@ const LessonDetail: NextPage = () => {
             {/* <Image /> */}
           </div>
           김은수
-          <FaTimes />
+          <FaTimes onClick={clickCloseChat} />
         </div>
 
         <div className={styles.content} ref={chatContentRef}>
           <div className={styles.teacher}>
             <div className={styles.top}>
               <span className={styles.measure}>
-                <span>1마디</span>
-                <span>7마디</span>
-                <span>13마디</span>
+                <span onClick={e => clickMeasureLink(e, 0)}>1마디</span>
+                <span onClick={e => clickMeasureLink(e, 6)}>7마디</span>
+                <span onClick={e => clickMeasureLink(e, 12)}>13마디</span>
               </span>
               <span className={styles.time}>
                 1시간 전
@@ -93,7 +102,7 @@ const LessonDetail: NextPage = () => {
           <div className={styles.teacher}>
             <div className={styles.top}>
               <span className={styles.measure}>
-                <span>20마디</span>
+              <span onClick={e => clickMeasureLink(e, 14)}>15마디</span>
               </span>
               <span className={styles.time}>
                 1시간 전
@@ -107,7 +116,7 @@ const LessonDetail: NextPage = () => {
           <div className={styles.student}>
             <div className={styles.top}>
               <span className={styles.measure}>
-                <span>1마디</span>
+                <span onClick={e => clickMeasureLink(e, 0)}>1마디</span>
               </span>
               <span className={styles.time}>
                 1시간 전
@@ -184,7 +193,26 @@ const LessonDetail: NextPage = () => {
   }
 
   function clickShowChat() {
+    setChatWindow(!chatWindow);
+  }
 
+  function clickCloseChat() {
+    setChatWindow(false);
+  }
+
+  function clickMeasureLink(e: React.MouseEvent, measure: number) {
+    if ( linkedMeasure >= 0 ) // 현재 링크된 마디가 선택 중이면 무시
+      return;
+
+    setLinkedMeasure(measure);
+    setTimeout(() => {
+      setLinkedMeasure(-1);
+    }, 1500);
+
+    const target = mainContentRef.current?.querySelector(`.measure${measure}`) as HTMLElement;
+
+    const top = target.offsetTop - 90;
+    mainContentRef.current?.scrollTo({top, behavior: 'smooth'});
   }
 
   function clickAttach() {

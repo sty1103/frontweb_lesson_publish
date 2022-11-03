@@ -8,7 +8,7 @@ $notes--width: 400px;
   
   > .content {
     padding-top: $padding--top;
-    width: calc(100% - $notes--width);
+    width: 100%;
     height: 100vh;
     position: relative;
     overflow-y: auto;
@@ -18,7 +18,7 @@ $notes--width: 400px;
       position: fixed;
       top: 0;
       left: 0;
-      width: calc(100% - $notes--width);
+      width: 100%;
       height: 60px;
       border-bottom: 1px solid $color--gray--4;
       display: flex;
@@ -57,13 +57,13 @@ $notes--width: 400px;
     }
 
     .score {
-      width: calc(100vw - $notes--width);
+      width: 100%;
     }
 
     .buttons {
       position: fixed;
       bottom: 84px;
-      left: calc(100vw - $notes--width - 100px);
+      right: 90px;
 
       button {
         position: absolute;
@@ -191,7 +191,7 @@ $notes--width: 400px;
   }
 
   > .chat {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: $notes--width;
     height: 100vh;
@@ -428,6 +428,29 @@ $notes--width: 400px;
           }
         }
       }
+    }
+  }
+
+  &.chat {
+    > .content {
+      width: calc(100% - $notes--width);
+
+      > .nav {
+        width: calc(100% - $notes--width);
+      }
+
+      .score {
+        width: calc(100vw - $notes--width);
+      }
+
+      .buttons {
+        right: unset;
+        left: calc(100vw - $notes--width - 100px);
+      }
+    }
+    
+    > .chat {
+      display: flex;
     }
   }
 }

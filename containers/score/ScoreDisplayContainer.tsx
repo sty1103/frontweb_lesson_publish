@@ -10,14 +10,12 @@ interface Props {
   title?: boolean // 곡 제목 표시 여부
   subtitle?: boolean; // 곡 서브 제목 표시 여부
   file: string; // 파일 경로 또는 xml 파일 내용
-  isChatOpen: boolean;
+  isChatOpen?: boolean;
 }
 
-export default function ScoreDisplayContainer({ control=false, title=false, subtitle=false, file, isChatOpen=false }: Props) {
+export default function ScoreDisplayContainer({ control=false, title=false, subtitle=false, file, isChatOpen }: Props) {
   const setOsmd = useSetRecoilState(osmdAtom);
-
   const divRef = useRef<HTMLDivElement>(null);
-
   const loadScore = () => {
     const options = {
       drawTitle: title,

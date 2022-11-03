@@ -30,7 +30,6 @@ const LessonDetail: NextPage = () => {
     });
 
     chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
-    console.log(1123);
   }, [chatWindow]);
 
   return (

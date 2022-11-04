@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-$notes--width: 400px;
+$chat--width: 400px;
 
 .root {
   display: flex;
@@ -193,7 +193,7 @@ $notes--width: 400px;
   > .chat {
     display: none;
     flex-direction: column;
-    width: $notes--width;
+    width: $chat--width;
     height: 100vh;
 
     > div {
@@ -433,19 +433,19 @@ $notes--width: 400px;
 
   &.chat {
     > .content {
-      width: calc(100% - $notes--width);
+      width: calc(100% - $chat--width);
 
       > .nav {
-        width: calc(100% - $notes--width);
+        width: calc(100% - $chat--width);
       }
 
       .score {
-        width: calc(100vw - $notes--width);
+        width: calc(100vw - $chat--width);
       }
 
       .buttons {
         right: unset;
-        left: calc(100vw - $notes--width - 100px);
+        left: calc(100vw - $chat--width - 100px);
       }
     }
     

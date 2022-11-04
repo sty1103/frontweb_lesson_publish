@@ -1,4 +1,4 @@
-import styles from '@/styles/ReviewPopUp.module.scss';
+import styles from '@/styles/popups/ReviewPopUp.module.scss';
 import PopUp from '@/components/common/PopUp';
 import { FaTimes } from 'react-icons/fa';
 import { useRef } from 'react';

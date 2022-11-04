@@ -10,7 +10,7 @@ interface Props {
 export default function ScoreDisplay({ loadScore, divRef, isChatOpen }: Props) {
   useEffect(() => {
     loadScore();
-  }, [isChatOpen]);
+  }, [loadScore]);
 
   return (<div ref={divRef} />);
 }

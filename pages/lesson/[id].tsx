@@ -7,10 +7,10 @@ import ProfileDropdownContainer from "@/containers/ProfileDropdownContainer";
 import router from 'next/router';
 import Button from "@/components/common/Button";
 import { BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";
 
 const LessonDetail: NextPage = () => {
@@ -23,10 +23,12 @@ const LessonDetail: NextPage = () => {
   const chatContentRef = useRef<HTMLDivElement>(null);
   const [linkedMeasure, setLinkedMeasure] = useRecoilState(linkedMeasureAtom);
   const [chatWindow, setChatWindow] = useState<boolean>(false);
+  const [videoPopup, setVideoPopup] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener('click', () => {
       setAttachDropdown(false);
+      setMenu(false);
     });
 
     chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
@@ -182,9 +184,9 @@ const LessonDetail: NextPage = () => {
       </div>
     </section>
   );
-
+  
   function clickMenu() {
-    setMenu(!menu);
+    setTimeout(() => setMenu(!menu), 0);
   }
 
   function clickLessonEnds() {

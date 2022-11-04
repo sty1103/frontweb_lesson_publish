@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import ScoreDisplay from '@/components/score/ScoreDisplay';
 import OSMDExtends from '@/lib/OSMDExtends';
 import ScoreControllerContainer from './ScoreCcontrollerContainer';
@@ -16,7 +16,10 @@ interface Props {
 export default function ScoreDisplayContainer({ control=false, title=false, subtitle=false, file, isChatOpen }: Props) {
   const setOsmd = useSetRecoilState(osmdAtom);
   const divRef = useRef<HTMLDivElement>(null);
-  const loadScore = () => {
+  const loadScore = useCallback(() => {
+    // console.log( divRef.current?.querySelector('#osmdCanvasPage1')?.remove() );
+    
+    
     const options = {
       drawTitle: title,
       drawSubtitle: subtitle,
@@ -26,11 +29,16 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
     const osmd = new OSMDExtends(divRef.current as HTMLElement, options);
     osmd.load(file).then(() => {
       osmd.render();
+      
+      // 사파리/파폭에서 전에 렌더링된 악보를 지워주지 않는 버그 대처
+      if ( divRef.current!.querySelectorAll('#osmdCanvasPage1').length > 1 ) {
+        divRef.current?.querySelector('#osmdCanvasPage1:first-child')?.remove();
+      }
 
       if ( control )
         setOsmd(osmd);
     });
-  };
+  }, [isChatOpen]);
 
   const displayProps = { loadScore, divRef, isChatOpen };
 

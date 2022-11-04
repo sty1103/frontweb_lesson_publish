@@ -1,4 +1,4 @@
-import ReviewPopUpContainer from '@/containers/ReviewPopupContainer';
+import ReviewPopUpContainer from '@/containers/popups/ReviewPopupContainer';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/posts/PostCurriculumDetail.module.scss';
@@ -12,8 +12,8 @@ import Button from '../common/Button';
 import { useState } from 'react';
 import PageRoot from '../common/layout/PageRoot';
 import PageNav from '../common/layout/PageNav';
-import PageContent from '../common/layout/PageContent';
-import LessonPopup from '../LessonPopup';
+import PageContent from '@/components/common/layout/PageContent';
+import LessonPopup from '@/components/popups/LessonRequestPopup';
 
 interface Data {
   title: string;

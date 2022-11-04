@@ -7,11 +7,11 @@ import { AiFillStar } from 'react-icons/ai';
 import { ImLocation2 } from 'react-icons/im';
 import Button from '../common/Button';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
-import ReviewPopUpContainer from '@/containers/ReviewPopupContainer';
+import { useState } from 'react';
+import ReviewPopUpContainer from '@/containers/popups/ReviewPopupContainer';
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
-import LessonPopup from '../LessonPopup';
+import LessonRequestPopupContainer from '@/components/popups/LessonRequestPopup';
 
 interface Data {
   title: string;
@@ -125,7 +125,7 @@ export default function PostCurriculum({ data }: Props) {
       </div>
 
       <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
-      <LessonPopup show={lessonPopup} onClose={closeLesson} />
+      <LessonRequestPopupContainer show={lessonPopup} onClose={closeLesson} />
     </div>
   )
 

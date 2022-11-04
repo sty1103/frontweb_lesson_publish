@@ -11,6 +11,7 @@ import { AiFillVideoCamera, AiOutlineVideoCamera } from 'react-icons/ai';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { Form } from 'react-bootstrap';
 import { userAtom } from '@/store/common';
+import LessonVideoPopupContainer from '@/containers/popups/LessonVideoPopupContainer';
 
 /*
   부모 요소가 relative이어야 하고,
@@ -29,7 +30,7 @@ export default function ScoreController({ osmd }: Props) {
   const [ curMeasure, setCurMeasure ] = useRecoilState(curMeasureAtom); // 현재 활성화된 마디/보표 번호
   const linkedMeasure = useRecoilValue(linkedMeasureAtom); // 마디링크 클릭 시 타깃 마디 지정
 
-  const [ memoModalShow, setMemoModalShow ] = useState<boolean>(false); // 마디 비디오 모달의 노출 여부
+  const [ videoPopup, setVideoPopup ] = useState<boolean>(false); // 마디 비디오 모달의 노출 여부
   const [ recordingModalShow, setRecordingModalShow ] = useState<boolean>(false); // 마디 녹음 모달의 노출 여부
   const [ memoInputState, setMemoInputState ] = useState(initMemoInputState); // 마디 위 메모 입력창 상태
   const [ hideContents, setHideContents ] = useState<boolean>(false); // 콘텐츠 숨기기 상태
@@ -132,10 +133,7 @@ export default function ScoreController({ osmd }: Props) {
           onClick={(e) => e.stopPropagation()}
         >
         </Form.Control>
-        {/* <MemoModalContainer show={memoModalShow} setShow={setMemoModalShow} />
-        <RecordingModalContainer show={recordingModalShow} setShow={setRecordingModalShow} /> */}
-
-      
+        <LessonVideoPopupContainer show={videoPopup} onClose={closeVideoPopup} />
       </section>
       {/* <Button className={`${styles.hideContent} ${hideContents ? styles.active:''}`} onClick={clickHideContentsBtn} color={hideContents ? 'white':'black'}>
         <label><FontAwesomeIcon icon={faEyeSlash}/> 콘텐츠 숨기기</label>
@@ -229,7 +227,11 @@ export default function ScoreController({ osmd }: Props) {
   }
 
   function clickVideoBtn() {
-    setMemoModalShow(true);
+    setVideoPopup(true);
+  }
+
+  function closeVideoPopup() {
+    setVideoPopup(false);
   }
 
   function initElements(e: React.MouseEvent<HTMLElement> | null) {

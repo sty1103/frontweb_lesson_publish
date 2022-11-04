@@ -45,7 +45,7 @@ const PostUpload: NextPage = () => {
               <ToggleButton checked={checkLesson} disabled={true} />
             </div>
             <div className={styles.desc}>
-              공개적으로 레슨을 요청합니다
+              공개적으로 레슨을 신청합니다
             </div>
           </div>
 

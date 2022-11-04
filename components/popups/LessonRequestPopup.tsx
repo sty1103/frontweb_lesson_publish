@@ -1,12 +1,12 @@
-import styles from '@/styles/LessonPopup.module.scss';
-import { Props } from '@/containers/LessonPopupContainer';
-import PopUp from './common/PopUp';
+import styles from '@/styles/popups/LessonRequestPopup.module.scss';
+import { Props } from '@/containers/popups/LessonRequestPopupContainer';
+import PopUp from '../common/PopUp';
 import { FaTimes } from 'react-icons/fa';
-import Button from './common/Button';
+import Button from '../common/Button';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import { IoMdMusicalNote } from 'react-icons/io';
 
-export default function LessonPopup({ className, show=false, onClose=()=>{}}: Props) {
+export default function LessonRequestPopup({ className, show=false, onClose=()=>{}}: Props) {
   const songData: IData[] = [ ...Array(12) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };

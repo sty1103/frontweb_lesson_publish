@@ -4,19 +4,13 @@ import { curMeasureAtom, IMeasureData, linkedMeasureAtom, measureDataAtom } from
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Button from "../common/Button";
-import { BsFillCameraVideoFill, BsFillRecord2Fill, BsRecordCircle, BsRecordCircleFill } from 'react-icons/bs';
-import { GiNotebook } from 'react-icons/gi';
-import { FaStickyNote, FaVideo } from 'react-icons/fa';
-import { AiFillVideoCamera, AiOutlineVideoCamera } from 'react-icons/ai';
+import { BsRecordCircle, BsRecordCircleFill } from 'react-icons/bs';
+import { FaStickyNote, FaTimes, FaVideo } from 'react-icons/fa';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { Form } from 'react-bootstrap';
 import { userAtom } from '@/store/common';
 import LessonVideoPopupContainer from '@/containers/popups/LessonVideoPopupContainer';
-
-/*
-  부모 요소가 relative이어야 하고,
-  악보가 형제 요소이어야 동작
-*/
+import LessonRecordingPopupContainer from '@/containers/popups/LessonRecordingPopupContainer';
 
 interface Props {
   osmd: OSMDExtends | null;
@@ -31,7 +25,7 @@ export default function ScoreController({ osmd }: Props) {
   const linkedMeasure = useRecoilValue(linkedMeasureAtom); // 마디링크 클릭 시 타깃 마디 지정
 
   const [ videoPopup, setVideoPopup ] = useState<boolean>(false); // 마디 비디오 모달의 노출 여부
-  const [ recordingModalShow, setRecordingModalShow ] = useState<boolean>(false); // 마디 녹음 모달의 노출 여부
+  const [ recordingPopup, setRecordingPopup ] = useState<boolean>(false); // 마디 녹음 모달의 노출 여부
   const [ memoInputState, setMemoInputState ] = useState(initMemoInputState); // 마디 위 메모 입력창 상태
   const [ hideContents, setHideContents ] = useState<boolean>(false); // 콘텐츠 숨기기 상태
   
@@ -85,6 +79,10 @@ export default function ScoreController({ osmd }: Props) {
                       <label>{measureDataOne?.memo}</label>
                     </div>
 
+                    <div className={`${styles.video} ${measureDataOne?.video ? '':styles.hide}`} onClick={clickVideoBtn}>
+                      <FaVideo />
+                    </div>
+
                     <div className={`${styles.recording} ${measureDataOne?.recording ? '':styles.hide}`} onClick={clickRecording}>
                     <BsRecordCircle />
 
@@ -95,26 +93,26 @@ export default function ScoreController({ osmd }: Props) {
                           controls>
                         </audio>
                         <Button onClick={clickCloseRecordingBtn} shape='circle'>
-                          아이콘
+                          <FaTimes />
                         </Button>
                       </div>
-                    </div>
-
-                    <div className={`${styles.video} ${measureDataOne?.video ? '':styles.hide}`} onClick={clickVideoBtn}>
-                      <FaVideo />
                     </div>
                   </div>
                   
                   { user?.type === 1 && 
                     <Button onClick={clickMenuBtn} shape='circle' className={styles.menu}>
+                      <HiOutlineDotsVertical />
+                    </Button>
+                  }
+
+                  <Button onClick={clickMenuBtn} shape='circle' className={styles.menu}>
                     <HiOutlineDotsVertical />
                   </Button>
-                  }
 
                   <ul className={`${styles.dropdown} measure${i} staff${j}`}>
                     <li onClick={clickMemoBtn}><FaStickyNote /> 메모 추가</li>
-                    <li onClick={clickRecordingBtn}><BsRecordCircleFill /> 녹음 추가</li>
                     <li onClick={clickVideoBtn}><FaVideo /> 영상 추가</li>
+                    <li onClick={clickRecordingBtn}><BsRecordCircleFill /> 녹음 추가</li>
                     {/* <li onClick={clickCheckBtn}><FontAwesomeIcon icon={faSquareCheck} /> 마디 체크</li> */}
                   </ul>
                 </div>
@@ -133,7 +131,9 @@ export default function ScoreController({ osmd }: Props) {
           onClick={(e) => e.stopPropagation()}
         >
         </Form.Control>
+
         <LessonVideoPopupContainer show={videoPopup} onClose={closeVideoPopup} />
+        <LessonRecordingPopupContainer show={recordingPopup} onClose={closeRecordingPopup} />
       </section>
       {/* <Button className={`${styles.hideContent} ${hideContents ? styles.active:''}`} onClick={clickHideContentsBtn} color={hideContents ? 'white':'black'}>
         <label><FontAwesomeIcon icon={faEyeSlash}/> 콘텐츠 숨기기</label>
@@ -207,7 +207,7 @@ export default function ScoreController({ osmd }: Props) {
   }
 
   function clickRecordingBtn(e: React.MouseEvent<HTMLElement>) {
-    setRecordingModalShow(true);
+    setRecordingPopup(true);
   }
 
   function clickRecording(e: React.MouseEvent<HTMLElement>) {
@@ -216,10 +216,13 @@ export default function ScoreController({ osmd }: Props) {
 
   function clickCloseRecordingBtn(e: React.MouseEvent<HTMLElement>) {
     e.stopPropagation();
-
     const recordingEl = e.currentTarget.closest(`.${styles.recording}`);
     recordingEl?.classList.remove(styles.active);
     recordingEl?.querySelector('audio')?.pause();
+  }
+
+  function closeRecordingPopup() {
+    setRecordingPopup(false);
   }
 
   function clickMemo(e: React.MouseEvent<HTMLElement>) {
@@ -241,9 +244,9 @@ export default function ScoreController({ osmd }: Props) {
       setMemoInputState({ ...initMemoInputState });
   }
 
-  function clickHideContentsBtn(e: React.MouseEvent<HTMLElement>) {
-    setHideContents( !hideContents );
-  }
+  // function clickHideContentsBtn(e: React.MouseEvent<HTMLElement>) {
+  //   setHideContents( !hideContents );
+  // }
 }
 
 export function getMeasureDataOne(data: IMeasureData[], measure: number, staff: number) {

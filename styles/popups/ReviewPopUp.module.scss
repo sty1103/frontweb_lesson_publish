@@ -1,33 +1,26 @@
 @import '../common.scss';
 
-.review {
-  .container {
-    height: 800px;
-    min-width: 700px;
-    max-width: 700px;
+.root {
+  .header {
+    @include center;
+    padding: 20px;
+    border-bottom: 1px solid $color--gray--5;
+
+    svg {
+      margin-left: auto;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: $color--gray--4;
+    }
+  }
+
+  .content {
+    max-width: 600px;
     max-height: 80vh;
     display: flex;
     flex-direction: column;
-    padding: 16px;
-    
-    > .top {
-      @include center;
-      padding: 0;
-      margin-bottom: 16px;
-
-      svg {
-        margin-left: auto;
-        font-size: 1.2em;
-        cursor: pointer;
-        color: $color--gray--4;
-      }
-    }
-
-    .items {
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-      gap: 16px;
-    }
+    overflow-y: auto;
+    gap: 16px;
+    padding: 20px;
   }
 }

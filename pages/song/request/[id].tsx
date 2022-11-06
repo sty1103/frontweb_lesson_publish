@@ -1,5 +1,5 @@
 import styles from '@/styles/songs/RequestLesson.module.scss';
-import PageNav from "@/components/common/layout/PageNav";
+import PageNav from "@/components/common/layout/PageHeader";
 import PageRoot from "@/components/common/layout/PageRoot";
 import { GetServerSideProps, NextPage } from "next";
 import PageContent from '@/components/common/layout/PageContent';

@@ -8,7 +8,7 @@ import { BsShare } from 'react-icons/bs';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import React, { useEffect, useRef } from 'react';
 import PageRoot from '../common/layout/PageRoot';
-import PageNav from '../common/layout/PageNav';
+import PageNav from '../common/layout/PageHeader';
 import PageContent from '../common/layout/PageContent';
 import { useRouter } from 'next/router';
 import { moveUrl } from '@/lib/utils';

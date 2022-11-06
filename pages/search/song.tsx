@@ -1,5 +1,5 @@
 import PageContent from '@/components/common/layout/PageContent';
-import PageNav from '@/components/common/layout/PageNav';
+import PageHeader from '@/components/common/layout/PageHeader';
 import PageRoot from '@/components/common/layout/PageRoot';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import { moveUrl } from '@/lib/utils';
@@ -18,10 +18,10 @@ const SearchSong: NextPage = () => {
   
   return (
     <PageRoot className={styles.root}>
-      <PageNav className={styles.nav} prevButton={true}>
+      <PageHeader className={styles.nav} prevButton={true}>
         <span>곡</span>
         <span>127</span>
-      </PageNav>
+      </PageHeader>
       <PageContent className={styles.content}>
         <SongsContainer data={songData} onClickSong={() => moveUrl('/song/"songId"')} />
       </PageContent>

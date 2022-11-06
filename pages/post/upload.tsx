@@ -10,7 +10,7 @@ import router from 'next/router';
 import PopUp from '@/components/common/PopUp';
 import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
 import PageRoot from '@/components/common/layout/PageRoot';
-import PageNav from '@/components/common/layout/PageNav';
+import PageHeader from '@/components/common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
 
 const PostUpload: NextPage = () => {
@@ -32,9 +32,9 @@ const PostUpload: NextPage = () => {
 
   return (
     <PageRoot className={styles.root}>
-      <PageNav prevButton={true}>
+      <PageHeader prevButton={true}>
         게시글 업로드
-      </PageNav>
+      </PageHeader>
       <PageContent className={styles.content}>
         <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
 

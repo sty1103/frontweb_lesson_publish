@@ -1,5 +1,5 @@
 import PageContent from '@/components/common/layout/PageContent';
-import PageNav from '@/components/common/layout/PageNav';
+import PageHeader from '@/components/common/layout/PageHeader';
 import PageRoot from '@/components/common/layout/PageRoot';
 import TextToggleButton from '@/components/common/TextToggleButton';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
@@ -14,7 +14,7 @@ interface Props {
 const SearchTeacher: NextPage = () => {
   return (
     <PageRoot className={styles.root}>
-      <PageNav className={styles.nav} prevButton={true}>
+      <PageHeader className={styles.nav} prevButton={true}>
         <span>선생님</span>
         <span>31</span>
         <TextToggleButton 
@@ -22,7 +22,7 @@ const SearchTeacher: NextPage = () => {
           leftText={'비대면'}
           rightText={'동네'}
         />
-      </PageNav>
+      </PageHeader>
       <PageContent className={styles.content}>
         {[...Array(12)].map((v,k) => {
           return (

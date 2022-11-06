@@ -16,7 +16,7 @@ export default function LessonVideoPopup({ className, show=false, onClose=()=>{}
       show={show}
       onClose={() => onClose()}
     >
-      <div className={styles.nav}>
+      <div className={styles.header}>
         첨부 영상
         <FaTimes onClick={() => onClose()} />
       </div>

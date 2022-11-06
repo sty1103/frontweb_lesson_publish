@@ -1,15 +1,12 @@
 @import '../common.scss';
 
 .root {
-  display: flex;
-  flex-direction: column;
-
   > div {
     width: 600px;
     min-width: 500px;
   }
 
-  .nav {
+  .header {
     display: flex;
     align-items: center;
     padding: 20px;

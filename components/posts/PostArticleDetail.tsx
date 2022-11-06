@@ -5,7 +5,7 @@ import router from 'next/router';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsShare } from 'react-icons/bs';
 import PageContent from '../common/layout/PageContent';
-import PageNav from '../common/layout/PageNav';
+import PageNav from '../common/layout/PageHeader';
 import PageRoot from '../common/layout/PageRoot';
 
 export default function PostArticle() {

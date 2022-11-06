@@ -14,22 +14,20 @@ export default function ReviewPopUp({ show, onClose=()=>{} }: Props) {
   //test
   return (
     <PopUp
-      className={styles.review}
+      className={styles.root}
       show={show} 
       onClose={() => onClose()}
     >
-      <div className={styles.container}>
-        <div className={styles.top}>
-          리뷰보기
-          <FaTimes onClick={() => onClose()} />
-        </div>
-        <div className={styles.items} ref={reviewRef}>
-          {[...Array(10)].map((v,k) => {
-            return (
-              <ReviewBoxContainer className={styles.item} key={k} />
-            )
-          })}
-        </div>
+      <div className={styles.header}>
+        리뷰보기
+        <FaTimes onClick={() => onClose()} />
+      </div>
+      <div className={styles.content} ref={reviewRef}>
+        {[...Array(10)].map((v,k) => {
+          return (
+            <ReviewBoxContainer className={styles.item} key={k} />
+          )
+        })}
       </div>
     </PopUp>
   )

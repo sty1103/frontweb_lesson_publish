@@ -21,16 +21,16 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
 
   return (
     <PopUp
-      className={`${styles.lesson} ${className}`} 
+      className={`${styles.root} ${className}`} 
       onClose={() => onClose()}
       show={show}
     >
-      <div className={styles.title}>
-        레슨목록
+      <div className={styles.header}>
+        레슨 신청하기
         <FaTimes onClick={() => onClose()} />
       </div>
 
-      <div className={styles.container}>
+      <div className={styles.content}>
         <SongsContainer
           className={styles.songs}
           data={songData}
@@ -91,9 +91,11 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
         </div>
       </div>
 
-      <Button onClick={()=>{}}>
-        레슨 신청하기
-      </Button>
+      <div className={styles.footer}>
+        <Button onClick={()=>{}}>
+          레슨 신청하기
+        </Button>
+      </div>
     </PopUp>
   )
 

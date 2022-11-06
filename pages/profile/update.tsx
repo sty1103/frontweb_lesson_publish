@@ -1,6 +1,6 @@
 import Button from '@/components/common/Button';
 import PageContent from '@/components/common/layout/PageContent';
-import PageNav from '@/components/common/layout/PageNav';
+import PageHeader from '@/components/common/layout/PageHeader';
 import PageRoot from '@/components/common/layout/PageRoot';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import styles from '@/styles/profile/ProfileUpdate.module.scss';
@@ -70,9 +70,9 @@ const ProfileUpdate: NextPage = () => {
 
   return (
     <PageRoot className={styles.root}>
-      <PageNav className={styles.nav} prevButton={true}>
+      <PageHeader className={styles.nav} prevButton={true}>
         내 프로필 수정
-      </PageNav>
+      </PageHeader>
       <PageContent className={styles.content}>
         <div className={styles.img}>
           {/* <Image /> */}

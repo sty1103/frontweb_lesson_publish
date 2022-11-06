@@ -11,7 +11,7 @@ import { IoMdMusicalNote } from 'react-icons/io';
 import Button from '../common/Button';
 import { useState } from 'react';
 import PageRoot from '../common/layout/PageRoot';
-import PageNav from '../common/layout/PageNav';
+import PageNav from '../common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
 import LessonPopup from '@/components/popups/LessonRequestPopup';
 

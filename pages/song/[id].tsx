@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import styles from '@/styles/songs/SongDetail.module.scss';
 import PageRoot from '@/components/common/layout/PageRoot';
-import PageNav from '@/components/common/layout/PageNav';
+import PageHeader from '@/components/common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
 import Image from 'next/image';
 import { IoMdMusicalNote } from 'react-icons/io';
@@ -13,9 +13,9 @@ import { moveUrl } from '@/lib/utils';
 const SongDetail: NextPage = () => {
   return (
     <PageRoot className={styles.root}>
-      <PageNav prevButton={true}>
+      <PageHeader prevButton={true}>
         곡 상세
-      </PageNav>
+      </PageHeader>
 
       <div className={styles.content}>
         <div className={styles.wrapper}>

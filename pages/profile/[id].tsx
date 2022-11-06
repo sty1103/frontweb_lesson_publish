@@ -14,6 +14,7 @@ import MyPageLessonsContainer from '@/containers/profile/ProfileLessonsContainer
 import MyPageRequestsContainer from '@/containers/profile/ProfileRequestsContainer';
 import MyPageReviewsContainer from '@/containers/profile/ProfileReviewsContainer';
 import { moveUrl } from '@/lib/utils';
+import { Dropdown, SSRProvider } from 'react-bootstrap';
 
 interface Props {
   id: string;
@@ -23,10 +24,10 @@ const Profile: NextPage<Props> = ({ id }) => {
   const subMenuData: any = {
     posts: '게시글',
     likes: '좋아요',
+    // playings: '연주',
+    lessons:  '레슨',
     reviews: '리뷰',
-    playings: '연주중',
-    lessons:  '레슨중',
-    requests: '레슨신청'
+    // requests: '레슨신청'
   }
 
   const [ subMenu, setSubMenu ] = useState<string>('posts');
@@ -106,20 +107,20 @@ const Profile: NextPage<Props> = ({ id }) => {
             <MyPageLikesContainer />
           }
 
-          { subMenu==='reviews' &&
-            <MyPageReviewsContainer />
-          }
-
-          { subMenu==='playings' &&
+          {/* { subMenu==='playings' &&
             <SongsContainer className={styles.songs} data={songData} />
-          }
+          } */}
 
           { subMenu==='lessons' &&
             <MyPageLessonsContainer data={songData} />
           }
 
-          { subMenu==='requests' &&
+          {/* { subMenu==='requests' &&
             <MyPageRequestsContainer data={songData} />
+          } */}
+
+          { subMenu==='reviews' &&
+            <MyPageReviewsContainer />
           }
         </div>
       </PageContent>

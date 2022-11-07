@@ -104,11 +104,6 @@ export default function ScoreController({ osmd }: Props) {
                       <HiOutlineDotsVertical />
                     </Button>
                   }
-
-                  <Button onClick={clickMenuBtn} shape='circle' className={styles.menu}>
-                    <HiOutlineDotsVertical />
-                  </Button>
-
                   <ul className={`${styles.dropdown} measure${i} staff${j}`}>
                     <li onClick={clickMemoBtn}><FaStickyNote /> 메모 추가</li>
                     <li onClick={clickVideoBtn}><FaVideo /> 영상 추가</li>

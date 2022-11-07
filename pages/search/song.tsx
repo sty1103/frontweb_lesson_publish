@@ -18,12 +18,21 @@ const SearchSong: NextPage = () => {
   
   return (
     <PageRoot className={styles.root}>
-      <PageHeader className={styles.nav} prevButton={true}>
+      <PageHeader className={styles.header} prevButton={true}>
         <span>곡</span>
         <span>127</span>
       </PageHeader>
       <PageContent className={styles.content}>
-        <SongsContainer data={songData} onClickSong={() => moveUrl('/song/"songId"')} />
+        {songData.map((v,k) => {
+          return (
+            <SongsContainer
+            className={styles.item}
+              data={v}
+              onClickSong={() => moveUrl('/song/"songId"')}
+              key={k}
+            />
+          )
+        })}
       </PageContent>
     </PageRoot>
   )

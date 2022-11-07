@@ -32,7 +32,16 @@ const SearchResult: NextPage<Props> = ({ word }) => {
           </div>
         </div>
         <div className={styles.songs}>
-          <SongsContainer data={songData} onClickSong={() => moveUrl('/song/1a2b3c')} />
+          {songData.map((v,k) => {
+            return (
+              <SongsContainer
+                className={styles.item}
+                data={v}
+                onClickSong={() => moveUrl('/song/1a2b3c')}
+                key={k}
+              />
+            )
+          })}
         </div>
 
         <div className={styles.title}>

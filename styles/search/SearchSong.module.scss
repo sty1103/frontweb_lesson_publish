@@ -1,7 +1,7 @@
 @import '../common.scss';
 
 .root {
-  .nav > span {
+  .header > span {
     span:first-child {
       color: $color--system--5;
       margin-right: 10px;
@@ -10,6 +10,17 @@
     span:last-child {
       color: $color--gray--4;
       font-weight: normal;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .item {
+      flex: 1 1 calc(16% - 10px);
+      max-width: calc(16% - 10px);
     }
   }
 }

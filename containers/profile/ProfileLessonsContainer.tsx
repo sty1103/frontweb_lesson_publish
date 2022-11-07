@@ -1,9 +1,9 @@
 import MyPageLessons from '@/components/profile/ProfileLessons';
-import { IData } from '../songs/SongsContainer';
+import { IData } from '../songs/SongContainer';
 
 interface Props {
   className?: string;
-  data: IData[];
+  songData: IData[];
 }
 
 export default function MyPageLessonsContainer(props: Props) {

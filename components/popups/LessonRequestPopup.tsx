@@ -3,7 +3,7 @@ import { Props } from '@/containers/popups/LessonRequestPopupContainer';
 import PopUp from '../common/PopUp';
 import { FaTimes } from 'react-icons/fa';
 import Button from '../common/Button';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import { IoMdMusicalNote } from 'react-icons/io';
 
 export default function LessonRequestPopup({ className, show=false, onClose=()=>{}}: Props) {
@@ -31,11 +31,20 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
       </div>
 
       <div className={styles.content}>
-        <SongsContainer
-          className={styles.songs}
-          data={songData}
-          onClickSong={clickSong}
-        />
+        <div className={styles.songs}>
+          {songData.map((v,k) => {
+            return (
+              <SongContainer
+                className={styles.item}
+                data={v}
+                onClickSong={clickSong}
+                key={k}
+              />
+            )
+          })}
+          
+        </div>
+        
 
         <div className={styles.title}>
           커리큘럼

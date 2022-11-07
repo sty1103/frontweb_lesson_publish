@@ -8,7 +8,7 @@ import { BsSearch } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
 import router from 'next/router';
 import PopUp from '@/components/common/PopUp';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import PageRoot from '@/components/common/layout/PageRoot';
 import PageHeader from '@/components/common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
@@ -94,11 +94,16 @@ const PostUpload: NextPage = () => {
             <BsSearch />
           </div>
           <div className={styles.middle}>
-            <SongsContainer
-              className={styles.items}
-              onClickSong={clickSong}
-              data={songData}
-            />
+            {songData.map((v,k) => {
+              return (
+                <SongContainer
+                  className={styles.item}
+                  onClickSong={clickSong}
+                  data={v}
+                  key={k}
+                />
+              )
+            })}
           </div>
         </div>
       </PopUp>

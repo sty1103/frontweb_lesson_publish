@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import styles from '@/styles/songs/SongList.module.scss';
 import PageRoot from '@/components/common/layout/PageRoot';
 import PageContent from '@/components/common/layout/PageContent';
@@ -14,7 +14,11 @@ const SongList: NextPage = () => {
   return (
     <PageRoot className={styles.root}>
       <PageContent className={styles.content}>
-        <SongsContainer data={songData} onClickSong={clickSong} />
+        {songData.map((v,k) => {
+          return (
+            <SongContainer key={k} data={v} onClickSong={clickSong} className={styles.item} />
+          )
+        })}
       </PageContent>
     </PageRoot>
   )

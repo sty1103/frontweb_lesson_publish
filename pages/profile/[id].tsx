@@ -9,7 +9,7 @@ import Button from '@/components/common/Button';
 import React, { useState } from 'react';
 import PostsContainer from '@/containers/posts/PostsContainer';
 import MyPageLikesContainer from '@/containers/profile/ProfileLikesContainer';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongsContainer, { IData } from '@/containers/songs/SongContainer';
 import MyPageLessonsContainer from '@/containers/profile/ProfileLessonsContainer';
 import MyPageRequestsContainer from '@/containers/profile/ProfileRequestsContainer';
 import MyPageReviewsContainer from '@/containers/profile/ProfileReviewsContainer';
@@ -99,7 +99,7 @@ const Profile: NextPage<Props> = ({ id }) => {
         </nav>
         
         { subMenu==='posts' &&
-          <PostsContainer className={styles.posts} showFilterPost={false} />
+          <PostsContainer className={styles.posts} showFilterPost={false} showTitle={false} />
         }
 
         <div className={styles.content}>
@@ -112,7 +112,7 @@ const Profile: NextPage<Props> = ({ id }) => {
           } */}
 
           { subMenu==='lessons' &&
-            <MyPageLessonsContainer data={songData} />
+            <MyPageLessonsContainer songData={songData} />
           }
 
           {/* { subMenu==='requests' &&

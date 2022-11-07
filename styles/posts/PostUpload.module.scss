@@ -107,14 +107,15 @@
     }
 
     .middle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       overflow-y: auto;
       max-height: 420px;
 
-      .items {
-        > div {
-          flex: 1 1 calc(25% - 10px);
-          max-width: 25%;
-        }
+      .item {
+        flex: 1 1 calc(33% - 10px);
+        max-width: calc(33% - 10px);
       }
     }
   }

@@ -1,4 +1,4 @@
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongsContainer, { IData } from '@/containers/songs/SongContainer';
 import styles from '@/styles/profile/ProfileRequest.module.scss';
 import Image from 'next/image';
 import { MdArrowForwardIos } from 'react-icons/md';

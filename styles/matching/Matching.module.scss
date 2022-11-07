@@ -1,0 +1,51 @@
+@import '../common.scss';
+
+.root {
+  margin-top: $padding--top;
+  padding-top: 20px;
+  
+  .header {
+    max-width: $width--fit;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    > span {
+      font-weight: bold;
+    }
+
+    .submenu {
+      margin-left: auto;
+      margin-right: 30px;
+      color: $color--gray--4;
+      cursor: pointer;
+
+      :nth-child(2) {
+        cursor: default;
+        width: 2px;
+        height: 4px;
+        border-right: 2px solid $color--system--3;
+        margin: 0 10px;
+      }
+
+      .active {
+        color: $color--gray--1;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content {
+    .songs {
+      min-width: $width--fit;
+      max-width: $width--fit;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+
+      .song {
+
+      }
+    }
+  }
+}

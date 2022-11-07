@@ -1,4 +1,4 @@
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/profile/ProfileLessons.module.scss';
 import Image from 'next/image';
@@ -7,10 +7,10 @@ import { Dropdown, SSRProvider } from 'react-bootstrap';
 
 interface Props {
   className?: string;
-  data: IData[];
+  songData: IData[];
 }
 
-export default function MyPageLessons({ className, data }: Props) {
+export default function MyPageLessons({ className, songData }: Props) {
   const filterOrderList: any = {
     all: { name: '전체' },
     request: { name: '레슨 신청' },
@@ -47,15 +47,14 @@ export default function MyPageLessons({ className, data }: Props) {
       </div>
       
       <div className={styles.content}>
-        {data.map((v,k) => {
-          const song = [ v ];
+        {songData.map((v,k) => {
           return (
-            <div
-              className={styles.wrapper}
-              onClick={() => moveUrl('/lesson/"lessonId"')}
-              key={k}
-            >
-              <SongsContainer className={styles.song} data={song} />
+            <div className={styles.item} key={k}>
+              <SongContainer
+                className={styles.song}
+                data={v}
+                onClickSong={() => moveUrl('/lesson/"lessonId"')}
+              />
               <div className={styles.teacher}>
                 <div className={styles.img}>
                   {/* <Image /> */}

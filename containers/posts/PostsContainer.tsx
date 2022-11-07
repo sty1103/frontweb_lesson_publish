@@ -9,6 +9,8 @@ export interface Props {
   showFilterOrder?: boolean;
   showFilterPost?: boolean;
   showFilterInstrument?: boolean
+  showTitle?: boolean;
+  showLocationToggle?: boolean;
 }
 
 export default function PostsContainer(props: Props) {

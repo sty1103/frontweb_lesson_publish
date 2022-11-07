@@ -11,8 +11,12 @@ import HorizontalSlider from '../common/HorizontalSlider';
 import { useRouter } from 'next/router';
 import PageContent from '../common/layout/PageContent';
 import { IData, Props } from '@/containers/posts/PostsContainer';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
+import TextToggleButton from '../common/TextToggleButton';
 
-export default function Posts({ className, showFilterOrder=true, showFilterPost=true, showFilterInstrument=true }: Props) {
+export default function Posts({ className, showFilterOrder=true, showFilterPost=true, showFilterInstrument=true, showTitle=true, showLocationToggle=true }: Props) {
+  const user = useRecoilValue(userAtom);
   const router = useRouter();
   // 나중에 const로 변경
   // const filter_inst = {
@@ -54,10 +58,16 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
   return (
     <section className={`${styles.postlist} ${className}`}>
       <div className={styles.title}>
-        { router.asPath==='/' && 
-          <div>practice post</div>
+        { showTitle && 
+          <div>
+            { user?.type===0 ? 'practice post':'lesson matching' }
+          </div>
         }
 
+        { showLocationToggle && 
+          <TextToggleButton className={styles.toggle} leftText='비대면' rightText='동네' />
+        }
+        
         <SSRProvider>
           { showFilterOrder && 
             <Dropdown className={`${styles.dropdown} ${styles.order}`}>
@@ -127,8 +137,17 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
       <PageContent className={styles.content}>
         <PostPracticeContainer />
         <PostArticleContainer />
-        <PostCurriculumContainer />
-        <PostTeacherContainer />
+        { user?.type===0 && 
+          <div>
+            <PostCurriculumContainer />
+            <PostTeacherContainer />
+          </div>
+        }
+
+        { user?.type===1 && 
+          <PostPracticeContainer />
+        }
+        
       </PageContent>
     </section>
   )

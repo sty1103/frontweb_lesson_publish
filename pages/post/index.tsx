@@ -4,7 +4,7 @@ import { NextPage } from "next";
 const PostList: NextPage = () => {
   return (
     <div style={{paddingTop:'100px'}}>
-      <PostsContainer />
+      <PostsContainer showTitle={false} />
     </div>
   );
 }

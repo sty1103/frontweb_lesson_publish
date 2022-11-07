@@ -1,10 +1,8 @@
 import PostsContainer from '@/containers/posts/PostsContainer';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
 import styles from '@/styles/profile/ProfileLikes.module.scss';
 import React, { useState } from 'react';
-import { AiFillHeart } from 'react-icons/ai';
-import { BsCheckLg } from 'react-icons/bs';
 
 interface Props {
   className?: string;
@@ -43,11 +41,23 @@ export default function MyPageLikes({ className }: Props) {
           showFilterInstrument={false} 
           showFilterOrder={false}
           showFilterPost={false}
+          showTitle={false}
         />
       }
 
       { subMenu==='song' &&
-        <SongsContainer className={styles.song} data={songData} />
+        <div className={styles.songs}>
+          {songData.map((v,k) => {
+            return (
+              <SongContainer
+                className={styles.item}
+                data={v}
+                key={k}
+              />
+            )
+          })}
+        </div>
+        
       }
 
       { subMenu==='teacher' &&

@@ -1,7 +1,7 @@
 import PageContent from '@/components/common/layout/PageContent';
 import PageHeader from '@/components/common/layout/PageHeader';
 import PageRoot from '@/components/common/layout/PageRoot';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongsContainer, { IData } from '@/containers/songs/SongContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/search/SearchSong.module.scss';
 import { GetServerSideProps, NextPage } from 'next';

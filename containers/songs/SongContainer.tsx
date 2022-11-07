@@ -1,9 +1,10 @@
-import Songs from '@/components/songs/Songs'
+import Songs from '@/components/songs/Song'
 
 export interface Props {
   className?: string;
   onClickSong?: Function;
-  data: IData[]
+  data: IData
+  key?: string | number;
 }
 
 export interface IData {
@@ -12,6 +13,6 @@ export interface IData {
   rate: number;
 }
 
-export default function SongsContainer(props: Props) {
+export default function SongContainer(props: Props) {
   return <Songs {...props} />;
 }

@@ -20,9 +20,13 @@
     }
   }
 
-  .song {
+  .songs {
     margin-top: 40px;
-    > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .item {
       flex: 1 1 calc(20% - 10px);
       max-width: calc(20% - 10px);
       height: 200px;

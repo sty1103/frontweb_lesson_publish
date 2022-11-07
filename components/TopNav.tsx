@@ -25,7 +25,14 @@ export default function TopNav() {
 
         <ul className={styles.menu}>
           <li onClick={e => clickMenu(e, 'post')}>게시글</li>
-          <li onClick={e => clickMenu(e, 'song')}>곡 목록</li>
+
+          { (!user || user?.type===0) &&
+            <li onClick={e => clickMenu(e, 'song')}>곡목록</li>
+          }
+          
+          { user?.type===1 &&
+            <li onClick={e => clickMenu(e, 'matching')}>레슨매칭</li>
+          }
         </ul>
 
         <div className={styles.search} onClick={()=>{moveUrl('/search')}}>

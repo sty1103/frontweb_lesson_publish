@@ -7,9 +7,14 @@ import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
 import React, { useState } from 'react';
+import User from '../common/User';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
 
 export default function PostPractice() {
+  const user = useRecoilValue(userAtom);
   const [ like, setLike ] = useState<boolean>(false);
+  
   return (
     <div className={styles.practice}>
       <div className={styles.top}>
@@ -31,10 +36,20 @@ export default function PostPractice() {
           </div>
         </div>
 
-        <Button onClick={() => {}}>
-          <IoMdMusicalNote />
-          선생님에게 질문하기
-        </Button>
+        { user?.type===0 &&
+          <Button onClick={() => {}}>
+            <IoMdMusicalNote />
+            선생님에게 질문하기
+          </Button>
+        }
+
+        { user?.type===1 &&
+          <Button onClick={() => {}}>
+            <IoMdMusicalNote />
+            동네 레슨 수락
+          </Button>
+        }
+        
       </div>
 
       <div className={styles.middle}>

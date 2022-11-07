@@ -1,5 +1,5 @@
 import MyPageRequests from '@/components/profile/ProfileRequests';
-import { IData } from '../songs/SongsContainer';
+import { IData } from '../songs/SongContainer';
 
 interface Props {
   className?: string;

@@ -1,4 +1,4 @@
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import styles from '@/styles/posts/PostArticleDetail.module.scss';
 import Image from 'next/image';
 import router from 'next/router';
@@ -58,7 +58,11 @@ export default function PostArticle() {
         </div>
 
         <div className={styles.bottom}>
-          <SongsContainer data={songData} />
+          {songData.map((v,k) => {
+            return (
+              <SongContainer className={styles.item} data={v} key={k} />
+            )
+          })}
         </div>
       </PageContent>
     </PageRoot>

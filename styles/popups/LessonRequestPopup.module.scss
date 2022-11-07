@@ -28,9 +28,12 @@
     padding: 20px;
     
     .songs {  
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 26px;
 
-      > div {
+      .item {
         flex: 1 1 calc(25% - 10px);
         max-width: calc(25% - 10px);
       }

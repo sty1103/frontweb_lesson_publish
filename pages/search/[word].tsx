@@ -2,7 +2,7 @@ import PageContent from '@/components/common/layout/PageContent';
 import PageRoot from '@/components/common/layout/PageRoot';
 import TextToggleButton from '@/components/common/TextToggleButton';
 import SearchInput from '@/components/search/SearchInput';
-import SongsContainer, { IData } from '@/containers/songs/SongsContainer';
+import SongsContainer, { IData } from '@/containers/songs/SongContainer';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/search/SearchResult.module.scss';

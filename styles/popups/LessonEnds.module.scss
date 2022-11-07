@@ -1,0 +1,89 @@
+@import '../common.scss';
+
+.root {
+  
+  background: transparent;
+
+  > :last-child {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    @include center;
+    flex-direction: column;
+  }
+
+  .img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: $color--gray--1;
+    margin-bottom: 6px;
+  }
+
+  .name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $color--gray--8;
+  }
+
+  .text {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: $color--system--5;
+  }
+
+  .rate {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 20px;
+
+    svg {
+      cursor: pointer;
+      color: $color--gray--5;
+    }
+
+    svg.active {
+      color: $color--system--5;
+    }
+  }
+
+  .review {
+    width: 400px;
+    max-width: 400px;
+    margin-bottom: 10px;
+    padding: 6px;
+    background: $color--gray--8;
+    border-radius: $radius--default;
+
+    textarea {
+      resize: none;
+      border-radius: 0;
+      border: 0;
+    }
+
+    .save {
+      width: 100%;
+      border-radius: $radius--default;
+      background: $color--system--6;
+      color: $color--gray--1;
+      font-weight: bold;
+      padding: 10px;
+      font-size: 1em;
+    }
+  }
+
+  .notice {
+    background: $color--system--7;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid $color--system--5;
+    border-radius: $radius--default;
+    text-align: center;
+
+    span {
+      font-weight: bold;
+      color: $color--system--5;
+    }
+  }
+}

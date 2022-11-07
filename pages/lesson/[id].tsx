@@ -12,6 +12,7 @@ import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";
+import LessonEndsPopup from "@/components/popups/LessonEndsPopup";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
@@ -24,6 +25,7 @@ const LessonDetail: NextPage = () => {
   const [linkedMeasure, setLinkedMeasure] = useRecoilState(linkedMeasureAtom);
   const [chatWindow, setChatWindow] = useState<boolean>(false);
   const [videoPopup, setVideoPopup] = useState<boolean>(false);
+  const [endsPopup, setEndsPopup] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -182,6 +184,8 @@ const LessonDetail: NextPage = () => {
           </div>
         </div>
       </div>
+
+      <LessonEndsPopup show={endsPopup} onClose={closeLessonEnds} />
     </section>
   );
   
@@ -190,7 +194,13 @@ const LessonDetail: NextPage = () => {
   }
 
   function clickLessonEnds() {
+    if ( window.confirm('레슨을 종료하시겠습니까?') ) {
+      setEndsPopup(true);
+    }
+  }
 
+  function closeLessonEnds() {
+    router.back();
   }
 
   function clickShowChat() {

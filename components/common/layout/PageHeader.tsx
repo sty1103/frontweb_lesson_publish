@@ -8,7 +8,7 @@ interface Props {
   prevButton?: boolean
 }
 
-export default function PageNav({ className, children, prevButton }: Props) {
+export default function PageHeader({ className, children, prevButton }: Props) {
   return (
     <div className={`${styles.nav} ${className}`}>
       { prevButton===true && 

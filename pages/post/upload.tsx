@@ -1,19 +1,20 @@
 import { NextPage } from 'next';
 import styles from '@/styles/posts/PostUpload.module.scss';
 import ToggleButton from '@/components/common/ToggleButton';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Button from '@/components/common/Button';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
-import { FaTimes } from 'react-icons/fa';
 import router from 'next/router';
 import PopUp from '@/components/common/PopUp';
 import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import PageRoot from '@/components/common/layout/PageRoot';
 import PageHeader from '@/components/common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
 
 const PostUpload: NextPage = () => {
+  const user = useRecoilValue(userAtom);
   const titleRef = useRef<HTMLInputElement>(null);
   const [ checkLesson, setCheckLesson ] = useState<boolean>(true);
   const [ checkPrivate, setCheckPrivate ] = useState<boolean>(false);
@@ -39,25 +40,29 @@ const PostUpload: NextPage = () => {
         <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
 
         <div className={styles.buttons}>
-          <div className={styles.lesson} onClick={clickLesson}>
-            <div className={styles.title}>
-              레슨 신청
-              <ToggleButton checked={checkLesson} disabled={true} />
-            </div>
-            <div className={styles.desc}>
-              공개적으로 레슨을 신청합니다
-            </div>
-          </div>
+          { user?.type===0 &&
+            <>
+              <div className={styles.lesson} onClick={clickLesson}>
+                <div className={styles.title}>
+                  레슨 신청
+                  <ToggleButton checked={checkLesson} disabled={true} />
+                </div>
+                <div className={styles.desc}>
+                  공개적으로 레슨을 신청합니다
+                </div>
+              </div>
 
-          <div className={styles.view} onClick={clickPrivate}>
-            <div className={styles.title}>
-              비공개
-              <ToggleButton checked={checkPrivate} disabled={true} />
-            </div>
-            <div className={styles.desc}>
-              글을 비공개로 업로드합니다
-            </div>
-          </div>
+              <div className={styles.view} onClick={clickPrivate}>
+                <div className={styles.title}>
+                  비공개
+                  <ToggleButton checked={checkPrivate} disabled={true} />
+                </div>
+                <div className={styles.desc}>
+                  글을 비공개로 업로드합니다
+                </div>
+              </div>
+            </>
+          }
 
           <div className={styles.song} onClick={clickSearchSong}>
             <div className={styles.title}>

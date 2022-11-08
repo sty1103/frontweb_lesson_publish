@@ -1,11 +1,15 @@
+import Button from '@/components/common/Button';
 import TextToggleButton from '@/components/common/TextToggleButton';
 import PostsContainer from '@/containers/posts/PostsContainer';
+import SongContainer from '@/containers/songs/SongContainer';
 import styles from '@/styles/matching/Matching.module.scss';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { IoMdMusicalNote } from 'react-icons/io';
 
 export default function Matching() {
   const [subMenu, setSubMenu] = useState<string>('songs');
+  const songData = { title: '너를 만나', artist: '풀킴', rate:4 };
   return (
     <section className={styles.root}>
       <div className={styles.header}>
@@ -41,26 +45,35 @@ export default function Matching() {
           <div className={styles.songs}>
             {[...Array(10)].map((v,k) => {
               return (
-                <div className={styles.song} key={k}>
+                <div className={styles.item} key={k}>
                   <div className={styles.left}>
-                    <div className={styles.profile}>
-                      <div className={styles.top}>
-                        <div className={styles.img}>
-                          {/* <Image /> */}
-                        </div>
-                        <div className={styles.name}>
-                          김은지
-                        </div>
+                    <div className={styles.top}>
+                      <div className={styles.img}>
+                        {/* <Image /> */}
                       </div>
-                      <div className={styles.middle}>
-                        
+                      <div className={styles.name}>
+                        김은지
                       </div>
-                      <div className={styles.bottom}>
+                    </div>
+                    <div className={styles.middle}>
+                      <div className={styles.instruments}>
+                        <span>악기</span>
+                        피아노
                       </div>
+                      <div className={styles.date}>
+                        <span>신청일</span>
+                        2022.10.22
+                      </div>
+                    </div>
+                    <div className={styles.bottom}>
+                      <Button onClick={() => {}}>
+                        <IoMdMusicalNote />
+                        비대면 레슨 수락
+                      </Button>
                     </div>
                   </div>
                   <div className={styles.right}>
-                    
+                    <SongContainer data={songData} />
                   </div>
                 </div>
               )

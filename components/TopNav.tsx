@@ -3,17 +3,19 @@ import Button from '@/components/common/Button';
 import { BiSearch } from 'react-icons/bi';
 import { MdMusicNote } from 'react-icons/md';
 import router from 'next/router';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { moveUrl } from '@/lib/utils';
 import { useRecoilState } from 'recoil';
 import { userAtom } from '@/store/common';
 import Image from 'next/image';
 import ProfileDropdownContainer from '@/containers/ProfileDropdownContainer';
 import AlertDropdownContainer from '@/containers/AlertDropdownContainer';
+import UploadPopup from './popups/UploadPopup';
 
 export default function TopNav() {
   const [user, setUser] = useRecoilState(userAtom);
   const navRef = useRef<HTMLElement>(null);
+  const [uploadPopup, setUploadPopup] = useState<boolean>(false);
 
   return (
     <nav className={styles.root} ref={navRef}>
@@ -41,14 +43,14 @@ export default function TopNav() {
         </div>
 
         { (user?.type==0 && user.email) &&
-          <Button className={styles.upload} onClick={(e:React.MouseEvent) => clickUpload(e, 0)}>
-            <MdMusicNote />
+          <Button className={styles.upload} onClick={() => moveUrl('/post/upload')}>
+            {/* <MdMusicNote /> */}
             게시글 업로드
           </Button>
         }
 
         { user?.type===1 &&
-          <Button className={styles.upload} onClick={(e:React.MouseEvent) => clickUpload(e, 1)}>
+          <Button className={styles.upload} onClick={() => setUploadPopup(true)}>
             곡·게시글 업로드
           </Button>
         }
@@ -74,6 +76,8 @@ export default function TopNav() {
           </div>
         }
       </div>
+
+      <UploadPopup show={uploadPopup} onClose={() => setUploadPopup(false)} />
     </nav>
   );
 
@@ -90,14 +94,5 @@ export default function TopNav() {
     initMenu();
     e.currentTarget.classList.add(styles.active);
     moveUrl(`/${move}`);
-  }
-
-  function clickUpload(e: React.MouseEvent, type: number) {
-    if ( type ) {
-      // 곡/게시물 업로드 팝업
-    } else {
-      /// 게시물 업로드
-      moveUrl('/post/upload');
-    }
   }
 }

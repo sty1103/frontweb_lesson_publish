@@ -1,5 +1,4 @@
 import styles from '@/styles/profile/Profile.module.scss';
-import PageNav from "@/components/common/layout/PageHeader";
 import PageRoot from "@/components/common/layout/PageRoot";
 import { GetServerSideProps, NextPage } from "next";
 import PageContent from '@/components/common/layout/PageContent';
@@ -9,12 +8,10 @@ import Button from '@/components/common/Button';
 import React, { useState } from 'react';
 import PostsContainer from '@/containers/posts/PostsContainer';
 import MyPageLikesContainer from '@/containers/profile/ProfileLikesContainer';
-import SongsContainer, { IData } from '@/containers/songs/SongContainer';
+import { IData } from '@/containers/songs/SongContainer';
 import MyPageLessonsContainer from '@/containers/profile/ProfileLessonsContainer';
-import MyPageRequestsContainer from '@/containers/profile/ProfileRequestsContainer';
 import MyPageReviewsContainer from '@/containers/profile/ProfileReviewsContainer';
 import { moveUrl } from '@/lib/utils';
-import { Dropdown, SSRProvider } from 'react-bootstrap';
 
 interface Props {
   id: string;

@@ -23,7 +23,6 @@
     .buttons {
       display: flex;
       gap: 16px;
-      cursor: pointer;
       margin-bottom: 16px;
 
       > div {
@@ -31,6 +30,7 @@
         padding: 16px;
         border: 1px solid $color--gray--5;
         border-radius: $radius--default;
+        cursor: pointer;
 
         .title {
           display: flex;

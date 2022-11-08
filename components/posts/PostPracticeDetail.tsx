@@ -12,8 +12,11 @@ import PageNav from '../common/layout/PageHeader';
 import PageContent from '../common/layout/PageContent';
 import { useRouter } from 'next/router';
 import { moveUrl } from '@/lib/utils';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
 
 export default function PostPracticeDetail() {
+  const user = useRecoilValue(userAtom);
   const commentsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -59,10 +62,19 @@ export default function PostPracticeDetail() {
             </div>
           </div>
 
-          <Button onClick={() => {}}>
-            <IoMdMusicalNote />
-            선생님에게 질문하기
-          </Button>
+          { user?.type===0 &&
+            <Button onClick={() => {}}>
+              <IoMdMusicalNote />
+              선생님에게 질문하기
+            </Button>
+          }
+
+          { user?.type===1 &&
+            <Button onClick={() => {}}>
+              <IoMdMusicalNote />
+              동네 레슨 수락
+            </Button>
+          }
 
           <BsShare className={styles.share} />
 

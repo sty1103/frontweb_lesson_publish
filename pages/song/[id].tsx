@@ -9,8 +9,11 @@ import Button from '@/components/common/Button';
 import { BsList } from 'react-icons/bs';
 import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
 import { moveUrl } from '@/lib/utils';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
 
 const SongDetail: NextPage = () => {
+  const user = useRecoilValue(userAtom);
   return (
     <PageRoot className={styles.root}>
       <PageHeader prevButton={true}>
@@ -70,17 +73,21 @@ const SongDetail: NextPage = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles.bottom}>
-                <Button onClick={()=>{}}>
-                  <BsList /> 연습 기록 목록
-                </Button>
-                <Button onClick={()=>{}}>
-                <IoMdMusicalNote /> 연습하기
-                </Button>
-                <Button onClick={() => moveUrl('/song/request/"songid"')}>
-                  <IoMdMusicalNote /> 레슨 신청하기
-                </Button>
-              </div>
+
+              { user?.type===0 &&
+                <div className={styles.bottom}>
+                  <Button onClick={()=>{}}>
+                    <BsList /> 연습 기록 목록
+                  </Button>
+                  <Button onClick={()=>{}}>
+                  <IoMdMusicalNote /> 연습하기
+                  </Button>
+                  <Button onClick={() => moveUrl('/song/request/"songid"')}>
+                    <IoMdMusicalNote /> 레슨 신청하기
+                  </Button>
+                </div>
+              }
+              
             </div>
           </div>
           

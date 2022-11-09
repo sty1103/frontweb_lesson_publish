@@ -1,3 +1,4 @@
+import styles from '@/styles/Home.module.scss';
 import type { NextPage } from 'next'
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
       }
 
       { user?.type===1 && 
-        <DashboardContainer />
+        <DashboardContainer className={styles.dashboard} />
       }
       <BestPracticeContainer />
       <PostListContainer showLocationToggle={user?.type===0 ? false:true} />

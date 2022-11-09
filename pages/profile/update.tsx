@@ -3,6 +3,7 @@ import PageContent from '@/components/common/layout/PageContent';
 import PageHeader from '@/components/common/layout/PageHeader';
 import PageRoot from '@/components/common/layout/PageRoot';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
+import { userAtom } from '@/store/common';
 import styles from '@/styles/profile/ProfileUpdate.module.scss';
 import { NextPage } from 'next';
 import Image from 'next/image';
@@ -11,8 +12,10 @@ import { Dropdown, Form, SSRProvider } from 'react-bootstrap';
 import { CgPiano } from 'react-icons/cg';
 import { FaGuitar } from 'react-icons/fa';
 import { GiAccordion, GiDrumKit, GiHarp, GiPipeOrgan, GiViolin, GiXylophone } from 'react-icons/gi';
+import { useRecoilValue } from 'recoil';
 
 const ProfileUpdate: NextPage = () => {
+  const user = useRecoilValue(userAtom);
   const instData: any = {
     drum: { name: '드럼', icon: <GiDrumKit /> },
     drum2: { name: '드럼', icon: <GiDrumKit /> },
@@ -68,9 +71,21 @@ const ProfileUpdate: NextPage = () => {
     worker: { name: '가끔 연주하는 직장인', content: '' },
   }
 
+  const step5_genre: any = {
+    classic: { name: '클래식' },
+    rock: { name: '록' },
+    rnb: { name: 'R&B' },
+    hiphop: { name: '힙합' },
+    blues: { name: '블루스' },
+    jazz: { name: '재즈' },
+    pop: { name: '팝' },
+    electronic: { name: '전자음악'},
+    dance: { name: '댄스' },
+  }
+
   return (
     <PageRoot className={styles.root}>
-      <PageHeader className={styles.nav} prevButton={true}>
+      <PageHeader className={styles.header} prevButton={true}>
         내 프로필 수정
       </PageHeader>
       <PageContent className={styles.content}>
@@ -80,29 +95,55 @@ const ProfileUpdate: NextPage = () => {
         <div className={styles.form}>
           <div className={styles.name}>
             <span>이름</span>
-            <Form.Control type='text' defaultValue={'김가은'} />
+            <Form.Control
+              type='text'
+              placeholder='이름을 입력해주세요'
+              defaultValue={'김가은'}
+            />
           </div>
-          <div className={styles.gender}>
-            <span>성별</span>
-            <label>
-              <input 
-                className='form-check-input' 
-                type='radio'
-                name='gender'
-                // checked
+          { user?.type===0 &&
+            <div className={styles.gender}>
+              <span>성별</span>
+              <label>
+                <input 
+                  className='form-check-input' 
+                  type='radio'
+                  name='gender'
+                  // checked
+                />
+                남성
+              </label>
+              <label>
+                <input 
+                  className='form-check-input' 
+                  type='radio'
+                  name='gender'
+                />
+                여성
+              </label>
+            </div>
+          }
+
+          { user?.type===1 &&
+            <div className={styles.education}>
+              <span>학력</span>
+              <Form.Control
+                type='text'
+                placeholder='학력을 입력해주세요'
+                defaultValue={'바이올린 대학교'}
               />
-              남성
-            </label>
-            <label>
-              <input 
-                className='form-check-input' 
-                type='radio'
-                name='gender'
-              />
-              여성
-            </label>
-          </div>
+            </div>
+          }
         </div>
+
+        { user?.type===1 &&
+          <Form.Control
+            as='textarea'
+            rows={4}
+            placeholder='소개를 입력해주세요'
+            className={styles.desc}
+          />
+        }
 
         <div className={styles.title} style={{margin:'0'}}>동네인증</div>
         <div className={styles.map}>
@@ -122,18 +163,39 @@ const ProfileUpdate: NextPage = () => {
           })}
         </div>
 
-        <div className={styles.title}>연주실력</div>
-        <div className={styles.level}>
-          {Object.keys(levelData).map((v) => {
-            const item = levelData[v];
-            return (
-              <div className={styles.item} onClick={clickLevel} key={v}>
-                <div>{item.name}</div>
-                {item.content}
-              </div>
-            )
-          })}
-        </div>
+        { user?.type===0 &&
+          <>
+            <div className={styles.title}>연주실력</div>
+            <div className={styles.level}>
+              {Object.keys(levelData).map((v) => {
+                const item = levelData[v];
+                return (
+                  <div className={styles.item} onClick={clickLevel} key={v}>
+                    <div>{item.name}</div>
+                    {item.content}
+                  </div>
+                )
+              })}
+            </div>
+          </>
+        }
+
+        { user?.type===1 &&
+          <>
+            <div className={styles.title}>장르</div>
+            <div className={styles.genre}>
+              {Object.keys(step5_genre).map((v) => {
+                const item = step5_genre[v];
+                return (
+                  <div className={styles.item} onClick={clickInstruments} key={v}>
+                    <div>{item.name}</div>
+                  </div>
+                )
+              })}
+            </div>
+          </>
+        }
+        
       </PageContent>
       <Button onClick={()=>{}}>
         수정완료

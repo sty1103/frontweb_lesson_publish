@@ -1,14 +1,17 @@
 import PostsContainer from '@/containers/posts/PostsContainer';
 import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
+import { userAtom } from '@/store/common';
 import styles from '@/styles/profile/ProfileLikes.module.scss';
 import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   className?: string;
 }
 
 export default function MyPageLikes({ className }: Props) {
+  const user = useRecoilValue(userAtom);
   const subMenuData: any = {
     post: '게시글',
     song: '곡',
@@ -26,6 +29,7 @@ export default function MyPageLikes({ className }: Props) {
     <section className={styles.likes}>
       <ul className={styles.submenu}>
         {Object.keys(subMenuData).map((v) => {
+          if ( v==='teacher' && user?.type===1 ) return;
           return (
             <li
               className={subMenu===v ? styles.active:''}
@@ -42,6 +46,7 @@ export default function MyPageLikes({ className }: Props) {
           showFilterOrder={false}
           showFilterPost={false}
           showTitle={false}
+          showLocationToggle={user?.type===0}
         />
       }
 

@@ -3,7 +3,7 @@
 .root {
   padding-bottom: 200px;
 
-  .nav {
+  .header {
     border-bottom: 1px solid $color--gray--5;
     margin-bottom: 40px;
   }
@@ -116,6 +116,55 @@
         flex: 1 1 calc(33% - 10px);
         max-width: calc(33% - 10px);
         height: 200px;
+        @include center;
+        flex-direction: column;
+        text-align: center;
+        border: 2px solid $color--gray--5;
+        font-size: .8em;
+        color: $color--gray--4;
+        padding: 20px;
+        word-break: keep-all;
+        border-radius: $radius--default;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        > div {
+          font-size: 1.2em;
+        }
+
+        .dropdown {
+          margin-top: 10px;
+          > * {
+            min-width: 100px;
+          }
+        }
+      }
+      
+      > .item.active {
+        border: 2px solid $color--system--3;
+
+        > div {
+          color: $color--system--5;
+        }
+      }
+    }
+
+    .desc {
+      max-width: 600px;
+      resize: none;
+    }
+
+    .genre {
+      @include center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 10px;
+      height: 100%;
+      margin: 20px 0;
+
+      .item {
+        flex: 1 1 calc(33% - 20px);
         @include center;
         flex-direction: column;
         text-align: center;

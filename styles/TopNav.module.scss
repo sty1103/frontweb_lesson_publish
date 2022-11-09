@@ -3,11 +3,11 @@
 .root {
   position: fixed;
   top: 0;
-  left: -6px;
   width: 100%;
   border-bottom: 1px solid #ddd;
   z-index: 10;
   background: $color--gray--8;
+  padding-right: 6px;
 
   .content {
     max-width: $width--fit;

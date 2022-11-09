@@ -5,16 +5,19 @@ import SearchInput from '@/components/search/SearchInput';
 import SongsContainer, { IData } from '@/containers/songs/SongContainer';
 import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
 import { moveUrl } from '@/lib/utils';
+import { userAtom } from '@/store/common';
 import styles from '@/styles/search/SearchResult.module.scss';
 import { GetServerSideProps, NextPage } from 'next';
 import { useState } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   word: string;
 }
 
 const SearchResult: NextPage<Props> = ({ word }) => {
+  const user = useRecoilValue(userAtom);
   const songData: IData[] = [ ...Array(8) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
@@ -44,25 +47,29 @@ const SearchResult: NextPage<Props> = ({ word }) => {
           })}
         </div>
 
-        <div className={styles.title}>
-          <div className={styles.link} onClick={() => moveUrl(`/search/teacher?word=${word}`)}>
-            선생님 <span>31</span> 
-            <MdArrowForwardIos />
-          </div>
+        { user?.type===0 &&
+          <>
+            <div className={styles.title}>
+              <div className={styles.link} onClick={() => moveUrl(`/search/teacher?word=${word}`)}>
+                선생님 <span>31</span> 
+                <MdArrowForwardIos />
+              </div>
 
-          <TextToggleButton 
-            className={styles.face}
-            leftText={'비대면'}
-            rightText={'동네'}
-          />
-        </div>
-        <div className={styles.teachers}>
-          {[...Array(6)].map((v,k) => {
-            return (
-              <TeacherBoxContainer key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
-            )
-          })}
-        </div>
+              <TextToggleButton 
+                className={styles.face}
+                leftText={'비대면'}
+                rightText={'동네'}
+              />
+            </div>
+            <div className={styles.teachers}>
+              {[...Array(6)].map((v,k) => {
+                return (
+                  <TeacherBoxContainer key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
+                )
+              })}
+            </div>
+          </>
+        }
       </PageContent>
     </PageRoot>
   )

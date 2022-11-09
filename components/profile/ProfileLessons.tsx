@@ -1,9 +1,12 @@
+import DashboardContainer from '@/containers/DashboardContainer';
 import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import { moveUrl } from '@/lib/utils';
+import { userAtom } from '@/store/common';
 import styles from '@/styles/profile/ProfileLessons.module.scss';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Dropdown, SSRProvider } from 'react-bootstrap';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   className?: string;
@@ -11,6 +14,7 @@ interface Props {
 }
 
 export default function MyPageLessons({ className, songData }: Props) {
+  const user = useRecoilValue(userAtom);
   const filterOrderList: any = {
     all: { name: '전체' },
     request: { name: '레슨 신청' },
@@ -18,8 +22,6 @@ export default function MyPageLessons({ className, songData }: Props) {
     complete: { name: '레슨 완료' }
   };
   const [ filterOrder, setFilterOrder ] = useState<string>(Object.keys(filterOrderList)[0]);
-
-  console.log( filterOrder );
 
   return (
     <div className={`${styles.root} ${className}`}>
@@ -47,28 +49,36 @@ export default function MyPageLessons({ className, songData }: Props) {
       </div>
       
       <div className={styles.content}>
-        {songData.map((v,k) => {
-          return (
-            <div className={styles.item} key={k}>
-              <SongContainer
-                className={styles.song}
-                data={v}
-                onClickSong={() => moveUrl('/lesson/"lessonId"')}
-              />
-              <div className={styles.teacher}>
-                <div className={styles.img}>
-                  {/* <Image /> */}
+        { user?.type===0 && 
+          <>
+            {songData.map((v,k) => {
+              return (
+                <div className={styles.item} key={k}>
+                  <SongContainer
+                    className={styles.song}
+                    data={v}
+                    onClickSong={() => moveUrl('/lesson/"lessonId"')}
+                  />
+                  <div className={styles.teacher}>
+                    <div className={styles.img}>
+                      {/* <Image /> */}
+                    </div>
+                    <div className={styles.name}>
+                      김은수
+                    </div>
+                    <div className={styles.status}>
+                      레슨완료
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.name}>
-                  김은수
-                </div>
-                <div className={styles.status}>
-                  레슨완료
-                </div>
-              </div>
-            </div>
-          )
-        })}
+              )
+            })}
+          </>
+        }
+
+        { user?.type===1 && 
+          <DashboardContainer />
+        }
       </div>
     </div>
   )

@@ -7,9 +7,12 @@ import { NextPage } from "next";
 import Image from 'next/image';
 import { IoMdMusicalNote } from 'react-icons/io';
 import { useRef } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '@/store/common';
 
 
 const Search: NextPage = () => {
+  const user = useRecoilValue(userAtom);
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -38,62 +41,67 @@ const Search: NextPage = () => {
           </div>
         </div>
 
-        <div className={styles.title}>
-          추천 선생님
-        </div>
-        <div className={styles.teacher}>
-          <div className={styles.subtitle}>
-            비대면
-          </div>
-          <div className={styles.wrapper}>
-            {[...Array(4)].map((v,k) => {
-              return (
-                <div
-                  className={styles.item}
-                  key={k}
-                  onClick={() => moveUrl('/profile/1a2b3c')}
-                >
-                  <div className={styles.img}>
-                    {/* <Image /> */}
-                  </div>
-                  <div className={styles.name}>
-                    김도우
-                  </div>
-                  <div className={styles.career}>
-                    바이올린 과외 8년차
-                  </div>
+        { user?.type===0 &&
+          <>
+            <div className={styles.title}>
+              추천 선생님
+              </div>
+              <div className={styles.teacher}>
+                <div className={styles.subtitle}>
+                  비대면
                 </div>
-              )
-            })}
-          </div>
-        </div>
+                <div className={styles.wrapper}>
+                  {[...Array(4)].map((v,k) => {
+                    return (
+                      <div
+                        className={styles.item}
+                        key={k}
+                        onClick={() => moveUrl('/profile/1a2b3c')}
+                      >
+                        <div className={styles.img}>
+                          {/* <Image /> */}
+                        </div>
+                        <div className={styles.name}>
+                          김도우
+                        </div>
+                        <div className={styles.career}>
+                          바이올린 과외 8년차
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
 
-        <div className={styles.teacher}>
-          <div className={styles.subtitle}>
-            내 동네
-          </div>
-          <div className={styles.wrapper}>
-            {[...Array(4)].map((v,k) => {
-              return (
-                <div
-                  className={styles.item}
-                  key={k}
-                  onClick={() => moveUrl('/profile/1a2b3c')}
-                >
-                  <div className={styles.img}>
-                    {/* <Image /> */}
-                  </div>
-                  <div className={styles.name}>
-                    김도우
-                  </div>
-                  <div className={styles.career}>
-                    바이올린 과외 8년차
-                  </div>
+              <div className={styles.teacher}>
+                <div className={styles.subtitle}>
+                  내 동네
                 </div>
-              )
-            })}
-          </div>
-        </div>
+                <div className={styles.wrapper}>
+                  {[...Array(4)].map((v,k) => {
+                    return (
+                      <div
+                        className={styles.item}
+                        key={k}
+                        onClick={() => moveUrl('/profile/1a2b3c')}
+                      >
+                        <div className={styles.img}>
+                          {/* <Image /> */}
+                        </div>
+                        <div className={styles.name}>
+                          김도우
+                        </div>
+                        <div className={styles.career}>
+                          바이올린 과외 8년차
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+            </div>
+          </>
+        }
+        
       </PageContent>
     </PageRoot>
   )

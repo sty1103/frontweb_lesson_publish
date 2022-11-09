@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <meta property='og:title' content='레슨 노트' />
         <meta name='description' content='' />
       </Head>
-      { user?.type===0 && 
+      { (!user || user?.type===0) && 
         <MainBannerContainer />
       }
 

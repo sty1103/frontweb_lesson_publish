@@ -53,7 +53,7 @@ export default function LessonEndsPopup({ className, show, onClose=()=>{}}: Prop
       </div>
 
       <div className={styles.review}>
-        <Form.Control as='textarea' rows={4} placeholder='리뷰를 입력해주세요' />
+        <Form.Control as='textarea' rows={4} placeholder='리뷰를 남겨주세요' />
         <Button className={styles.save} onClick={()=>onClose()}>
           레슨 종료하기
         </Button>

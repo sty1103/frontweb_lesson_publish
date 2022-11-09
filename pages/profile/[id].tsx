@@ -21,8 +21,8 @@ interface Props {
   id: string;
 }
 
-// const Profile: NextPage<Props> = ({ id }) => {
-const Profile: NextPage = () => {
+const Profile: NextPage<Props> = ({ id }) => {
+// const Profile: NextPage = () => {
   const user = useRecoilValue(userAtom);
   const subMenuData: any = {
     posts: '게시글',
@@ -208,14 +208,14 @@ const Profile: NextPage = () => {
   }
 }
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const props = {
-//     id: context.query.id
-//   }
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const props = {
+    id: context.query.id
+  }
 
-//   return {
-//     props
-//   }
-// };
+  return {
+    props
+  }
+};
 
 export default Profile;

@@ -17,9 +17,6 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
   const setOsmd = useSetRecoilState(osmdAtom);
   const divRef = useRef<HTMLDivElement>(null);
   const loadScore = useCallback(() => {
-    // console.log( divRef.current?.querySelector('#osmdCanvasPage1')?.remove() );
-    
-    
     const options = {
       drawTitle: title,
       drawSubtitle: subtitle,
@@ -31,9 +28,11 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
       osmd.render();
       
       // 사파리/파폭에서 전에 렌더링된 악보를 지워주지 않는 버그 대처
-      if ( divRef.current!.querySelectorAll('#osmdCanvasPage1').length > 1 ) {
-        divRef.current?.querySelector('#osmdCanvasPage1:first-child')?.remove();
+      if ( divRef.current ) {
+        if ( divRef.current.querySelectorAll('#osmdCanvasPage1').length > 1 ) {
+          divRef.current?.querySelector('#osmdCanvasPage1:first-child')?.remove();
       }
+    }
 
       if ( control )
         setOsmd(osmd);

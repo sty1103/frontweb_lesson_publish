@@ -3,6 +3,7 @@ import PageRoot from "@/components/common/layout/PageRoot";
 import { GetServerSideProps, NextPage } from "next";
 import PageContent from '@/components/common/layout/PageContent';
 import { MdArrowForwardIos } from 'react-icons/md';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Button from '@/components/common/Button';
 import React, { useState } from 'react';
@@ -33,6 +34,10 @@ const Profile: NextPage<Props> = ({ id }) => {
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })
+
+  const MyPageLikes = dynamic(() => import('@/containers/profile/ProfileLikesContainer'));
+  const MyPageLessons = dynamic(() => import('@/containers/profile/ProfileLessonsContainer'));
+  const MyPageReviews = dynamic(() => import('@/containers/profile/ProfileReviewsContainer'));
 
   return (
     <PageRoot className={styles.root}>
@@ -101,7 +106,7 @@ const Profile: NextPage<Props> = ({ id }) => {
 
         <div className={styles.content}>
           { subMenu==='likes' &&
-            <MyPageLikesContainer />
+            <MyPageLikes />
           }
 
           {/* { subMenu==='playings' &&
@@ -109,7 +114,7 @@ const Profile: NextPage<Props> = ({ id }) => {
           } */}
 
           { subMenu==='lessons' &&
-            <MyPageLessonsContainer songData={songData} />
+            <MyPageLessons songData={songData} />
           }
 
           {/* { subMenu==='requests' &&
@@ -117,7 +122,7 @@ const Profile: NextPage<Props> = ({ id }) => {
           } */}
 
           { subMenu==='reviews' &&
-            <MyPageReviewsContainer />
+            <MyPageReviews />
           }
         </div>
       </PageContent>

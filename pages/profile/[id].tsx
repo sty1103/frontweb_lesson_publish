@@ -1,6 +1,6 @@
 import styles from '@/styles/profile/Profile.module.scss';
 import PageRoot from "@/components/common/layout/PageRoot";
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, NextPage, NextPageContext } from "next";
 import PageContent from '@/components/common/layout/PageContent';
 import { MdArrowForwardIos, MdLocationPin } from 'react-icons/md';
 import Image from 'next/image';

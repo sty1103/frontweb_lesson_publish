@@ -79,7 +79,7 @@
       .info {
         display: flex;
         align-items: center;
-        width: $width--content-fit;
+        width: $width--content--fit;
         margin: 0 auto;
         padding-bottom: 40px;
   
@@ -88,7 +88,7 @@
           height: 100px;
           overflow: hidden;
           position: relative;
-          background: $color--gray--1;;
+          background: $color--gray--1;
           border-radius: 50%;
           margin-right: 20px;
         }

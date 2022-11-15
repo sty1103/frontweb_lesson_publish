@@ -36,7 +36,7 @@ export default function ProfileDropdown({ className }: Props) {
         <div className={styles.top}>
           프로필 정보
 
-          <Button className={styles.logout} onClick={clickLogout}>
+          <Button className={styles.signout} onClick={clickSignOut}>
             로그아웃
           </Button>
         </div>
@@ -78,7 +78,7 @@ export default function ProfileDropdown({ className }: Props) {
     }
   }
 
-  function clickLogout() {
+  function clickSignOut() {
     setUser(null);
     localStorage.removeItem('user');
     moveUrl('/');

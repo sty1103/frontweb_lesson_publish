@@ -18,7 +18,7 @@ import termsPromotion from '@/public/terms/promotion';
 import { nl2br } from '@/lib/utils';
 import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { tempUserData, userAtom } from '@/store/common';
 

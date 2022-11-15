@@ -8,7 +8,7 @@ import router from 'next/router';
 import Button from "@/components/common/Button";
 import { BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FaTimes } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";

@@ -1,7 +1,7 @@
 import styles from '@/styles/songs/Song.module.scss';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { IoMdMusicalNote } from "react-icons/io";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { IData } from '@/containers/songs/SongContainer'
 
 interface Props {

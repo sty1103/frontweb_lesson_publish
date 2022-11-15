@@ -1,6 +1,6 @@
 import styles from '@/styles/posts/PostArticle.module.scss';
 import Button from '../common/Button';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import router from 'next/router';
 import { moveUrl } from '@/lib/utils';
 

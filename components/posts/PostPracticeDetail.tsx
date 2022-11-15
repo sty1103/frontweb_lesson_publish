@@ -1,7 +1,7 @@
 import styles from '@/styles/posts/PostPracticeDetail.module.scss';
 import { AiOutlineAlert, AiOutlineHeart } from 'react-icons/ai';
 import router from 'next/router';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Button from '../common/Button';
 import { IoIosMore, IoMdMusicalNote } from 'react-icons/io';
 import { BsShare } from 'react-icons/bs';

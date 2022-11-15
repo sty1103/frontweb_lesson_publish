@@ -1,7 +1,7 @@
 import styles from '@/styles/popups/LessonVideoPopup.module.scss';
 import PopUp from "@/components/common/PopUp";
 import { FaTimes } from 'react-icons/fa';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 interface Props {
   className?: string;

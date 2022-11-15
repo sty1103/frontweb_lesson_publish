@@ -1,6 +1,6 @@
 import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import styles from '@/styles/profile/ProfileRequest.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { MdArrowForwardIos } from 'react-icons/md';
 
 interface Props {

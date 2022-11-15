@@ -6,7 +6,7 @@ import { FaSearchPlus } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 import { ImLocation2 } from 'react-icons/im';
 import Button from '../common/Button';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useState } from 'react';
 import ReviewPopUpContainer from '@/containers/popups/ReviewPopupContainer';
 import router from 'next/router';

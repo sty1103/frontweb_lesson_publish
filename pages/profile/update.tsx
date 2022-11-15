@@ -6,7 +6,7 @@ import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import { userAtom } from '@/store/common';
 import styles from '@/styles/profile/ProfileUpdate.module.scss';
 import { NextPage } from 'next';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useState } from 'react';
 import { Dropdown, Form, SSRProvider } from 'react-bootstrap';
 import { CgPiano } from 'react-icons/cg';

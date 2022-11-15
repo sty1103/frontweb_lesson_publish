@@ -1,6 +1,6 @@
 import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import styles from '@/styles/posts/PostArticleDetail.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import router from 'next/router';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsShare } from 'react-icons/bs';

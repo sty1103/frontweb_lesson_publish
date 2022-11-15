@@ -3,7 +3,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import styles from '@/styles/MainBanner.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function MainBanner() {
   const data = [
@@ -21,7 +21,7 @@ export default function MainBanner() {
     centerPadding: "100px",
     slidesToShow: 1,
     speed: 500,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
     variableWidth: true

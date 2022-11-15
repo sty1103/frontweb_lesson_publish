@@ -22,7 +22,6 @@
       > div {
         padding: 0 12px;
         min-width: 1060px;
-        max-width: 1060px;
         height: 596px;
       }
     }
@@ -38,37 +37,50 @@
 
     @media(max-width: 1199px) {
       > div > div > div {
-        min-width: 722px;
-        max-width: 722px;
-        height: 406px;
+        min-width: 822px;
+        height: 462px;
       }
     }
 
     @media (max-width: 991px) {
       > div > div > div {
-        min-width: 567px;
-        max-height: 318px;
+        min-width: 690px;
+        height: 388px;
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       > div > div > div {
-        min-width: 442px;
-        max-height: 249px;
+        min-width: 502px;
+        height: 282px;
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 540px) {
       > div > div > div {
-        min-width: 409px;
-        max-height: 290px;
+        min-width: 369px;
+        height: 207px;
       }
     }
 
-    @media (max-width: 375px) {
+    @media (max-width: 414px) {
       > div > div > div {
-        min-width: 300px;
-        max-height: 200px;
+        min-width: 320px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      > div > div > div {
+        min-width: 290px;
+        height: 163px;
+      }
+    }
+
+    @media (max-width: 284px) {
+      > div > div > div {
+        min-width: 209px;
+        height: 117px;
       }
     }
   }

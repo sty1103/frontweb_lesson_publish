@@ -4,7 +4,7 @@ import SearchInput from '@/components/search/SearchInput';
 import { moveUrl } from '@/lib/utils';
 import styles from '@/styles/search/Search.module.scss';
 import { NextPage } from "next";
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { IoMdMusicalNote } from 'react-icons/io';
 import { useRef } from 'react';
 import { useRecoilValue } from 'recoil';

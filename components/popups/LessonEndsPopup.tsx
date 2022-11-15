@@ -1,6 +1,6 @@
 import styles from '@/styles/popups/LessonEnds.module.scss';
 import PopUp from '@/components/common/PopUp';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React, { useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Form } from 'react-bootstrap';

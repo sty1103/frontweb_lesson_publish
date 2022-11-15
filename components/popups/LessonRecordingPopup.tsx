@@ -1,7 +1,7 @@
 import styles from '@/styles/popups/LessonRecordingPopup.module.scss';
 import PopUp from '@/components/common/PopUp';
 import { FaTimes } from 'react-icons/fa';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Button from '../common/Button';
 import { BsFillStopCircleFill, BsFillTrashFill, BsRecordCircleFill } from 'react-icons/bs';
 import { useRecoilState, useRecoilValue } from 'recoil';

@@ -1,6 +1,6 @@
 @import './common.scss';
 
-.alert {
+.root {
   padding: 4px;
   margin-right: 12px;
   position: relative;
@@ -19,7 +19,7 @@
     box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 30%);
     border: 1px solid $color--gray--5;
     top: 45px;
-    right: -67px;
+    right: -50px;
     min-width: 350px;
     padding: 6px;
     z-index: 2147483647;
@@ -105,12 +105,63 @@
         border: 0;
       }
     }
+
     &:after {
-      right: 80px;
+      right: 62px;
     }
   }
   
   .dropbox.active {
     display: block;
+  }
+}
+
+@media(max-width: 1080px) {
+  .root {
+    margin-left: 6px;
+    margin-right: 0;
+
+    svg {
+      margin-bottom: 2px;
+    }
+
+    .dropbox {
+      position: fixed;
+      left: 0;
+      top: 60px;
+      right: -16px;
+      width: 100vw;
+      height: calc(100vh - 60px);
+      box-shadow: unset;
+
+  
+      .middle {
+        min-height: 100%;
+        max-height: 100%;
+        width: calc(100vw - 12px)
+      }
+  
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    .dropbox {
+      right: -20px;
+
+      &:after {
+        right: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .root {
+    
   }
 }

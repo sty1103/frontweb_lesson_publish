@@ -17,6 +17,9 @@ export default function AlertDropdown({ className, active}: Props) {
     { content: '우영미 님의 댓글: "멋있어요!"', time: '1분전', title: '너를만나 - 폴킴' },
     { content: '김승철 선생님이 새로운 노트를 남겼습니다.', time: '5분전', title: '너를만나 - 폴킴' },
     { content: '김승철 선생님에 신청한 레슨이 수락되었습니다.', time: '1시간 전', title: '너를만나 - 폴킴' },
+    { content: '김승철 선생님에 신청한 레슨이 수락되었습니다.', time: '1시간 전', title: '너를만나 - 폴킴' },
+    { content: '김승철 선생님에 신청한 레슨이 수락되었습니다.', time: '1시간 전', title: '너를만나 - 폴킴' },
+    { content: '김승철 선생님에 신청한 레슨이 수락되었습니다.', time: '1시간 전', title: '너를만나 - 폴킴' },
   ];
 
   useEffect(() => {
@@ -27,7 +30,7 @@ export default function AlertDropdown({ className, active}: Props) {
   });
 
   return (
-    <div className={`${styles.alert} ${className}`} onClick={clickAlert}>
+    <div className={`${styles.root} ${className}`} onClick={clickAlert}>
       <FaBell />
 
       <div className={`${styles.dropbox} ${dropdown ? styles.active:''}`}>

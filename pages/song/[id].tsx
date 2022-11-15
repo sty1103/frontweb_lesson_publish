@@ -3,7 +3,7 @@ import styles from '@/styles/songs/SongDetail.module.scss';
 import PageRoot from '@/components/common/layout/PageRoot';
 import PageHeader from '@/components/common/layout/PageHeader';
 import PageContent from '@/components/common/layout/PageContent';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { IoMdMusicalNote } from 'react-icons/io';
 import Button from '@/components/common/Button';
 import { BsList } from 'react-icons/bs';

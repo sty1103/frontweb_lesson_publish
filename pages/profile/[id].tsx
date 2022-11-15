@@ -3,7 +3,7 @@ import PageRoot from "@/components/common/layout/PageRoot";
 import { GetServerSideProps, NextPage, NextPageContext } from "next";
 import PageContent from '@/components/common/layout/PageContent';
 import { MdArrowForwardIos, MdLocationPin } from 'react-icons/md';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Button from '@/components/common/Button';
 import React, { useState } from 'react';
 import PostsContainer from '@/containers/posts/PostsContainer';

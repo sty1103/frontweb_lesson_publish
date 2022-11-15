@@ -3,7 +3,7 @@ import TextToggleButton from '@/components/common/TextToggleButton';
 import PostsContainer from '@/containers/posts/PostsContainer';
 import SongContainer from '@/containers/songs/SongContainer';
 import styles from '@/styles/matching/Matching.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React, { useState } from 'react';
 import { IoMdMusicalNote } from 'react-icons/io';
 

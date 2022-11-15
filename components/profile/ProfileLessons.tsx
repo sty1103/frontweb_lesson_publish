@@ -3,7 +3,7 @@ import SongContainer, { IData } from '@/containers/songs/SongContainer';
 import { moveUrl } from '@/lib/utils';
 import { userAtom } from '@/store/common';
 import styles from '@/styles/profile/ProfileLessons.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useState } from 'react';
 import { Dropdown, SSRProvider } from 'react-bootstrap';
 import { useRecoilValue } from 'recoil';

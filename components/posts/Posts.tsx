@@ -138,10 +138,10 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
         <PostPracticeContainer />
         <PostArticleContainer />
         { user?.type===0 && 
-          <div>
+          <>
             <PostCurriculumContainer />
             <PostTeacherContainer />
-          </div>
+          </>
         }
 
         { user?.type===1 && 

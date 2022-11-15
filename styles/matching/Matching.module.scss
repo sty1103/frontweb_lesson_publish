@@ -1,12 +1,12 @@
 @import '../common.scss';
 
 .root {
-  margin-top: $padding--top;
+  margin-top: $padding--content--top;
   padding-top: 40px;
   padding-bottom: 100px;
   
   .header {
-    max-width: $width--fit;
+    max-width: $width--conetnt--1;
     margin: 0 auto;
     margin-bottom: 20px;
     display: flex;

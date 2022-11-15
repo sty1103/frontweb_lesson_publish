@@ -5,8 +5,9 @@
   
   .title {
     display: flex;
-    min-width: $width--fit;
-    max-width: $width--fit;
+    min-width: $width--content--1;
+    max-width: $width--content--1;
+    
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;
@@ -51,7 +52,7 @@
       min-width: 70px;
       padding: 6px;
       border-radius: $radius--default;
-      transform: translateX($padding--fit);
+      transform: translateX($padding--content--1);
     }
 
     > div.active {
@@ -62,8 +63,8 @@
   }
 
   .items {
-    min-width: $width--fit;
-    max-width: $width--fit;
+    min-width: $width--content--1;
+    max-width: $width--content--1;
     margin: auto;
     
     > div {

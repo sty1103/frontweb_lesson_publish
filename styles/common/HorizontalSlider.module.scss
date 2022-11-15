@@ -13,7 +13,7 @@
   scrollbar-width: none;
 
   > * {
-    transform: translateX($padding--fit);
+    transform: translateX($padding--content--1);
     scroll-snap-align: center;
     position: relative;
     cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 .container:after {
-  transform: translateX($padding--fit);
+  transform: translateX($padding--content--1);
   content: "";
   flex: 0 0 16px;
   height: 1px;

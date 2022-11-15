@@ -1,28 +1,75 @@
 @import './common.scss';
 
-.banner {
+.root {
   overflow: hidden;
   margin-bottom: 50px;
-  margin-top: $padding--top!important;
+  margin-top: $padding--content--top!important;
+  padding-top: 24px;
 
   div {
     outline: none!important;
     height: 100%;
   }
 
-  .banner-item {
-    @include center;
-    height: 550px;
-    overflow: hidden;
-    padding:0 12px;
-    cursor: pointer;
-    position: relative;
+  .banner {
+    // width: 100%;
+    // max-width: 100vw;
+    // .slick-track
+    > div > div {
+      display: flex;
 
-    > span {
-      margin: 10px 5px!important;
-      border-radius: 4px;
+      // .slick-slide
+      > div {
+        padding: 0 12px;
+        min-width: 1060px;
+        max-width: 1060px;
+        height: 596px;
+      }
+    }
+
+    .banner-item {
+      cursor: pointer;
+      position: relative;
+      
+      > img {
+        border-radius: 4px;
+      }
+    }
+
+    @media(max-width: 1199px) {
+      > div > div > div {
+        min-width: 722px;
+        max-width: 722px;
+        height: 406px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      > div > div > div {
+        min-width: 567px;
+        max-height: 318px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      > div > div > div {
+        min-width: 442px;
+        max-height: 249px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      > div > div > div {
+        min-width: 409px;
+        max-height: 290px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      > div > div > div {
+        min-width: 300px;
+        max-height: 200px;
+      }
     }
   }
-
-  
 }

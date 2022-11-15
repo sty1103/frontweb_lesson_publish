@@ -77,6 +77,10 @@ export default function TopNav() {
         }
       </div>
 
+      {/* <div className={styles.mobile}>
+
+      </div> */}
+
       <UploadPopup show={uploadPopup} onClose={() => setUploadPopup(false)} />
     </nav>
   );

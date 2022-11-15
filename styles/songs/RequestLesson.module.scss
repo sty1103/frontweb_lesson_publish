@@ -8,7 +8,7 @@
     .title {
       display: flex;
       align-items: center;
-      width: $width--fit;
+      width: $width--content--1;
       margin: 0 auto;
       margin-bottom: 20px;
       
@@ -40,7 +40,7 @@
         min-width: 70px;
         padding: 6px;
         border-radius: $radius--default;
-        transform: translateX($padding--fit);
+        transform: translateX($padding--content--fit);
       }
   
       > div.active {

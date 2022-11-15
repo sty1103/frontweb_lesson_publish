@@ -22,11 +22,13 @@ $color--red--2: rgb(230, 101, 125);
 $radius--default: 4px;
 $radius--half: 980px;
 
-$width--fit: 1060px;
+$width--content--1: 1060px;
+$width--content--2: 1060px;
+$width--content--3: 1060px;
 
-$padding--fit: calc(max(1024px, 100vw) / 2 - 540px);
+$padding--content--1: calc(max(1024px, 100vw) / 2 - 540px);
 
-$padding--top: 60px;
+$padding--content--top: 60px;
 
 // 가로/세로 중앙
 @mixin center {

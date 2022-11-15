@@ -79,7 +79,7 @@
       .info {
         display: flex;
         align-items: center;
-        width: $width--fit;
+        width: $width--content-fit;
         margin: 0 auto;
         padding-bottom: 40px;
   
@@ -145,7 +145,7 @@
           position: absolute;
           top: 0;
           left: 0;
-          padding: 20px $padding--fit;
+          padding: 20px $padding--content--1;
           
           .header {
             display: flex;
@@ -168,7 +168,7 @@
 
       .info {
         position: relative;
-        padding: 0 $padding--fit;
+        padding: 0 $padding--content--1;
         padding-top: 70px;
         display: flex;
         align-items: flex-start;
@@ -255,7 +255,7 @@
         display: flex;
         align-items: center;
         gap: 40px;
-        width: $width--fit;
+        width: $width--content--1;
         margin: 0 auto;
 
         li {
@@ -273,7 +273,7 @@
 
     > .content {
       padding-top: 40px;
-      width: $width--fit;
+      width: $width--content--1;
       margin: 0 auto;
 
       .songs {

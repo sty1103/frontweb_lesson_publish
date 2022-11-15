@@ -39,8 +39,8 @@
 
   .content {
     .songs {
-      min-width: $width--fit;
-      max-width: $width--fit;
+      min-width: $width--content--1;
+      max-width: $width--content--1;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;

@@ -6,7 +6,7 @@ import { moveUrl } from '@/lib/utils';
 
 export default function PostArticle() {
   return (
-    <div className={styles.article} onClick={() => moveUrl(`/post/"postId"?type=article`)}>
+    <div className={styles.root} onClick={() => moveUrl(`/post/"postId"?type=article`)}>
       <div className={styles.top}>
         <div className={styles.info}>
           <div className={styles.title}>

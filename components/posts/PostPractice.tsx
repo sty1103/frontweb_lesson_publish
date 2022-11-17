@@ -16,7 +16,7 @@ export default function PostPractice() {
   const [ like, setLike ] = useState<boolean>(false);
   
   return (
-    <div className={styles.practice}>
+    <div className={styles.root}>
       <div className={styles.top}>
         <div className={styles.info}>
           <div className={styles.title} onClick={() => moveUrl(`/post/"postId"?type=practice`)}>

@@ -1,47 +1,44 @@
 @import '../common.scss';
 
-.postlist {
+.root {
   padding-bottom: 100px;
   
   .title {
-    display: flex;
-    min-width: $width--content--1;
-    max-width: $width--content--1;
-    
+    @include center;
+    justify-content: flex-start;
+    padding: 0 $padding--content--1;
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;
     margin: auto;
     margin-bottom: 20px;
 
-    @include center;
-    justify-content: flex-start;
+    .text {
+      display: flex;
+      align-items: center;
 
-    .dropdown {
-      > * {
-        min-width: 150px;
+      .toggle {
+        flex-shrink: 0;
+        margin-left: 16px;
+        color: $color--gray--1;
       }
     }
-
-    .dropdown.order {
+    
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-left: auto;
-      margin-right: 10px;
-    }
+  
+      button:after {
+        margin-left: 6px;
+      }
 
-    .dropdown.post:first-child {
-      margin-left: auto;
-    }
-
-    .toggle {
-      color: $color--gray--1;
-    }
-
-    .toggle:nth-child(2) {
-      margin-left: 10px;
+      
     }
   }
 
-  .filters {
+  > .filters {
     margin-bottom: 20px;
     
     > div {
@@ -63,8 +60,9 @@
   }
 
   .items {
-    min-width: $width--content--1;
-    max-width: $width--content--1;
+    // min-width: $width--content--1;
+    // max-width: $width--content--1;
+    padding: 0 $padding--content--1;
     margin: auto;
     
     > div {
@@ -77,6 +75,38 @@
     
     > div {
       margin-bottom: 16px;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .title {
+      padding: 0 $padding--content--2;
+    }
+
+    > .filters {
+      > div {
+        transform: translateX($padding--content--2);
+      }
+    }
+
+    .items {
+      padding: 0 $padding--content--2;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .title {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .filters {
+        margin: 0;
+        padding-top: 16px;
+      }
     }
   }
 }

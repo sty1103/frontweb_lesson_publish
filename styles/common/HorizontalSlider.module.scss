@@ -18,21 +18,34 @@
     position: relative;
     cursor: pointer;
   }
+
+  &.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    // transform: scale(1.01);
+  }
+  
+  &:after {
+    transform: translateX($padding--content--1);
+    content: "";
+    flex: 0 0 16px;
+    height: 1px;
+  }
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.container.active {
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-  // transform: scale(1.01);
-}
-
-.container:after {
-  transform: translateX($padding--content--1);
-  content: "";
-  flex: 0 0 16px;
-  height: 1px;
-}
-
-.container::-webkit-scrollbar {
-  display: none;
+@media (max-width: 1199px) {
+  .container {
+    > * {
+      transform: translateX($padding--content--2);
+    }
+    
+    &:after {
+      transform: translateX($padding--content--2);
+    }
+  }
+  
 }

@@ -2,6 +2,14 @@
 
 .content {
   background: $color--gray--8;
-  min-width: $width--content--1;
-  max-width: $width--content--1;
+  width: 100%;
+  padding: 0 $padding--content--1;
+  // min-width: $width--content--1;
+  // max-width: $width--content--1;
+}
+
+@media (max-width: 1199px) {
+  .content {
+    padding: 0 $padding--content--2;
+  }
 }

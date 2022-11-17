@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.teacher {
+.root {
   @include center;
   flex-direction: column;
   border: 1px solid $color--gray--5;
@@ -14,7 +14,11 @@
     padding: 20px;
 
     .info {
+      flex: 1;
+      width: 100%;
+
       .title {
+        display: flex;
         font-weight: bold;
         margin-bottom: 10px;
 
@@ -25,7 +29,37 @@
           border-radius: $radius--default;
           font-size: .9em;
           margin-right: 10px;
-          font-weight: normal;  
+          font-weight: normal;
+          flex-shrink: 0;
+        }
+
+        .text {
+          @include ellipsis;
+          display: none;
+        }
+      }
+
+      .sub {
+        display: none;
+        align-items: center;
+
+        .rate {
+          flex-shrink: 0;
+          svg {
+            color: $color--system--3;
+          }
+        }
+
+        .separator {
+          height: 12px;
+          width: 1px;
+          border-right: 1px solid $color--gray--4;
+          margin: 0 6px;
+        }
+
+        .location {
+          color: $color--gray--4;
+          @include ellipsis;
         }
       }
     }
@@ -80,17 +114,23 @@
             margin-right: 4px;
           }
 
-          span {
-            background: $color--system--5;
-            color: black;
-            padding: 2px 8px;
-            border-radius: $radius--half;
-            font-size: .8em;
-            margin-right: 5px;
+          .basic {
+            span {
+              background: $color--system--5;
+              color: black;
+              padding: 2px 8px;
+              border-radius: $radius--half;
+              font-size: .8em;
+              margin-right: 5px;
+            }
           }
-
+          
           span:nth-of-type(1) {
             margin-left: 10px;
+          }
+
+          .instruments, .desc {
+            display: none;
           }
         }
       }
@@ -148,5 +188,78 @@
 
   .bottom {
     @include post_bottom;
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .top {
+      .info {
+        .title {
+          .text {
+            display: inline-block;
+          }
+        }
+
+        .sub {
+          display: flex;
+        }
+      }
+    }
+
+    .middle {
+      .profile {
+        margin: 0;
+
+        .right {
+          display: none;
+        }
+
+        .left {
+          margin: 0;
+
+          .sub {
+            display: flex;
+            flex-direction: column;
+
+            .instruments {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              margin-top: 10px;
+
+              > span {
+                background: $color--system--7;
+                border-radius: $radius--default;
+                padding: 2px 6px;
+                color: $color--gray--1;
+              }
+            }
+  
+            .desc {
+              display: flex;
+              color: $color--gray--1;
+              padding: 20px;
+              word-break: keep-all;
+            }
+          }
+        }
+      }
+
+      .achievements {
+        flex-wrap: wrap;
+        margin: 0;
+
+        > div {
+          flex: 1 1 50%;
+          max-width: 50%;
+          padding: 16px;
+        }
+
+        .rate {
+          display: none;
+        }
+      }
+    }
   }
 }

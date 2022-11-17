@@ -28,7 +28,7 @@ export default function PostCurriculum({ data }: Props) {
   const [ lessonPopup, setLessonPopup ] = useState<boolean>(false);
 
   return (
-    <div className={styles.curriculum}>
+    <div className={styles.root}>
       <div className={styles.top}>
         <div className={styles.info}>
           <div className={styles.title} onClick={() => moveUrl(`/post/"postId"?type=curriculum`)}>
@@ -64,7 +64,8 @@ export default function PostCurriculum({ data }: Props) {
       <div className={styles.middle}>
         <div className={styles.title} onClick={() => moveUrl('/song/1a2b3c')}>
           <IoMdMusicalNote />
-          <span>LESSON 01</span>
+          <span>LESSON 01
+          </span>
           <span>헤이즈 - 헤픈우연</span>
         </div>
         
@@ -87,7 +88,8 @@ export default function PostCurriculum({ data }: Props) {
               <div key={k} className={styles.lesson}>
                 <div className={styles.order}>
                   <IoMdMusicalNote />
-                  lesson {(k+1).toString().padStart(2, '0')}
+                  <span className={styles.text}>lesson </span>
+                  {(k+1).toString().padStart(2, '0')}
                 </div>
 
                 <div className={styles.title}>

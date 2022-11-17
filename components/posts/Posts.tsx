@@ -56,61 +56,66 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
   const [ filterInst, setFilterInst ] = useState<string>('all');
 
   return (
-    <section className={`${styles.postlist} ${className}`}>
+    <section className={`${styles.root} ${className}`}>
       <div className={styles.title}>
-        { showTitle && 
-          <div>
-            { user?.type===0 ? 'practice post':'lesson matching' }
-          </div>
-        }
+        <div className={styles.text}>
+          { showTitle && 
+            <div>
+              { user?.type===0 ? 'practice post':'lesson matching' }
+            </div>
+          }
 
-        { showLocationToggle && 
-          <TextToggleButton className={styles.toggle} leftText='비대면' rightText='동네' />
-        }
+          { showLocationToggle && 
+            <TextToggleButton className={styles.toggle} leftText='비대면' rightText='동네' />
+          }
+        </div>
         
-        <SSRProvider>
-          { showFilterOrder && 
-            <Dropdown className={`${styles.dropdown} ${styles.order}`}>
-              <Dropdown.Toggle>
-                <span>{filterOrderList[filterOrder].name}</span>
-              </Dropdown.Toggle>
+        <div className={styles.filters}>
+          <SSRProvider>
+            { showFilterOrder && 
+              <Dropdown className={`${styles.dropdown} ${styles.order}`}>
+                <Dropdown.Toggle>
+                  <span>{filterOrderList[filterOrder].name}</span>
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {Object.keys(filterOrderList).map((k) => {
-                  return (
-                    <Dropdown.Item
-                      key={k}
-                      onClick={(e)=>clickFilterOrder(e, k)}
-                    >
-                      {filterOrderList[k].name}
-                    </Dropdown.Item>
-                  )
-                })}
-              </Dropdown.Menu>
-            </Dropdown>
-          }
-          
-          { showFilterPost && 
-            <Dropdown className={`${styles.dropdown} ${styles.post}`}>
-              <Dropdown.Toggle>
-                <span>{filterPostList[filterPost].name}</span>
-              </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  {Object.keys(filterOrderList).map((k) => {
+                    return (
+                      <Dropdown.Item
+                        key={k}
+                        onClick={(e)=>clickFilterOrder(e, k)}
+                      >
+                        {filterOrderList[k].name}
+                      </Dropdown.Item>
+                    )
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+            }
+            
+            { showFilterPost && 
+              <Dropdown className={`${styles.dropdown} ${styles.post}`}>
+                <Dropdown.Toggle>
+                  <span>{filterPostList[filterPost].name}</span>
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {Object.keys(filterPostList).map((k) => {
-                  return (
-                    <Dropdown.Item
-                      key={k}
-                      onClick={(e)=>clickFilterPost(e, k)}
-                    >
-                      {filterPostList[k].name}
-                    </Dropdown.Item>
-                  )
-                })}
-              </Dropdown.Menu>
-            </Dropdown>
-          }
-        </SSRProvider>
+                <Dropdown.Menu>
+                  {Object.keys(filterPostList).map((k) => {
+                    return (
+                      <Dropdown.Item
+                        key={k}
+                        onClick={(e)=>clickFilterPost(e, k)}
+                      >
+                        {filterPostList[k].name}
+                      </Dropdown.Item>
+                    )
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+            }
+          </SSRProvider>
+        </div>
+        
       </div>
 
       { showFilterInstrument && 

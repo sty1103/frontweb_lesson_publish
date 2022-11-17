@@ -1,11 +1,11 @@
 @import '../common.scss';
 
-.bestpractice {
+.root {
   margin-bottom: 50px;
 
   .title {
-    min-width: $width--content--1;
-    max-width: $width--content--1;
+    width: 100%;
+    padding: 0 $padding--content--1;
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;
@@ -71,6 +71,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .title {
+      padding: 0 $padding--content--2;
     }
   }
 }

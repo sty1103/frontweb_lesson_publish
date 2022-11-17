@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.curriculum {
+.root {
   @include center;
   flex-direction: column;
   border: 1px solid $color--gray--5;
@@ -14,12 +14,14 @@
     padding: 20px;
 
     .info {
+      flex: 1;
       width: 100%;
 
       .title {
         font-weight: bold;
         margin-bottom: 10px;
         cursor: pointer;
+        @include ellipsis;
 
         .type {
           background: $color--red--1;
@@ -100,7 +102,6 @@
     }
 
     > .title {
-      @include center;
       width: fit-content;
       padding: 4px 14px;
       font-size: .9em;
@@ -211,5 +212,74 @@
 
   > .bottom {
     @include post_bottom;
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .top {
+      .info {
+        .author {
+          .instrument {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .middle {
+      > .title {
+        @include ellipsis;
+        max-width: calc(100% - 40px);
+      }
+
+      .score {
+        max-height: 160px;
+      }
+
+      .lessons {
+        .lesson {
+          font-size: 1em;
+
+          .order {
+            .text {
+              display: none;
+            }
+          }
+
+          .title {
+            @include ellipsis;
+          }
+          .rate {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .top {
+      .info {
+        .author {
+          .location {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .middle {
+      .lessons {
+        .lesson {
+          .order {
+            min-width: 72px;
+            max-width: 72px;
+          }
+        }
+      }
+    }
   }
 }

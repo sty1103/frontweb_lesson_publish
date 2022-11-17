@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <DashboardContainer className={styles.dashboard} />
       }
       <BestPracticeContainer />
-      <PostListContainer showLocationToggle={user?.type===0 ? false:true} />
+      <PostListContainer showLocationToggle={user?.type===1} />
     </>
   )
 }

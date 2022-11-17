@@ -23,10 +23,11 @@ $radius--default: 4px;
 $radius--half: 980px;
 
 $width--content--1: 1060px;
-$width--content--2: 90%;
-$width--content--3: 1060px;
 
+// $padding--content--1: calc(max(1024px, 100vw) / 2 - 540px);
 $padding--content--1: calc(max(1024px, 100vw) / 2 - 540px);
+$padding--content--2: calc(max(1024px, 100vw) / 2 - 490px);
+// $padding--content--3: calc(max(1024px, 100vw) / 2 - 490px);
 
 $padding--content--top: 60px;
 
@@ -44,6 +45,12 @@ $padding--content--top: 60px;
   object-fit: cover;
 }
 
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 // 게시물 아래의 버튼 공통 스타일
 @mixin post_bottom {
   @include center;
@@ -55,8 +62,14 @@ $padding--content--top: 60px;
     border-bottom: 0;
     border-right: 0;
     padding: 8px;
+
+    @media (max-width: 540px) {
+      display: flex;
+      @include ellipsis;
+    }
     
     svg {
+      flex-shrink: 0;
       font-size: 1.4em;
       margin-right: 6px;
     }

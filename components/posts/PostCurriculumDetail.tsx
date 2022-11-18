@@ -29,12 +29,20 @@ export default function PostCurriculumDetail({ data }: Props) {
   const [ lessonPopup, setLessonPopup ] = useState<boolean>(false);
 
   return (
-    <PageRoot className={styles.postdetail}>
-      <PageNav className={styles.nav} prevButton={true}>
-        피아노 입문자들을 위한 커리큘럼
+    <PageRoot className={styles.root}>
+      <PageNav className={styles.header} prevButton={true}>
+        커리큘럼
+        <BsShare className={styles.share} />
+        <div className={styles.like}>
+          <AiOutlineHeart />
+          <span>200</span>
+        </div>
       </PageNav>
-
+      
       <PageContent className={styles.content}>
+        <div className={styles.title}>
+          피아노 입문자들을 위한 커리큘럼
+        </div>
         <div className={styles.top}>
           <div className={styles.info}>
             <div className={styles.author}>
@@ -82,7 +90,8 @@ export default function PostCurriculumDetail({ data }: Props) {
                 <div key={k} className={styles.lesson}>
                   <div className={styles.order}>
                     <IoMdMusicalNote />
-                    lesson {(k+1).toString().padStart(2, '0')}
+                    <span className={styles.text}>lesson </span>
+                    {(k+1).toString().padStart(2, '0')}
                   </div>
 
                   <div className={styles.title}>
@@ -108,20 +117,20 @@ export default function PostCurriculumDetail({ data }: Props) {
           </div>
         </div>
 
-        <div className={styles.bottom}>
-          <Button shape='rect' onClick={clickReview}>
-            <BiComment />
-            리뷰보기
-          </Button>
-          <Button shape='rect' onClick={clickLesson}>
-            <IoMdMusicalNote />
-            레슨 신청하기
-          </Button>
-        </div>
-
         <ReviewPopUpContainer show={reviewPopup} onClose={closeReview} />
         <LessonPopup show={lessonPopup} onClose={closeLesson} />
       </PageContent>
+
+      <div className={styles.footer}>
+        <Button shape='rect' onClick={clickReview}>
+          <BiComment />
+          리뷰보기
+        </Button>
+        <Button shape='rect' onClick={clickLesson}>
+          <IoMdMusicalNote />
+          레슨 신청하기
+        </Button>
+      </div>
     </PageRoot>
   )
 

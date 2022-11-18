@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.popup {
+.root {
   @include center;
   display: none;
   position: fixed;
@@ -19,17 +19,19 @@
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
     background: $color--gray--8;
     border-radius: $radius--default;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-width: 1px;
     min-height: 1px;
     max-width: 80vw;
-    max-height: 80vw;
+    max-height: 80vh;
     border: 1px solid $color--gray--5;
   }
-}
 
-.popup.show {
-  display: flex;
+  &.show {
+    display: flex;
+  }
 }

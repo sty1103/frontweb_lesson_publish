@@ -1,20 +1,50 @@
 @import '../common.scss';
 
-.postdetail {
+.root {
   background: $color--gray--6;
 
-  > .nav {
+  > .header {
+    display: flex;
     border-bottom: 1px solid $color--gray--5;
+
+    > span {
+      display: flex;
+      align-items: center;
+
+      .share {
+        display: none;
+        margin-left: auto;
+        font-size: .8em;
+      }
+
+      .like {
+        @include center;
+        flex-direction: column;
+        display: none;
+        font-size: .8em;
+        font-weight: normal;
+
+        svg {
+          margin-right: 4px;
+        }
+      }
+    }
   }
   
   > .content {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     
+    > .title {
+      padding: 20px 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid $color--gray--5;
+    }
+
     > .top {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
-      padding: 20px;
+      padding: 20px 0;
 
       .author {
         @include center;
@@ -86,14 +116,13 @@
   .middle {
     @include center;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 0;
 
     > * {
       width: 100%;
     }
 
     .title {
-      @include center;
       width: fit-content;
       padding: 4px 14px;
       font-size: .9em;
@@ -101,6 +130,8 @@
       background: $color--gray--6;
       margin-bottom: 20px;
       cursor: pointer;
+      @include ellipsis;
+      max-width: calc(100% - 20px);
 
       svg {
         font-size: 1.4em;
@@ -116,7 +147,8 @@
     }
 
     .desc {
-      padding: 20px;
+      padding: 20px 0;
+      font-size: 1.2em;
     }
   }
 
@@ -255,6 +287,59 @@
       .comment:hover {
         button {
           display: flex;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .header {
+      > span {
+        .share, .like {
+          display: block;
+        }
+      }
+    }
+
+    > .content {
+      > .top {
+        margin: 0;
+
+        > button {
+          // display: none;
+          position: fixed;
+          bottom: 24px;
+          right: 12px;
+          z-index: 1;
+          font-size: 1em;
+          padding: 8px 14px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+        }
+
+        .share, .like {
+          display: none;
+        }
+      }
+
+      .middle {
+        padding: 20px 0;
+      }
+    }
+
+    .bottom {
+      .write {
+        padding: 20px 0;
+
+        button {
+          right: 0;
+        }
+      }
+
+      .comments {
+        .comment {
+          padding: 20px 0;
         }
       }
     }

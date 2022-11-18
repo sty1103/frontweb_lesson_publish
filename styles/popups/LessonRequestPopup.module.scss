@@ -18,10 +18,7 @@
   }
 
   .content {
-    height: 800px;
-    min-width: 700px;
-    max-width: 700px;
-    max-height: 80vh;
+    max-height: calc(80vh - 40px);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -50,25 +47,48 @@
       border-radius: $radius--default;
       margin-bottom: 50px;
 
+      .rate {
+        color: $color--gray--5;
+        margin-left: 10px;
+
+        .active {
+          color: $color--system--5;
+        }
+      }
+
+      .instrument {
+        font-size: .8em;
+        border-radius: $radius--default;
+        background: $color--system--7;
+        padding: 2px 8px;
+      }
+
       .desc {
         display: flex;
         align-items: center;
         margin-bottom: 20px;
 
-        .rate {
-          color: $color--gray--5;
-          margin-left: 10px;
-          .active {
-            color: $color--system--5;
-          }
-        }
-
-        > :last-child {
+        .instrument {
           margin-left: auto;
-          font-size: .8em;
-          border-radius: $radius--default;
-          background: $color--system--7;
-          padding: 2px 8px;
+        }
+      }
+
+      .desc--mobile {
+        display: none;
+        margin-bottom: 16px;
+
+        > div:last-child {
+          display: flex;
+          margin-top: 6px;
+
+          .rate {
+            color: $color--gray--5;
+            margin-left: 10px;
+
+            .active {
+              color: $color--system--5;
+            }
+          }
         }
       }
 
@@ -88,6 +108,7 @@
           font-size: .9em;
           text-transform: uppercase;
           margin-right: 20px;
+          flex-shrink: 0;
 
           svg {
             font-size: 1.4em;
@@ -97,22 +118,16 @@
         }
 
         .title {
+          @include ellipsis;
           margin: 0;
           text-transform: capitalize;
         }
 
         .rate {
+          flex-shrink: 0;
           padding: 0;
           margin-left: auto;
           margin-right: 10px;
-
-          svg {
-            color: $color--gray--5;
-
-            &.active {
-              color: $color--system--5;
-            }
-          }
         }
       }
 
@@ -133,6 +148,52 @@
       color: $color--gray--2;
       cursor: default;
       border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    > div:last-child {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+
+      .content {
+        max-height: calc(100vh - 105px);
+        height: 100%;
+
+        .songs {
+          .item {
+            flex: 1 1 calc(50% - 10px);
+            max-width: calc(50% - 10px);
+          }
+        }
+
+        .curriculum {
+          .desc {
+            display: none;
+          }
+
+          .desc--mobile {
+            display: block;
+          }
+
+          .lesson {
+            .rate {
+              display: none;
+            }
+
+            .text {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 }

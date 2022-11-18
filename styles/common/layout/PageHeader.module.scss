@@ -1,15 +1,14 @@
 @import '../../common.scss';
 
-.nav {
+.root {
   display: flex;
   align-items: center;
   background: $color--gray--8;
-  padding: 0 calc($padding--content--1);
+  padding: 20px calc($padding--content--1);
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  // border-bottom: 1px solid $color--gray--5;
   z-index: 1;
+  position: sticky;
+  top: 60px;
 
   svg {
     font-size: 1.6em;
@@ -22,5 +21,11 @@
     font-weight: bold;
     font-size: 1.2em;
     width: 100%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    padding: 16px calc($padding--content--2);
   }
 }

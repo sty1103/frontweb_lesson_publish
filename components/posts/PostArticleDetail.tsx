@@ -15,12 +15,22 @@ export default function PostArticle() {
   })
 
   return (
-    <PageRoot className={styles.postdetail}>
-      <PageNav className={styles.nav} prevButton={true}>
-        사랑받는 프로포즈 테마곡
+    <PageRoot className={styles.root}>
+      <PageNav className={styles.header} prevButton={true}>
+        아티클
+
+        <BsShare className={styles.share} />
+
+        <div className={styles.like}>
+          <AiOutlineHeart />
+          <span>200</span>
+        </div>
       </PageNav>
 
       <PageContent className={styles.content}>
+        <div className={styles.title}>
+          사랑받는 프로포즈 테마곡
+        </div>
         <div className={styles.top}>
           <div className={styles.info}>
             <div className={styles.author}>

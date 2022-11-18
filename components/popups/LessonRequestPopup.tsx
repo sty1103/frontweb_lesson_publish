@@ -42,9 +42,7 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
               />
             )
           })}
-          
         </div>
-        
 
         <div className={styles.title}>
           커리큘럼
@@ -66,7 +64,27 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
                 )
               })}
             </div>
-            <span>피아노</span>
+            <span className={styles.instrument}>피아노</span>
+          </div>
+
+          <div className={styles['desc--mobile']}>
+            <div>피아노 입문자들을 위한 커리큘럼</div>
+            <div>
+              <span className={styles.instrument}>피아노</span>
+              <div className={styles.rate}>
+                {[...Array(Math.round(1))].map((V, K) => {
+                  return (
+                    <IoMdMusicalNote className={`${styles.active}`} key={K} />
+                  )
+                })}
+
+                {[...Array(4)].map((V, K) => {
+                  return (
+                    <IoMdMusicalNote key={K} />
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           {lessonData.map((v, k) => {
@@ -74,7 +92,7 @@ export default function LessonRequestPopup({ className, show=false, onClose=()=>
               <div key={k} className={styles.lesson}>
                 <div className={styles.order}>
                   <IoMdMusicalNote />
-                  lesson {(k+1).toString().padStart(2, '0')}
+                  <span className={styles.text}>lesson </span>{(k+1).toString().padStart(2, '0')}
                 </div>
 
                 <div className={styles.title}>

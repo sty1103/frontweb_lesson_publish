@@ -34,13 +34,23 @@ export default function PostPracticeDetail() {
   });
 
   return (
-    <PageRoot className={styles.postdetail}>
-      <PageNav className={styles.nav} prevButton={true}>
-        유명한 곡 연주해봤어요. 한번 들어주세요
+    <PageRoot className={styles.root}>
+      <PageNav className={styles.header} prevButton={true}>
+        게시글
+
+        <BsShare className={styles.share} />
+
+        <div className={styles.like}>
+          <AiOutlineHeart />
+          <span>200</span>
+        </div>
       </PageNav>
 
       <PageContent className={styles.content}>
-        <div className={styles.top}>
+        <div className={styles.title}>
+          유명한 곡 연주해봤어요. 한번 들어주세요
+        </div>
+        <div className={styles.top}>  
           <div className={styles.author}>
             <div className={styles.left} onClick={() => moveUrl('/profile/f0kjflakdjf')}>
               {/* <Image /> */}
@@ -63,7 +73,7 @@ export default function PostPracticeDetail() {
           </div>
 
           { user?.type===0 &&
-            <Button onClick={() => {}}>
+            <Button className={styles.question} onClick={() => {}}>
               <IoMdMusicalNote />
               선생님에게 질문하기
             </Button>

@@ -10,7 +10,7 @@ interface Props {
 
 export default function PopUp({ className, children, show=false, onClose=()=>{} }: Props) {
   return (
-    <div className={`${styles.popup} ${className} ${show ? styles.show:''}`}>
+    <div className={`${styles.root} ${className} ${show ? styles.show:''}`}>
       <div className={styles.background} onClick={() => onClose()} />
       <div className={styles.content}>
         {children}

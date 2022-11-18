@@ -1,18 +1,48 @@
 @import '../common.scss';
 
-.postdetail {
+.root {
   background: $color--gray--6;
 
-  > .nav {
+  > .header {
+    display: flex;
     border-bottom: 1px solid $color--gray--5;
+
+    > span {
+      display: flex;
+      align-items: center;
+
+      .share {
+        display: none;
+        margin-left: auto;
+        font-size: .8em;
+      }
+
+      .like {
+        @include center;
+        flex-direction: column;
+        display: none;
+        font-size: .8em;
+        font-weight: normal;
+
+        svg {
+          margin-right: 4px;
+        }
+      }
+    }
   }
   
   .content {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     
+    > .title {
+      padding: 20px 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid $color--gray--5;
+    }
+
     .top {
       display: flex;
-      padding: 20px;
+      padding: 20px 0;
       align-items: center;
   
       .info {
@@ -81,7 +111,9 @@
       }
   
       .desc {
-        padding: 20px;
+        padding: 20px 0;
+        word-break: keep-all;
+        font-size: 1.2em;
       }
     }
 
@@ -89,11 +121,73 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 20px;
+      padding: 20px 0;
 
       .item {
         flex: 1 1 calc(16% - 10px);
         max-width: calc(16% - 10px);
+      }
+    }
+  }
+}
+
+@media (max-width: 896px) {
+  .root {
+    > .content {
+      .bottom {
+        .item {
+          flex: 1 1 calc(24% - 10px);
+          max-width: calc(24% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .header {
+      > span {
+        display: flex;
+        align-items: center;
+
+        .share, .like {
+          display: block
+        }
+      }
+    }
+
+    > .content {
+      .top {
+        .share, .like {
+          display: none;
+        }
+      }
+
+      .middle {
+        .img {
+          height: 300px;
+        }
+      }
+
+      .bottom {
+        .item {
+          flex: 1 1 calc(50% - 10px);
+          max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    > .content {
+      .bottom {
+        .item {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
       }
     }
   }

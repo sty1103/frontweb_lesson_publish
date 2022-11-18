@@ -18,16 +18,8 @@ export default function ReviewBox({ className }: Props) {
           <div className={styles.profile}>
             김도우
 
-            <div className={styles.location}>
-            <HiLocationMarker />
-            1.2km 대치동
-            </div>
-
             <div className={styles.instruments}>
-              <span>기타</span>
-              <span>드럼</span>
               <span>피아노</span>
-              <span>바이올린</span>
             </div>
           </div>
           <div className={styles.song}>

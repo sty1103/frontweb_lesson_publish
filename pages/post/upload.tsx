@@ -92,24 +92,22 @@ const PostUpload: NextPage = () => {
         업로드
       </Button>
 
-      <PopUp show={songPopup} onClose={closeSearchSong}>
-        <div className={styles.songs}>
-          <div className={styles.top}>
-            <input autoFocus={true} type='text' placeholder='검색어를 입력해주세요' ref={searchSongRef} />
-            <BsSearch />
-          </div>
-          <div className={styles.middle}>
-            {songData.map((v,k) => {
-              return (
-                <SongContainer
-                  className={styles.item}
-                  onClickSong={clickSong}
-                  data={v}
-                  key={k}
-                />
-              )
-            })}
-          </div>
+      <PopUp className={styles.songPopup} show={songPopup} onClose={closeSearchSong}>
+        <div className={styles.top}>
+          <input autoFocus={true} type='text' placeholder='검색어를 입력해주세요' ref={searchSongRef} />
+          <BsSearch />
+        </div>
+        <div className={styles.middle}>
+          {songData.map((v,k) => {
+            return (
+              <SongContainer
+                className={styles.item}
+                onClickSong={clickSong}
+                data={v}
+                key={k}
+              />
+            )
+          })}
         </div>
       </PopUp>
     </PageRoot>

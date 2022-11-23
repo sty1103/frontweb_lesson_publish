@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.container {
+.root {
   > div {
     display: flex;
     padding: 40px;
@@ -44,12 +44,14 @@
     color: $color--gray--2;
     cursor: pointer;
     margin-bottom: 16px;
+    flex-shrink: 0;
   }
 
   .middle {
     position: relative;
     height: 100%;
     overflow: hidden;
+    min-height: 450px;
     
     > div {
       transition: left .2s;
@@ -107,7 +109,7 @@
               @include center;
               justify-content: flex-start;
               width: 100%;
-              flex: 2;
+              // flex: 2;
               cursor: pointer;
     
               > div:first-child {
@@ -321,7 +323,8 @@
       margin: 20px 0;
 
       .item {
-        flex: 1 1 calc(33% - 20px);
+        flex: 1 1 calc(33% - 10px);
+        width: calc(33% - 10px);
         @include center;
         flex-direction: column;
         text-align: center;
@@ -353,25 +356,6 @@
           color: $color--system--5;
         }
       }
-    }
-  }
-
-  .step5.teacher {
-    .items {
-      justify-content: flex-start;
-      align-items: flex-start;
-      font-size: 1.2em;
-      height: auto;
-
-      .item {
-        // flex: 0 0 calc(25% - 30px);
-        flex: 1 0 calc(25% - 30px);
-      }
-    }
-
-    .items:after {
-      content: '';
-      flex: 1 1 calc(75% - 30px);
     }
   }
 
@@ -417,5 +401,46 @@
   .middle.step6 {
     .step1, .step2, .step3, .step4, .step5 { left: -100%; }
     .step6 { left: 0; }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .middle {
+      .step4 {
+        .items {
+          .item {
+            flex: 1 1 calc(33% - 10px);
+          }
+        }
+      }
+
+      .step5 {
+        .items {
+          .item {
+            flex: 1 1 calc(50% - 10px);
+            max-width: calc(50% - 10px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .middle {
+      .step5.student {
+        .items {
+          .item:nth-child(5) {
+            min-width: calc(100% - 10px);
+          }
+
+          .item:nth-child(6) {
+            min-width: calc(100% - 10px);
+          }
+        }
+      }
+    }
   }
 }

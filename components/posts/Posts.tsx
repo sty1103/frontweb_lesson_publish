@@ -1,8 +1,7 @@
-import dynamic from 'next/dynamic';
 import styles from '@/styles/posts/Posts.module.scss';
 import Dropdown from 'react-bootstrap/Dropdown';
 import PostPracticeContainer from 'containers/posts/PostPracticeContainer';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { SSRProvider } from 'react-bootstrap';
 import PostArticleContainer from '@/containers/posts/PostArticleContainer';
 import PostCurriculumContainer from '@/containers/posts/PostCurriculumContainer';
@@ -10,10 +9,13 @@ import PostTeacherContainer from '@/containers/posts/PostTeacherContainer';
 import HorizontalSlider from '../common/HorizontalSlider';
 import { useRouter } from 'next/router';
 import PageContent from '../common/layout/PageContent';
-import { IData, Props } from '@/containers/posts/PostsContainer';
+import { Props } from '@/containers/posts/PostsContainer';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
 import TextToggleButton from '../common/TextToggleButton';
+import { moveUrl } from '@/lib/utils';
+import Button from '../common/Button';
+import { IoMdMusicalNote } from 'react-icons/io';
 
 export default function Posts({ className, showFilterOrder=true, showFilterPost=true, showFilterInstrument=true, showTitle=true, showLocationToggle=true }: Props) {
   const user = useRecoilValue(userAtom);
@@ -65,7 +67,7 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
             </div>
           }
 
-          { showLocationToggle && 
+          { (user?.type===1 && showLocationToggle) && 
             <TextToggleButton className={styles.toggle} leftText='비대면' rightText='동네' />
           }
         </div>
@@ -138,7 +140,6 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
         </HorizontalSlider>
       }
 
-      {/* <div className={styles.items}> */}
       <PageContent className={styles.content}>
         <PostPracticeContainer />
         <PostArticleContainer />

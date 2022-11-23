@@ -5,7 +5,6 @@ export default function Document() {
     <Html>
       <Head>
         <meta charSet='UTF-8' />
-        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
         <meta property='og:type' content='website' />
         <meta property='og:site_name' content='레슨 노트' />
 

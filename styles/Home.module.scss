@@ -1,5 +1,7 @@
 @import './common.scss';
 
-.dashboard {
-  padding-top: $padding--content--top + 40px;
+.root {
+  .dashboard {
+    padding-top: $padding--content--top + 40px;
+  }
 }

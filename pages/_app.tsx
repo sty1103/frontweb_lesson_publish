@@ -14,13 +14,16 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
+    window.scrollTo(0,1)
   }, []);
   
   return (
     <RecoilRoot>
       <Suspense fallback={<div>Loading...</div>}>
         <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1.0' user-scalable='no' />
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, minimal-ui" />
         </Head>
         
         { !noNavPage.some(v => router.asPath.includes(v)) &&

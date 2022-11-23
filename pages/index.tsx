@@ -13,11 +13,11 @@ const Home: NextPage = () => {
   const user = useRecoilValue(userAtom);
 
   return (
-    <>
+    <div className={styles.root}>
       <Head>
         <title>레슨 노트</title>
         <meta property='og:title' content='레슨 노트' />
-        <meta name='description' content='' />
+        
       </Head>
       { (!user || user?.type===0) && 
         <MainBannerContainer />
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       }
       <BestPracticeContainer />
       <PostListContainer showLocationToggle={user?.type===1} />
-    </>
+    </div>
   )
 }
 

@@ -113,7 +113,7 @@ export default function TopNav() {
               <div className={styles.img}>
 
               </div>
-              <div className={styles.name}>
+              <div className={styles.name} onClick={() => moveUrl('/profile/"userId"')}>
                 김가은 <IoIosArrowForward />
               </div>
 
@@ -139,8 +139,8 @@ export default function TopNav() {
               
             </>
           }
-            <li className={styles.posts}>게시글</li>
-            <li className={styles.songs}>곡목록</li>
+            <li className={styles.posts} onClick={() => moveUrl('/post')}>게시글</li>
+            <li className={styles.songs} onClick={() => moveUrl('/song')}>곡목록</li>
         </ul>
       </div>
 

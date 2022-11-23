@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.container {
+.root {
   > div {
     padding: 50px 110px;
   }
@@ -109,6 +109,19 @@
       margin-left: 10px;
       text-decoration: underline;
       cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .logo {
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+
+    .signup {
+      flex-direction: column;
     }
   }
 }

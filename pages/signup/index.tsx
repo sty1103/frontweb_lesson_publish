@@ -1,12 +1,12 @@
 import Button from '@/components/common/Button';
 import SignContainer from '@/components/sign/SignContainer';
-import styles from '@/styles/sign/SignUp.module.scss';
+import styles from '@/styles/sign/SignUpTarget.module.scss';
 import { NextPage } from 'next';
 import { moveUrl } from '@/lib/utils';
 
 const SignUp: NextPage = () => {
   return (
-    <SignContainer className={styles.container}>
+    <SignContainer className={styles.root}>
       <div className={styles.content}>
         레슨노트에서 이용하실 서비스를 선택해 주세요
 

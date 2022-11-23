@@ -1,89 +1,58 @@
 @import "./common.scss";
 
-body main {
-  // font-family: 'Noto Sans KR', sans-serif;
-  color: $color--gray--1;
-  width: 100vw;
-  height: 100vh;
-}
-
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="checkbox"]:focus,
-.uneditable-input:focus {   
-  border-color: none;
-  box-shadow: none!important;
-  outline: 0 none;
-}
-
-main {
-  // padding-top: 60px;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-
-  .dropdown {
-    button {
-      @include center;
-      justify-content: flex-start;
-      border: 1px solid $color--gray--5;
-      background: $color--gray--8;
+html {
+  body {
+    main {
+      // font-family: 'Noto Sans KR', sans-serif;
       color: $color--gray--1;
-      width: 100%;
+      width: 100vw;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      
+      .dropdown {
+        button {
+          @include center;
+          justify-content: flex-start;
+          border: 1px solid $color--gray--5;
+          background: $color--gray--8;
+          color: $color--gray--1;
+          width: 100%;
 
-      &:after {
-        color: $color--gray--5;
-        margin-left: auto;
+          &:after {
+            color: $color--gray--5;
+            margin-left: auto;
+          }
+        }
+
+        button:hover {
+          // border: 1px solid $color--gray--5;
+          // background: $color--gray--8;
+          // color: $color--gray--1;
+        }
       }
-    }
 
-    button:hover {
-      // border: 1px solid $color--gray--5;
-      // background: $color--gray--8;
-      // color: $color--gray--1;
+      textarea:focus,
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="email"]:focus,
+      input[type="checkbox"]:focus,
+      .uneditable-input:focus {   
+        border-color: none;
+        box-shadow: none!important;
+        outline: 0 none;
+      }
+
+      // Main Banner 깜빡임 수정
+      .slick-slider .slick-track,
+      .slick-slider .slick-list{
+          // -webkit-transform: translate3d(0, 0, 0);
+          // -moz-transform: translate3d(0, 0, 0);
+          // -ms-transform: translate3d(0, 0, 0);
+          // -o-transform: translate3d(0, 0, 0);
+          // transform: translate3d(0, 0, 0);
+          // transition-delay: 10ms;
+      }
     }
   }
 }
-
-// Main Banner 깜빡임 수정
-.slick-slider .slick-track,
-.slick-slider .slick-list{
-    // -webkit-transform: translate3d(0, 0, 0);
-    // -moz-transform: translate3d(0, 0, 0);
-    // -ms-transform: translate3d(0, 0, 0);
-    // -o-transform: translate3d(0, 0, 0);
-    // transform: translate3d(0, 0, 0);
-    // transition-delay: 10ms;
-}
-
-// // 데스크톱
-// @media(min-width:1200px){
-//   main { background: red; }
-// }
-
-// // 노트북
-// @media(min-width:992px) and (max-width:1199px) {
-//   main { background: blue; }
-// }
-
-// // 태블릿
-// @media(min-width:768px) and (max-width:991px) {
-//   main { background: green; }
-// }
-
-// // 태블릿(소)
-// @media(min-width:501px) and (max-width:767px) {
-
-// } 
-
-// // 모바일(대)
-// @media(min-width:321px) and (max-width:500px) {
-  
-// }
-
-// // 폴드, 모바일(소)
-// @media(max-width:320px) {
-
-// }

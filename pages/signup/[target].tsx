@@ -103,7 +103,7 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
   const users = useRecoilValue(tempUserData);
 
   return (
-    <SignContainer className={styles.container}>
+    <SignContainer className={styles.root}>
       <div className={styles.top}>
         <span>0{stepNum}</span>
         <span className={styles.seperator}>/</span>

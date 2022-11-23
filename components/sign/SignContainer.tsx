@@ -7,7 +7,7 @@ interface Props {
 
 export default function SignContainer({ children, className }: Props) {
   return (
-    <section className={`${styles.container} ${className}`}>
+    <section className={`${styles.root} ${className}`}>
       <div className={styles.inner}>
         {children}
       </div>

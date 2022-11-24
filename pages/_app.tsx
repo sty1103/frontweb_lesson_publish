@@ -25,12 +25,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, minimal-ui" />
         </Head>
-        
-        { !noNavPage.some(v => router.asPath.includes(v)) &&
-          <TopNav />
-        }
 
         <main>
+          { !noNavPage.some(v => router.asPath.includes(v)) &&
+            <TopNav />
+          }
+
           <User />
           <Component {...pageProps} />
         </main>

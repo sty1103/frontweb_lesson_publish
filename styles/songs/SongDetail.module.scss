@@ -1,4 +1,4 @@
-@import '../common.scss';
+  @import '../common.scss';
 
 .root {
   width: 100%;
@@ -6,17 +6,18 @@
   .content {
     width: 100%;
     
-    .wrapper {
+    > .wrapper {
+      padding: 0 $padding--content--1;
       border-bottom: 1px solid $color--gray--5;
       margin-bottom: 40px;
 
       .album { 
-        width: $width--content--1;
-        margin: 0 auto;
         padding-bottom: 20px;
         display: flex;
+        align-items: center;
 
         > .left {
+          flex-shrink: 0;
           width: 200px;
           height: 200px;
           background: black;
@@ -74,10 +75,13 @@
 
           > .bottom {
             margin-top: auto;
+            align-self: stretch;
             @include center;
             gap: 15px;
+            flex-wrap: wrap;
 
             > button {
+              min-width: 140px;
               height: 40px;
               font-size: 1em;
               font-weight: bold;
@@ -114,10 +118,162 @@
       }
     }
 
+    .mobile-albuminfo {
+      display: none; 
+    }
+
     .score {
-      width: $width--content--1;
-      min-width: $width--content--1;
-      margin: 0 auto;
+      padding: 0 $padding--content--1;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .content {
+      .wrapper {
+        .album {
+          padding: 0 $padding--content--2;
+          padding-bottom: 20px;
+        }
+      }
+
+      .score {
+        padding: 0 $padding--content--2;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .wrapper {
+        margin-bottom: 0;
+
+        .album {
+          .left {
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .right {
+            .top {
+              .left {
+                .rate {
+                  margin-bottom: 0;
+                }
+              }
+
+              .right {
+                display: none;
+              }
+            }
+
+            .bottom {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .mobile-albuminfo {
+        display: block;
+        padding: 20px $padding--content--2;
+
+        .wrapper {
+          display: flex;
+          gap: 20px;
+
+          .left {
+            font-weight: bold;
+          }
+  
+          .right {
+            > div {
+              display: flex;
+  
+              :first-child {
+                width: 60px;
+                font-weight: bold;
+              }
+  
+              :last-child {
+                font-weight: normal;
+              }
+            }
+          }
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          margin-top: 20px;
+
+          button {
+            width: 100%;
+            border-radius: $radius--default;
+            background: $color--gray--8;
+            border: 1px solid $color--gray--5;
+            color: $color--gray--1;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px;
+
+            svg {
+              font-size: 1.2em;
+              margin-right: 6px;
+              color: $color--gray--4;
+            }
+          }
+
+          button:nth-child(2) {
+            border: 1px solid $color--system--5;
+            
+            svg {
+              color: $color--system--3;
+            }
+          }
+
+          button:last-child {
+            border: 0;
+            background: $color--system--3;
+
+            svg {
+              color: $color--gray--1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .wrapper {
+        margin-bottom: 0;
+
+        .album {
+          .left {
+            width: 100px;
+            height: 100px;
+          }
+
+          .right {
+            .top {
+              .left {
+                font-size: .8em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

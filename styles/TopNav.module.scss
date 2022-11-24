@@ -6,13 +6,13 @@
   left: 0;
   width: 100%;
   border-bottom: 1px solid #ddd;
-  z-index: 1;
+  z-index: 10;
   background: $color--gray--8;
-  padding-right: 6px;
 
   > .content, > .content--mobile {
-    max-width: $width--content--1;
-    margin: 0 auto;
+    padding: 0 $padding--content--1;
+    // max-width: $width--content--1;
+    // margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;

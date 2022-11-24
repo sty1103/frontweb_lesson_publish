@@ -6,7 +6,7 @@ import PageContent from '@/components/common/layout/PageContent';
 import { moveUrl } from '@/lib/utils';
 
 const SongList: NextPage = () => {
-  const songData: IData[] = [ ...Array(16) ];
+  const songData: IData[] = [ ...Array(50) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })

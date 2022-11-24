@@ -89,9 +89,48 @@ const SongDetail: NextPage = () => {
               }
               
             </div>
+          </div>  
+        </div>
+
+        <div className={styles[`mobile-albuminfo`]}>
+          <div className={styles.wrapper}>
+            <div className={styles.left}>
+              앨범소개
+            </div>
+            <div className={styles.right}>
+              <div>
+                <div>앨범</div>
+                <div>너를 만나</div>
+              </div>
+              <div>
+                <div>발매일</div>
+                <div>2018.10.29</div>
+              </div>
+              <div>
+                <div>장르</div>
+                <div>발라드</div>
+              </div>
+              <div>
+                <div>마디수</div>
+                <div>72</div>
+              </div>
+            </div>
           </div>
           
+
+          <div className={styles.buttons}>
+            <Button onClick={()=>{}}>
+              <BsList /> 연습 기록 목록
+            </Button>
+            <Button onClick={()=>{}}>
+            <IoMdMusicalNote /> 연습하기
+            </Button>
+            <Button onClick={() => moveUrl('/song/request/"songid"')}>
+              <IoMdMusicalNote /> 레슨 신청하기
+            </Button>
+          </div>
         </div>
+
         <div className={styles.score}>
           <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
           </div>

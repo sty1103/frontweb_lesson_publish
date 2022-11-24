@@ -2,6 +2,7 @@
 
 .root {
   .content {
+    padding: 0 $padding--content--1;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

@@ -2,14 +2,12 @@
 
 .root {
   .content {
-    min-width: 100%;
-    max-width: 100%;
-
+    padding: 0;
+    
     .title {
       display: flex;
       align-items: center;
-      width: $width--content--1;
-      margin: 0 auto;
+      padding: 0 $padding--content--1;
       margin-bottom: 20px;
       
       .text {
@@ -40,7 +38,6 @@
         min-width: 70px;
         padding: 6px;
         border-radius: $radius--default;
-        transform: translateX($padding--content--1);
       }
   
       > div.active {
@@ -54,8 +51,7 @@
       @include center;
       flex-wrap: wrap;
       gap: 15px;
-      width: $width--content--1;
-      margin: 0 auto;
+      padding: 0 $padding--content--1;
 
       .teacher.active {
         padding: 14px;
@@ -101,5 +97,59 @@
     left: 0;
     bottom: 0;
     color: $color--gray--1;   
+    z-index: 100;
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .content {
+      .title {
+        padding: 0 $padding--content--2;
+      }
+
+      .teachers {
+        padding: 0 $padding--content--2;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .title {
+        .text {
+          display: none;
+        }
+
+        .face {
+          margin: 0;
+        }
+      }
+
+      .teachers {
+        .teacher {
+          // flex: 1 1 calc(50% - 10px);
+          // max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .title {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .dropdown {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+    }
   }
 }

@@ -10,7 +10,6 @@
     text-transform: uppercase;
     color: $color--gray--3;
     font-size: 16px;
-    margin: auto;
     margin-bottom: 20px;
 
     .text {
@@ -90,6 +89,10 @@
     }
 
     .items {
+      padding: 0 $padding--content--2;
+    }
+
+    > .content {
       padding: 0 $padding--content--2;
     }
   }

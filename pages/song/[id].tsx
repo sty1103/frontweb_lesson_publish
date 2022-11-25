@@ -20,7 +20,7 @@ const SongDetail: NextPage = () => {
         곡 상세
       </PageHeader>
 
-      <div className={styles.content}>
+      <PageContent className={styles.content}>
         <div className={styles.wrapper}>
           <div className={styles.album}>
             <div className={styles.left}>
@@ -134,7 +134,7 @@ const SongDetail: NextPage = () => {
         <div className={styles.score}>
           <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
           </div>
-      </div>
+      </PageContent>
     </PageRoot>
   )
 }

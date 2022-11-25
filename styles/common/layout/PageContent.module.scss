@@ -1,15 +1,13 @@
 @import '../../common.scss';
 
-.content {
+.root {
   background: $color--gray--8;
   width: 100%;
-  // padding: 0 $padding--content--1;
-  // min-width: $width--content--1;
-  // max-width: $width--content--1;
+  padding: 0 $padding--content--1;
 }
 
 @media (max-width: 1199px) {
-  .content {
+  .root {
     padding: 0 $padding--content--2;
   }
 }

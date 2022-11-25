@@ -7,7 +7,7 @@ interface Props {
 
 export default function PageContent({ className, children }: Props) {
   return (
-    <div className={`${styles.content} ${className}`}>
+    <div className={`${styles.root} ${className}`}>
       {children}
     </div>
   )

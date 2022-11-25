@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import ScoreDisplay from '@/components/score/ScoreDisplay';
 import OSMDExtends from '@/lib/OSMDExtends';
 import ScoreControllerContainer from './ScoreCcontrollerContainer';
@@ -20,13 +20,12 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
     const options = {
       drawTitle: title,
       drawSubtitle: subtitle,
-      autoResize: true,
+      autoResize: false,
     }
 
     const osmd = new OSMDExtends(divRef.current as HTMLElement, options);
     osmd.load(file).then(() => {
       osmd.render();
-      
       // 사파리/파폭에서 전에 렌더링된 악보를 지워주지 않는 버그 대처
       if ( divRef.current ) {
         if ( divRef.current.querySelectorAll('#osmdCanvasPage1').length > 1 ) {

@@ -2,13 +2,15 @@
 
 html {
   body {
+    overflow-x: hidden;
+
     main {
       // font-family: 'Noto Sans KR', sans-serif;
       color: $color--gray--1;
       width: 100vw;
-      overflow-x: hidden;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      // overflow-x: hidden;
+      // overflow-y: auto;
+      // -webkit-overflow-scrolling: touch;
       
       .dropdown {
         button {

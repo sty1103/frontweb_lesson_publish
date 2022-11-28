@@ -21,7 +21,8 @@
       "@/containers/*": ["containers/*"],
       "@/lib/*": ["lib/*"],
       "@/public/*": ["public/*"],
-      "@/store/*": ["store/*"]
+      "@/store/*": ["store/*"],
+      "@/hooks/*": ["hooks/*"],
     }
   },
   "include": ["next-env.d.ts", "scss-modules.d.ts", "**/*.ts", "**/*.tsx"],

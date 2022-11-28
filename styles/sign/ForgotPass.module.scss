@@ -1,6 +1,6 @@
 @import '../common.scss';
 
-.forgotpass {
+.root {
   > div {
     padding: 40px;
   }
@@ -79,10 +79,24 @@
       margin-top: auto;
       padding: 10px;
     }
+
+    > button:last-child {
+      display: none;
+    }
   }
 
   .middle.step2 {
     .step1 { left: -100%; }
     .step2 { left: 0; }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .middle {
+      > button:last-child {
+        display: none;
+      }
+    }
   }
 }

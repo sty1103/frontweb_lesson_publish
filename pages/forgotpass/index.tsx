@@ -13,7 +13,7 @@ const ForgotPass: NextPage = () => {
   const middleRef = useRef<HTMLDivElement>(null);
 
   return (
-    <SignContainer className={styles.forgotpass}>
+    <SignContainer className={styles.root}>
       <div className={styles.top}>
         <span>0{stepNum}</span>
         <span className={styles.seperator}>/</span>

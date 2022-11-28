@@ -3,12 +3,8 @@
 .root {
   position: relative;
 
-  .nav {
-    border-bottom: 1px solid $color--gray--5;
-    margin-bottom: 40px;
-  }
-
   > .content {
+    padding: 0;
     width: 100%;
     min-width: 100%;
 
@@ -56,11 +52,10 @@
     }
 
     .profile--student {
+      padding: 0 $padding--content--1;
       margin-top: 40px;
 
-      .profile {
-        width: $width--content--1;
-        margin: 0 auto;
+      .profile {  
         margin-bottom: 20px;
   
         span {
@@ -79,8 +74,6 @@
       .info {
         display: flex;
         align-items: center;
-        width: $width--content--1;
-        margin: 0 auto;
         padding-bottom: 40px;
   
         .img {
@@ -273,8 +266,6 @@
 
     > .content {
       padding-top: 40px;
-      width: $width--content--1;
-      margin: 0 auto;
 
       .songs {
         > div {
@@ -288,5 +279,15 @@
 
   .posts {
     margin-top: 40px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    > .content {
+      .profile--student {
+        padding: 0 $padding--content--2;
+      }
+    }
   }
 }

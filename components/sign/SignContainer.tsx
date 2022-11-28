@@ -1,4 +1,3 @@
-import useWindowDimensions from '@/hooks/useWindowDimensions';
 import styles from '@/styles/sign/SignContainer.module.scss';
 import { useEffect, useState } from 'react';
 

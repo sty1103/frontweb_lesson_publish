@@ -1,6 +1,8 @@
 @import '../common.scss';
 
 .root {
+  padding: 0 $padding--content--1;
+
   .filter {
     display: flex;
     margin-bottom: 16px;
@@ -74,5 +76,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    padding: 0 $padding--content--2;
   }
 }

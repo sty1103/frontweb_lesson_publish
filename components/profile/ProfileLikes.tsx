@@ -26,7 +26,7 @@ export default function MyPageLikes({ className }: Props) {
   })
 
   return (
-    <section className={styles.likes}>
+    <section className={styles.root}>
       <ul className={styles.submenu}>
         {Object.keys(subMenuData).map((v) => {
           if ( v==='teacher' && user?.type===1 ) return;
@@ -47,6 +47,7 @@ export default function MyPageLikes({ className }: Props) {
           showFilterPost={false}
           showTitle={false}
           showLocationToggle={user?.type===0}
+          className={styles.posts}
         />
       }
 

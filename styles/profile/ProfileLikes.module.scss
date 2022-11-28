@@ -1,11 +1,13 @@
 @import '../common.scss';
 
-.likes {
-   .submenu {
-    padding: 0;
+.root {
+  padding: 0 $padding--content--1;
+
+  .submenu {
     list-style: none;
     display: flex;
     gap: 15px;
+    padding: 0;
 
     li {
       padding: 4px 12px;
@@ -17,6 +19,12 @@
     li.active {
       background: $color--gray--6;
       color: $color--gray--1;
+    }
+  }
+
+  .posts {
+    > :last-child {
+      padding: 0;
     }
   }
 
@@ -37,8 +45,12 @@
     @include center;
     flex-wrap: wrap;
     gap: 15px;
-    width: $width--content--1;
-    margin: 0 auto;
     margin-top: 40px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    padding: 0 $padding--content--2;
   }
 }

@@ -15,8 +15,7 @@ interface Props {
 
 export default function ScoreDisplayContainer({ control=false, title=false, subtitle=false, file, isChatOpen }: Props) {
   const setOsmd = useSetRecoilState(osmdAtom);
-  const divRef = useRef<HTMLDivElement>(null);
-  const loadScore = useCallback(() => {
+  const loadScore = useCallback((divRef: React.RefObject<HTMLDivElement>) => {
     const options = {
       drawTitle: title,
       drawSubtitle: subtitle,
@@ -30,15 +29,15 @@ export default function ScoreDisplayContainer({ control=false, title=false, subt
       if ( divRef.current ) {
         if ( divRef.current.querySelectorAll('#osmdCanvasPage1').length > 1 ) {
           divRef.current?.querySelector('#osmdCanvasPage1:first-child')?.remove();
+        }
       }
-    }
 
       if ( control )
         setOsmd(osmd);
     });
   }, [isChatOpen]);
 
-  const displayProps = { loadScore, divRef, isChatOpen };
+  const displayProps = { loadScore, isChatOpen };
 
   return (
     <>

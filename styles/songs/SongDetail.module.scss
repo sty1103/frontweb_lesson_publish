@@ -8,8 +8,8 @@
       border-bottom: 1px solid $color--gray--5;
       margin-bottom: 40px;
       padding-top: 20px;
-
-      .album { 
+      
+      .album {
         padding-bottom: 20px;
         display: flex;
         align-items: center;
@@ -88,7 +88,7 @@
               background: white;
               border: 1px solid $color--gray--4;
               color: $color--gray--1;
-              flex: 1;
+              flex-grow: 1;
 
               svg {
                 color: $color--gray--4;

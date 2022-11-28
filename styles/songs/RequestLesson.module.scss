@@ -3,6 +3,7 @@
 .root {
   .content {
     padding: 0;
+    padding-top: 20px;
     
     .title {
       display: flex;
@@ -117,6 +118,7 @@
 
 @media (max-width: 540px) {
   .root {
+
     .content {
       .title {
         .text {

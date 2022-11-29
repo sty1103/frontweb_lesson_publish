@@ -57,3 +57,49 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          flex: 1 1 calc(20% - 10px);
+          max-width: calc(20% - 10px);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          flex: 1 1 calc(25% - 10px);
+          max-width: calc(25% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .input {
+        width: calc(100vw - 60px);
+        min-width: calc(100vw - 60px);
+        max-width: calc(100vw - 60px);
+      }
+
+      .songs {
+        .item {
+          flex: 1 1 calc(50% - 10px);
+          max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}

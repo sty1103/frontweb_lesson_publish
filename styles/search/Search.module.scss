@@ -85,3 +85,64 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .root {
+    .content {
+      .teacher {
+        .wrapper {
+          .item {
+            .img {
+              width: 130px;
+              height: 130px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    padding: 20px;
+
+    .content {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+
+      .teacher {
+        .wrapper {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .teacher {
+        .wrapper {
+          gap: 10px;
+
+          .item {
+            flex: 1 1 calc(50% - 10px);
+            gap: 4px;
+
+            .img {
+              width: 90px;
+              height: 90px;
+            }
+
+            .career {
+              font-size: .8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

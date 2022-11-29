@@ -8,6 +8,7 @@
     display: flex;
     gap: 15px;
     padding: 0;
+    margin-bottom: 0;
 
     li {
       padding: 4px 12px;
@@ -22,7 +23,7 @@
     }
   }
 
-  .posts {
+  .posts {    
     > :last-child {
       padding: 0;
     }
@@ -52,5 +53,29 @@
 @media (max-width: 1199px) {
   .root {
     padding: 0 $padding--content--2;
+  }
+}
+
+@media (max-width: 991px) {
+  .root {
+    .songs {
+      .item {
+        flex: 1 1 calc(33% - 10px);
+        max-width: calc(33% - 10px);
+        height: 200px;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .songs {
+      .item {
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        height: 160px;
+      }
+    }
   }
 }

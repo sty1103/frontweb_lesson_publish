@@ -203,3 +203,37 @@
     @include fixedButton;
   }
 }
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .instruments {
+        .item {
+          flex: 1 1 calc(33% - 10px);
+          max-width: calc(33% - 10px);
+          height: 120px;
+        }
+      }
+
+      .level {
+        .item {
+          flex: 1 1 calc(50% - 10px);
+          max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .instruments {
+        .item {
+          flex: 1 1 calc(50% - 10px);
+          max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}

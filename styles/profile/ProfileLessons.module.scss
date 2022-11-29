@@ -84,3 +84,48 @@
     padding: 0 $padding--content--2;
   }
 }
+
+@media (max-width: 991px) {
+  .root {
+    .content {
+      .item {
+        flex: 1 1 calc(33% - 10px);
+        max-width: calc(33% - 10px);
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .item {
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        
+        .song {
+          height: 160px;
+
+          > div {
+            height: 160px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .item {
+        .teacher {
+          flex-wrap: wrap;
+          .img {
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}

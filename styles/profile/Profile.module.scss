@@ -84,6 +84,7 @@
           background: $color--gray--1;
           border-radius: 50%;
           margin-right: 20px;
+          flex-shrink: 0;
         }
   
         .detail {
@@ -112,6 +113,7 @@
             align-items: center;
             gap: 10px;
             margin-top: 6px;
+            flex-wrap: wrap;
   
             span {
               background: $color--gray--6;
@@ -248,8 +250,7 @@
         display: flex;
         align-items: center;
         gap: 40px;
-        width: $width--content--1;
-        margin: 0 auto;
+        padding: 0 $padding--content--1;
 
         li {
           color: $color--gray--4;
@@ -260,6 +261,7 @@
           border-bottom: 3px solid $color--system--3;
           color: $color--gray--1;
           padding: 16px 0 13px 0;
+          font-weight: bold;
         }
       }
     }
@@ -278,7 +280,7 @@
   }
 
   .posts {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 }
 
@@ -287,6 +289,40 @@
     > .content {
       .profile--student {
         padding: 0 $padding--content--2;
+      }
+
+      .submenu {
+        padding: 0 $padding--content--2;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    > .content {
+      .settings {
+        display: none;       
+      }
+
+      .submenu {
+        ul {
+          gap: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    > .content {
+      .submenu {
+        ul {
+          li {
+            font-size: .9em;
+          }  
+        }
       }
     }
   }

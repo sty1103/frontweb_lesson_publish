@@ -12,7 +12,6 @@ export default function KakaoMap({ loadMap, dong, isError }: Props) {
 
   useEffect(() => {
     loadMap(containerRef);
-    alert(isError)
   }, [loadMap]);
 
   return (

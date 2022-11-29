@@ -7,13 +7,16 @@
   align-items: center;
 
   .content {
-    input[type=text] {
-      width: 100%;
-      border: none;
+    .subject {
       border-bottom: 1px solid $color--gray--4;
-      height: 60px;
-      font-size: 1.2em;
-      margin-bottom: 16px;
+      margin: 16px 0;
+
+      input[type=text] {
+        width: 100%;
+        border: none;
+        height: 50px;
+        font-size: 1.2em;
+      }
     }
 
     input[type=text]::placeholder {

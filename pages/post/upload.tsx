@@ -37,7 +37,9 @@ const PostUpload: NextPage = () => {
         게시글 업로드
       </PageHeader>
       <PageContent className={styles.content}>
-        <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
+        <div className={styles.subject}>
+          <input type='text' placeholder='제목을 입력해주세요' ref={titleRef} />
+        </div>
 
         <div className={styles.buttons}>
           { user?.type===0 &&

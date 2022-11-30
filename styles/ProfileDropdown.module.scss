@@ -1,6 +1,6 @@
 @import "./common.scss";
 
-.profile {
+.root {
   position: relative;
 
   .img {
@@ -102,13 +102,12 @@
           margin-top: 10px;
 
           > span {
-            flex: 1 1 calc(25% - 10px);
-            max-width: calc(25% - 10px);
             @include center;
             border-radius: $radius--default;
             font-size: 0.8em;
             font-weight: normal;
             background: $color--gray--6;
+            padding: 2px 4px;
           }
         }
       }
@@ -130,5 +129,13 @@
 
   .dropbox.active {
     display: block;
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .dropbox {
+      min-width: calc(100vw - 20px);
+    }
   }
 }

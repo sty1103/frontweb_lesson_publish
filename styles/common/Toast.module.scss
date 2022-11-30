@@ -1,0 +1,20 @@
+@import '../common.scss';
+
+.root {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: black;
+  color: white;
+  padding: 4px 20px;
+  font-size: .8em;
+  border-radius: $radius--half;
+  display: block;
+  z-index: 200;
+  transition: all .4s;
+  opacity: 0;
+
+  &.active {
+    opacity: .8;
+  }
+}

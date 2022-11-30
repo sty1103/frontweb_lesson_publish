@@ -13,6 +13,7 @@ import { FaTimes } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";
 import LessonEndsPopup from "@/components/popups/LessonEndsPopup";
+import Toast from "@/components/common/Toast";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
@@ -26,6 +27,10 @@ const LessonDetail: NextPage = () => {
   const [chatWindow, setChatWindow] = useState<boolean>(false);
   const [videoPopup, setVideoPopup] = useState<boolean>(false);
   const [endsPopup, setEndsPopup] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const [toast, setToast] = useState<boolean>(false);
+  const [toastText, setToastText] = useState<string>('');
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -34,10 +39,18 @@ const LessonDetail: NextPage = () => {
     });
 
     chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
+
+    // mobile address bar 계산
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    setIsMobile(window.innerWidth <= 540);
+    document.querySelector('body')?.classList.add('noscroll');
   }, [chatWindow]);
 
   return (
-    <section className={`${styles.root} ${chatWindow ? styles.chat:''}`}>
+    <section className={`${styles.root} ${chatWindow ? styles.chat:''}`} ref={rootRef}>
+      <Toast show={toast} setShow={setToast} text={toastText} />
+
       <div className={styles.content} ref={mainContentRef}>
         <nav className={styles.nav}>
           <div className={styles.wrapper}>
@@ -205,15 +218,29 @@ const LessonDetail: NextPage = () => {
 
   function clickShowChat() {
     setChatWindow(!chatWindow);
+    
+    if ( isMobile ) {
+      document.querySelector('body')?.classList.toggle('noscroll');
+    }
   }
 
   function clickCloseChat() {
     setChatWindow(false);
+
+    if ( isMobile ) {
+      document.querySelector('body')?.classList.remove('noscroll');
+    }
   }
 
   function clickMeasureLink(e: React.MouseEvent, measure: number) {
     if ( linkedMeasure >= 0 ) // 현재 링크된 마디가 선택 중이면 무시
       return;
+
+    // 모바일일 경우엔 채팅 창을 닫고 스크롤 이동
+    if ( isMobile ) {
+      setChatWindow(false);
+      document.querySelector('body')?.classList.remove('noscroll');
+    }
 
     setLinkedMeasure(measure);
     setTimeout(() => {
@@ -223,7 +250,8 @@ const LessonDetail: NextPage = () => {
     const target = mainContentRef.current?.querySelector(`.measure${measure}`) as HTMLElement;
 
     const top = target.offsetTop - 90;
-    mainContentRef.current?.scrollTo({top, behavior: 'smooth'});
+    // mainContentRef.current?.scrollTo({top, behavior: 'smooth'});
+    window.scrollTo({top, behavior: 'smooth'});
   }
 
   function clickAttach() {

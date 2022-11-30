@@ -27,7 +27,7 @@ export default function ProfileDropdown({ className }: Props) {
   })
 
   return (
-    <div className={`${styles.profile} ${className}`} onClick={clickProfile} ref={profileRef}>
+    <div className={`${styles.root} ${className}`} onClick={clickProfile} ref={profileRef}>
       <div className={styles.img}>
         {/* <Image /> */}
       </div>

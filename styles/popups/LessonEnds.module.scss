@@ -1,14 +1,14 @@
 @import '../common.scss';
 
 .root {
-  
   background: transparent;
 
   > :last-child {
     background: transparent;
     border: none;
     box-shadow: none;
-    @include center;
+    display: flex;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -84,6 +84,20 @@
     span {
       font-weight: bold;
       color: $color--system--5;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .review {
+      width: 86vw;
+      max-width: 86vw;
+    }
+
+    .notice {
+      width: 86vw;
+      max-width: 86vw;
     }
   }
 }

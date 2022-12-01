@@ -13,24 +13,18 @@ import { FaTimes } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";
 import LessonEndsPopup from "@/components/popups/LessonEndsPopup";
-import Toast from "@/components/common/Toast";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
   const [attachDropdown, setAttachDropdown] = useState<boolean>(false);
-  const rootRef = useRef<HTMLDivElement>(null);
   const mainContentRef = useRef<HTMLDivElement>(null);
   const messageRef = useRef<HTMLDivElement>(null);
   // const 
   const chatContentRef = useRef<HTMLDivElement>(null);
   const [linkedMeasure, setLinkedMeasure] = useRecoilState(linkedMeasureAtom);
   const [chatWindow, setChatWindow] = useState<boolean>(false);
-  const [videoPopup, setVideoPopup] = useState<boolean>(false);
   const [endsPopup, setEndsPopup] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  const [toast, setToast] = useState<boolean>(false);
-  const [toastText, setToastText] = useState<string>('');
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -40,17 +34,14 @@ const LessonDetail: NextPage = () => {
 
     chatContentRef.current?.scrollTo(0, chatContentRef.current.scrollHeight);
 
-    // mobile address bar 계산
+    // // mobile address bar 계산
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     setIsMobile(window.innerWidth <= 540);
-    document.querySelector('body')?.classList.add('noscroll');
   }, [chatWindow]);
 
   return (
-    <section className={`${styles.root} ${chatWindow ? styles.chat:''}`} ref={rootRef}>
-      <Toast show={toast} setShow={setToast} text={toastText} />
-
+    <section className={`${styles.root} ${chatWindow ? styles.chat:''}`}>
       <div className={styles.content} ref={mainContentRef}>
         <nav className={styles.nav}>
           <div className={styles.wrapper}>
@@ -68,7 +59,6 @@ const LessonDetail: NextPage = () => {
         <div className={styles.score}>
           {/* <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' control={true} /> */}
           <ScoreDisplayContainer file='/musicxml/Beethoven_AnDieFerneGeliebte.xml' control={true} isChatOpen={chatWindow} />
-          
         </div>
 
         <div className={`${styles.buttons} ${menu ? styles.active:''}`}>
@@ -259,7 +249,7 @@ const LessonDetail: NextPage = () => {
   }
 
   function clickChatSend() {
-
+    // 채팅 전송 버튼
   }
 }
 

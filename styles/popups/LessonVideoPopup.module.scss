@@ -9,7 +9,7 @@
   .header {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 16px;
     font-size: 1.2em;
     border-bottom: 1px solid $color--gray--5;
 
@@ -66,6 +66,22 @@
         margin: 0;
         border: 0;
       }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    > div {
+      width: 100vw;
+      min-width: 100vw;
+      height: 100vh;
+      border-radius: 0!important;
+    }
+
+    .content {
+      max-height: 100vh;
+      padding-bottom: 100px;
     }
   }
 }

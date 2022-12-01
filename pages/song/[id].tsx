@@ -74,7 +74,7 @@ const SongDetail: NextPage = () => {
                 </div>
               </div>
 
-              { user?.type===0 &&
+              { user?.type!==1 &&
                 <div className={styles.bottom}>
                   <Button onClick={()=>{}}>
                     <BsList /> 연습 기록 목록
@@ -87,7 +87,6 @@ const SongDetail: NextPage = () => {
                   </Button>
                 </div>
               }
-              
             </div>
           </div>  
         </div>

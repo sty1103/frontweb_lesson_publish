@@ -116,18 +116,19 @@ const SongDetail: NextPage = () => {
             </div>
           </div>
           
-
-          <div className={styles.buttons}>
-            <Button onClick={()=>{}}>
-              <BsList /> 연습 기록 목록
-            </Button>
-            <Button onClick={()=>{}}>
-            <IoMdMusicalNote /> 연습하기
-            </Button>
-            <Button onClick={() => moveUrl('/song/request/"songid"')}>
-              <IoMdMusicalNote /> 레슨 신청하기
-            </Button>
-          </div>
+          { user?.type!==1 &&
+            <div className={styles.buttons}>
+              <Button onClick={()=>{}}>
+                <BsList /> 연습 기록 목록
+              </Button>
+              <Button onClick={()=>{}}>
+              <IoMdMusicalNote /> 연습하기
+              </Button>
+              <Button onClick={() => moveUrl('/song/request/"songid"')}>
+                <IoMdMusicalNote /> 레슨 신청하기
+              </Button>
+            </div>
+          }
         </div>
 
         <div className={styles.score}>

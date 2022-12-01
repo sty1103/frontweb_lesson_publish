@@ -183,6 +183,7 @@
           width: 120px;
           @include center;
           flex-direction: column;
+          flex-shrink: 0;
           font-size: 1.2em;
           margin-right: 20px;
 
@@ -222,12 +223,15 @@
           }
 
           .instruments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
             span {
               font-size: .9em;
               background: $color--system--7;
               border-radius: $radius--default;
               padding: 2px 10px;
-              margin-right: 10px;
             }
           }
         }
@@ -291,6 +295,19 @@
         padding: 0 $padding--content--2;
       }
 
+      .profile--teacher {
+        .banner {
+          .container {
+            padding: 20px $padding--content--2;
+          }
+        }
+
+        .info {
+          padding: 0 $padding--content--2;
+          padding-top: 70px;
+        }
+      }
+
       .submenu {
         padding: 0 $padding--content--2;
       }
@@ -298,11 +315,25 @@
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 540px) {
   .root {
     > .content {
       .settings {
         display: none;       
+      }
+
+      .profile--teacher {
+        .banner {
+          height: 180px;
+        }
+
+        .info {
+          flex-direction: column;
+
+          .detail {
+            margin-top: 20px;
+          }
+        }
       }
 
       .submenu {

@@ -145,11 +145,6 @@ const ProfileUpdate: NextPage = () => {
           />
         }
 
-        <div className={styles.title} style={{margin:'0'}}>동네인증</div>
-        <div className={styles.map}>
-          <KakaoMapContainer />
-        </div>
-
         <div className={styles.title}>연주가능한 악기</div>
         <div className={styles.instruments}>
           {Object.keys(instData).map((v, k) => {
@@ -196,6 +191,10 @@ const ProfileUpdate: NextPage = () => {
           </>
         }
         
+        <div className={styles.title} style={{margin:'0'}}>동네인증</div>
+        <div className={styles.map}>
+          <KakaoMapContainer />
+        </div>
       </PageContent>
       <Button onClick={()=>{}}>
         수정완료

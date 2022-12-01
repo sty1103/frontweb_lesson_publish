@@ -139,8 +139,14 @@ export default function TopNav() {
               
             </>
           }
-            <li className={styles.posts} onClick={() => moveUrl('/post')}>게시글</li>
+          <li className={styles.posts} onClick={() => moveUrl('/post')}>게시글</li>
+
+          { user?.type!==1 &&
             <li className={styles.songs} onClick={() => moveUrl('/song')}>곡목록</li>
+          }
+          { user?.type===1 &&
+            <li className={styles.songs} onClick={() => moveUrl('/matching')}>레슨매칭</li>
+          }
         </ul>
       </div>
 

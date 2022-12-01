@@ -47,7 +47,7 @@ export default function ScoreController({ osmd }: Props) {
       setMeasures(osmd.getMeasurePosition());
 
     noteRef.current!.focus();
-  }, [osmd, memoInputState]);
+  }, [osmd, memoInputState, measureData.length, setMeasureData]);
 
   return (
     <>

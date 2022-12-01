@@ -30,7 +30,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
 
       <div className={styles.form}>
         <label>이메일</label>
-        <Form.Control type='email' placeholder='이메일을 입력해 주세요' ref={emailRef} defaultValue='student' />
+        <Form.Control type='email' placeholder='이메일을 입력해 주세요' ref={emailRef} defaultValue='teacher' />
         <label>비밀번호</label>
         <Form.Control type='password' placeholder='비밀번호를 입력해 주세요' ref={pwdRef} defaultValue='password' />
         <Button onClick={login}>

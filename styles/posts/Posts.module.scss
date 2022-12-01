@@ -20,6 +20,10 @@
         flex-shrink: 0;
         color: $color--gray--1;
       }
+
+      .toggle:nth-child(2) {
+        margin-left: 16px;
+      }
     }
     
     .filters {

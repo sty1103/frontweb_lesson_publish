@@ -82,6 +82,12 @@ export default function PostPractice() {
           <BiComment />
           댓글
         </Button>
+        { user?.type===1 &&
+          <Button className={styles.lesson} shape='rect' onClick={()=>{}}>
+            <IoMdMusicalNote />
+            레슨 수락
+          </Button>
+        }
       </div>      
     </div>
   )

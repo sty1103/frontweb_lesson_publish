@@ -117,7 +117,6 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
             }
           </SSRProvider>
         </div>
-        
       </div>
 
       { showFilterInstrument && 
@@ -153,7 +152,6 @@ export default function Posts({ className, showFilterOrder=true, showFilterPost=
         { user?.type===1 && 
           <PostPracticeContainer />
         }
-        
       </PageContent>
     </section>
   )

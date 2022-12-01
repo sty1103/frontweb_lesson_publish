@@ -6,8 +6,8 @@
   padding-bottom: 100px;
   
   .header {
-    max-width: $width--content--1;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 $padding--content--1;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -38,10 +38,17 @@
   }
 
   .content {
+    .posts {
+      > :first-child {
+        display: none;
+      }
+
+      > :last-child {
+        padding: 0;
+      }
+    }
+
     .songs {
-      min-width: $width--content--1;
-      max-width: $width--content--1;
-      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -115,6 +122,57 @@
           > div {
             height: 100%;
             border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .header {
+      padding: 0 $padding--content--2;
+    }
+
+    .content {
+      padding: 0 $padding--content--2;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          .left {
+            .middle {
+              font-size: .8em;
+            }
+
+            .bottom {
+              button {
+                font-size: 1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          flex: 1 1 100%;
+          max-width: 100%;
+
+          .left {
+            padding: 10px;
           }
         }
       }

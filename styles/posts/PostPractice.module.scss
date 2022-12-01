@@ -134,6 +134,10 @@
       .on { display: block; }
       .off { display: none; }
     }
+
+    .lesson {
+      display: none;
+    }
   }
 }
 
@@ -148,6 +152,26 @@
     .middle {
       .score {
         max-height: 160px;
+      }
+    }
+
+    .bottom {
+      .lesson {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .bottom {
+      button {
+        font-size: .8em;
+        
+        svg {
+          font-size: 1em;
+        }
       }
     }
   }

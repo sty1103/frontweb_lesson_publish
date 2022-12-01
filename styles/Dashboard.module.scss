@@ -1,8 +1,8 @@
 @import './common.scss';
 
 .root {
-  margin: 0 auto 50px auto;
-  max-width: $width--content--1;
+  margin-bottom: 50px;
+  padding: 0 $padding--content--1;
 
   .title {
     display: flex;
@@ -66,10 +66,13 @@
 
         .song {
           font-size: .9em;
+          // @include ellipsis;
+          max-width: 100%;
         }
 
         .period {
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           font-size: .8em;
 
@@ -81,6 +84,39 @@
             font-weight: bold;
             margin-right: 10px;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    padding: 0 $padding--content--2;
+  }
+}
+
+@media ( max-width: 768px) {
+  .root {
+    .content {
+      .student {
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .student {
+        flex: 1 1 100%;
+        max-width: 100%;
+
+        .left {
+          padding: 10px;
+          margin-right: 10px;
         }
       }
     }

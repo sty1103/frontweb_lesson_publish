@@ -13,7 +13,7 @@ interface Props {
   songData: IData[];
 }
 
-export default function MyPageLessons({ className, songData }: Props) {
+export default function ProfileLessons({ className, songData }: Props) {
   const user = useRecoilValue(userAtom);
   const filterOrderList: any = {
     all: { name: '전체' },
@@ -77,7 +77,7 @@ export default function MyPageLessons({ className, songData }: Props) {
         }
 
         { user?.type===1 && 
-          <DashboardContainer />
+          <DashboardContainer className={styles.dashboard} />
         }
       </div>
     </div>

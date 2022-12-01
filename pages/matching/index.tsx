@@ -1,4 +1,6 @@
 import Button from '@/components/common/Button';
+import PageContent from '@/components/common/layout/PageContent';
+import PageRoot from '@/components/common/layout/PageRoot';
 import TextToggleButton from '@/components/common/TextToggleButton';
 import PostsContainer from '@/containers/posts/PostsContainer';
 import SongContainer from '@/containers/songs/SongContainer';
@@ -11,7 +13,7 @@ export default function Matching() {
   const [subMenu, setSubMenu] = useState<string>('songs');
   const songData = { title: '너를 만나', artist: '풀킴', rate:4 };
   return (
-    <section className={styles.root}>
+    <PageRoot className={styles.root}>
       <div className={styles.header}>
         <span>신청된 레슨매칭</span>
         
@@ -30,7 +32,7 @@ export default function Matching() {
         <TextToggleButton className={styles.toggle} leftText='비대면' rightText='동네' />
       </div>
 
-      <div className={styles.content}>
+      <PageContent className={styles.content}>
         { subMenu==='posts' && 
           <PostsContainer
             showTitle={false}
@@ -38,6 +40,7 @@ export default function Matching() {
             showFilterOrder={false}
             showFilterPost={false}
             showLocationToggle={false}
+            className={styles.posts}
           />
         }
 
@@ -68,7 +71,8 @@ export default function Matching() {
                     <div className={styles.bottom}>
                       <Button onClick={() => {}}>
                         <IoMdMusicalNote />
-                        비대면 레슨 수락
+                        {/* 비대면 레슨 수락 */}
+                        레슨 수락
                       </Button>
                     </div>
                   </div>
@@ -78,11 +82,10 @@ export default function Matching() {
                 </div>
               )
             })}
-            
           </div>
         }
-      </div>
-    </section>
+      </PageContent>
+    </PageRoot>
   )
 
   function clickSubMenu(e: React.MouseEvent, menu: string) {

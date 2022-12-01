@@ -49,7 +49,7 @@
       min-width: 70px;
       padding: 6px;
       border-radius: $radius--default;
-      transform: translateX($padding--content--1);
+      // transform: translateX($padding--content--1);
     }
 
     > div.active {
@@ -88,7 +88,7 @@
 
     > .filters {
       > div {
-        transform: translateX($padding--content--2);
+        // transform: translateX($padding--content--2);
       }
     }
 

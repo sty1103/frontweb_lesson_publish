@@ -102,3 +102,12 @@
     }
   }
 }
+
+@media (max-width: 540px) {
+  .root {
+    > div {
+      width: 86vw;
+      max-width: 86vw;
+    }
+  }
+}

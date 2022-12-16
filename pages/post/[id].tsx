@@ -9,7 +9,6 @@ interface Props {
 }
 
 const PostDetail: NextPage<Props> = ({ type }) => {
-  console.log( type );
   switch( type ) {
     case 'practice':
       return <PostPracticeDetailContainer />;

@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function User() {
-  const [user, setUser] = useRecoilState
-  (userAtom);
+  const [user, setUser] = useRecoilState(userAtom);
   const users = useRecoilValue(tempUserData);
 
   useEffect(() => {

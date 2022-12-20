@@ -1,13 +1,13 @@
-import styles from '@/styles/Home.module.scss';
+import styles from './index.module.scss';
 import type { NextPage } from 'next'
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.css';
-import PostListContainer from '@/containers/posts/PostsContainer';
-import BestPracticeContainer from '@/containers/posts/BestPracticeContainer';
-import MainBannerContainer from 'containers/MainBannerContainer';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
-import DashboardContainer from '@/containers/DashboardContainer';
+import TopBanner from '@/components/contents/TopBanner';
+import BestPracticeList from '@/components/list/BestPracticeList';
+import PostList from '@/components/list/PostList';
+import LessonList from '@/components/list/LessonList';
 
 const Home: NextPage = () => {
   const user = useRecoilValue(userAtom);
@@ -20,14 +20,14 @@ const Home: NextPage = () => {
         
       </Head>
       { (!user || user?.type===0) && 
-        <MainBannerContainer />
+        <TopBanner />
       }
 
       { user?.type===1 && 
-        <DashboardContainer className={styles.dashboard} />
+        <LessonList className={styles.dashboard} />
       }
-      <BestPracticeContainer />
-      <PostListContainer showLocationToggle={user?.type===1} />
+      <BestPracticeList />
+      <PostList showLocationToggle={user?.type===1} />
     </div>
   )
 }

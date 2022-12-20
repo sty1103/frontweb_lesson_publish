@@ -1,0 +1,105 @@
+@import '@/styles/common.scss';
+
+.root {
+  .content {
+    padding-top: 50px;
+
+    .input {
+      width: 600px;
+      min-width: 600px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .title {
+      display: flex;
+      margin-top: 50px;
+      margin-bottom: 20px;
+
+      .link {
+        @include center;
+        gap: 6px;
+        width: fit-content;
+        color: $color--system--5;
+        font-size: 1.2em;
+        cursor: pointer;
+
+        span {
+          color: $color--gray--4;
+        }
+  
+        svg {
+          color: $color--gray--4;
+          font-size: .8em;
+        }
+      }
+
+      .face {
+        margin-left: auto;
+      }
+    }
+
+    .songs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .item {
+        flex: 1 1 calc(16% - 10px);
+        max-width: calc(16% - 10px);
+      }
+    }
+
+    .teachers {
+      @include center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          flex: 1 1 calc(20% - 10px);
+          max-width: calc(20% - 10px);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .root {
+    .content {
+      .songs {
+        .item {
+          flex: 1 1 calc(25% - 10px);
+          max-width: calc(25% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .input {
+        width: calc(100vw - 60px);
+        min-width: calc(100vw - 60px);
+        max-width: calc(100vw - 60px);
+      }
+
+      .songs {
+        .item {
+          flex: 1 1 calc(50% - 10px);
+          max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}

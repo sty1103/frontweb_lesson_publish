@@ -1,0 +1,87 @@
+@import '@/styles/common.scss';
+
+.root {
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: $padding--content--top!important;
+  padding-top: 24px;
+
+  div {
+    outline: none!important;
+    height: 100%;
+  }
+
+  .banner {
+    // width: 100%;
+    // max-width: 100vw;
+    // .slick-track
+    > div > div {
+      display: flex;
+
+      // .slick-slide
+      > div {
+        padding: 0 12px;
+        min-width: 1060px;
+        height: 596px;
+      }
+    }
+
+    .banner-item {
+      cursor: pointer;
+      position: relative;
+      
+      img {
+        border-radius: $radius--default;
+      }
+    }
+
+    @media(max-width: 1199px) {
+      > div > div > div {
+        min-width: 822px;
+        height: 462px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      > div > div > div {
+        min-width: 690px;
+        height: 388px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      > div > div > div {
+        min-width: 502px;
+        height: 282px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      > div > div > div {
+        min-width: 369px;
+        height: 207px;
+      }
+    }
+
+    @media (max-width: 414px) {
+      > div > div > div {
+        min-width: 320px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      > div > div > div {
+        min-width: 290px;
+        height: 163px;
+      }
+    }
+
+    @media (max-width: 284px) {
+      > div > div > div {
+        min-width: 209px;
+        height: 117px;
+      }
+    }
+  }
+}

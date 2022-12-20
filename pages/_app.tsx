@@ -1,20 +1,21 @@
-import '../styles/globals.scss'
+import '@/styles/globals.scss';
 import Head from 'next/head';
 import type { AppProps } from 'next/app'
 import { useEffect, Suspense } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import TopNav from '@/components/TopNav';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
-import User from '@/components/common/User';
+import TopNavBar from '@/components/contents/TopNavBar';
+import RouteGuard from '@/components/auth/RouteGuard';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const noNavPage = ['/signin', '/signup', '/forgot', '/lesson'];
+  // Nav Bar가 없는 페이지 경로 패턴
+  const noNavPage = [ /\/signin/g, /\/signup/g, /\/password/g, /\/lesson\/(?!request)/g ];
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
-    window.scrollTo(0,1)
+    window.scrollTo(0,1);
   }, []);
   
   return (
@@ -27,12 +28,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
 
         <main>
-          { !noNavPage.some(v => router.asPath.includes(v)) &&
-            <TopNav />
+          { !noNavPage.some(v => v.test(router.asPath)) &&
+            <TopNavBar />
           }
 
-          <User />
-          <Component {...pageProps} />
+          <RouteGuard>
+            <Component {...pageProps} />
+          </RouteGuard>
         </main>
       </Suspense>
     </RecoilRoot>

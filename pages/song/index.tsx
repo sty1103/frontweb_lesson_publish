@@ -1,12 +1,12 @@
+import SongItem, { ISongData } from '@/components/item/song/SongItem';
+import PageContent from '@/components/layout/page/PageContent';
+import PageRoot from '@/components/layout/page/PageRoot';
+import { moveUrl } from '@/utils/common';
 import { NextPage } from 'next';
-import SongContainer, { IData } from '@/containers/songs/SongContainer';
-import styles from '@/styles/songs/SongList.module.scss';
-import PageRoot from '@/components/common/layout/PageRoot';
-import PageContent from '@/components/common/layout/PageContent';
-import { moveUrl } from '@/lib/utils';
+import styles from './index.module.scss';
 
 const SongList: NextPage = () => {
-  const songData: IData[] = [ ...Array(50) ];
+  const songData: ISongData[] = [ ...Array(50) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })
@@ -16,7 +16,7 @@ const SongList: NextPage = () => {
       <PageContent className={styles.content}>
         {songData.map((v,k) => {
           return (
-            <SongContainer key={k} data={v} onClickSong={clickSong} className={styles.item} />
+            <SongItem key={k} data={v} onClickSong={clickSong} className={styles.item} />
           )
         })}
       </PageContent>

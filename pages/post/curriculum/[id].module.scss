@@ -1,0 +1,312 @@
+@import '@/styles/common.scss';
+
+.root {
+  background: $color--gray--6;
+
+  > .header {
+    border-bottom: 1px solid $color--gray--5;
+    
+    > span {
+      display: flex;
+      align-items: center;
+
+      .share {
+        display: none;
+        margin-left: auto;
+        font-size: .8em;
+      }
+
+      .like {
+        @include center;
+        flex-direction: column;
+        display: none;
+        font-size: .8em;
+        font-weight: normal;
+
+        svg {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  
+  .content {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    font-size: 1.2em;
+
+    > .title {
+      padding: 20px 0;
+      border-bottom: 1px solid $color--gray--5;
+    }
+
+    > .top {
+      display: flex;
+      padding: 20px 0;
+  
+      .info {
+        width: 100%;
+  
+        .author {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          font-size: .8em;
+          color: $color--gray--3;
+
+          > span {
+            display: flex;
+            align-items: center;
+          }
+  
+          svg {
+            font-size: 1.2em;
+            margin-right: 4px;
+          }
+  
+          > :first-child {
+            display: flex;
+            cursor: pointer;
+
+            .img {
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              background: black;
+              margin-right: 10px;
+            }
+    
+            .name {
+              color: black;
+              font-weight: bold;
+              margin-right: 10px;
+            }
+          }
+  
+          .rate {
+            margin-right: 8px;
+            svg {
+              color: $color--system--2;
+            }
+          }
+  
+          .location {
+            svg {
+              color: $color--gray--2;
+            }
+          }
+
+          .share {
+            color: $color--gray--1;
+            font-size: 1.4em;
+            margin-left: auto;
+            cursor: pointer;
+            margin-right: 15px;
+          }
+    
+          .like {
+            color: $color--gray--1;
+            font-size: 1.1em;
+            cursor: pointer;
+    
+            svg {
+              font-size: 2em;
+              margin-right: 2px;
+            }
+          }
+        }
+      }
+    }
+  
+    > .middle {
+      @include center;
+      flex-direction: column;
+  
+      > * {
+        width: 100%;
+      }
+  
+      > .title {
+        @include ellipsis;
+        max-width: calc(100% - 40px);
+        width: fit-content;
+        padding: 4px 14px;
+        font-size: .9em;
+        border-radius: $radius--half;
+        background: $color--gray--6;
+        margin-bottom: 20px;
+        cursor: pointer;
+  
+        svg {
+          font-size: 1.4em;
+          color: $color--system--5;
+          margin-right: 4px;
+        }
+  
+        > span:nth-of-type(1) {
+          color: $color--gray--2;
+          margin-right: 16px;
+        }
+      }
+  
+      .lessons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 20px 0;
+  
+        .desc {
+          margin-bottom: 20px;
+        }
+  
+        .lesson {
+          @include center;
+          justify-content: flex-start;
+          margin-bottom: 10px;
+          border-radius: $radius--half;
+          border: 2px solid $color--gray--6;
+          padding: 5px;
+  
+          .order {
+            background: $color--gray--6;
+            border-radius: $radius--half;
+            padding: 6px 14px;
+            font-size: .9em;
+            text-transform: uppercase;
+            margin-right: 20px;
+            flex-shrink: 0;
+  
+            svg {
+              font-size: 1.4em;
+              color: $color--system--5;
+              margin-right: 4px;
+            }
+          }
+  
+          .title {
+            text-transform: capitalize;
+          }
+  
+          .rate {
+            margin-left: auto;
+            margin-right: 10px;
+  
+            svg {
+              color: $color--gray--5;
+  
+              &.active {
+                color: $color--system--5;
+              }
+            }
+          }
+        }
+  
+        .lesson:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    > .bottom {
+      
+    }
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    @include post_bottom;
+
+    > button {
+      border-bottom: 1px solid $color--gray--5;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .header {
+      > span {
+        display: flex;
+        align-items: center;
+
+        .share, .like {
+          display: block
+        }
+      }
+    }
+
+    > .content {
+      .top {
+        .share, .like {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .top {
+      .info {
+        .author {
+          .instrument {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .middle {
+      .lessons {
+        padding: 0;
+
+        .lesson {
+          font-size: 1em;
+
+          .order {
+            .text {
+              display: none;
+            }
+          }
+
+          .title {
+            @include ellipsis;
+          }
+          .rate {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .top {
+      .info {
+        .author {
+          .location {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .middle {
+      .lessons {
+        .lesson {
+          font-size: .8em;
+
+          .order {
+            min-width: 72px;
+            max-width: 72px;
+          }
+        }
+      }
+    }
+  }
+}

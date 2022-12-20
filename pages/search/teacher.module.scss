@@ -1,0 +1,31 @@
+@import '@/styles/common.scss';
+
+.root {
+  .nav > span {
+    display: flex;
+    align-items: center;
+
+    > span:nth-child(1) {
+      color: $color--system--5;
+      margin-right: 10px;
+    }
+
+    > span:nth-child(2) {
+      color: $color--gray--4;
+      font-weight: normal;
+    }
+
+    .toggle {
+      font-size: .8em;
+      font-weight: normal;
+      margin-left: auto;
+    }
+  }
+
+  .content {
+    @include center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 20px;
+  }
+}

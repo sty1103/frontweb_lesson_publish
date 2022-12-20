@@ -1,18 +1,18 @@
 import { GetServerSideProps, NextPage } from "next"
-import styles from '@/styles/lesson/LessonDetail.module.scss';
-import ScoreDisplayContainer from "@/containers/score/ScoreDisplayContainer";
+import styles from './[id].module.scss';
 import { AiFillPicture, AiOutlineArrowLeft, AiOutlinePlusCircle } from "react-icons/ai";
-import AlertDropdownContainer from "@/containers/AlertDropdownContainer";
-import ProfileDropdownContainer from "@/containers/ProfileDropdownContainer";
 import router from 'next/router';
-import Button from "@/components/common/Button";
 import { BsCameraVideoFill, BsChatDots, BsCheckLg } from "react-icons/bs";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/legacy/image";
 import { FaTimes } from "react-icons/fa";
 import { useRecoilState } from "recoil";
 import { linkedMeasureAtom } from "@/store/score";
-import LessonEndsPopup from "@/components/popups/LessonEndsPopup";
+import NotificationDropdown from "@/components/dropdown/topNavBar/NotificationDropdown";
+import ProfileDropdown from "@/components/dropdown/topNavBar/ProfileDropdown";
+import Score from "@/components/score/Score";
+import Button from "@/components/button/Button";
+import LessonEndsPopup from "@/components/popup/lesson/LessonEndsPopup";
 
 const LessonDetail: NextPage = () => {
   const [menu, setMenu] = useState<boolean>(false);
@@ -50,15 +50,15 @@ const LessonDetail: NextPage = () => {
               너를 만나 - 폴킴
             </span>
             <span>
-              <AlertDropdownContainer className={styles.alert} />
-              <ProfileDropdownContainer className={styles.profile} />
+              <NotificationDropdown className={styles.alert} />
+              <ProfileDropdown className={styles.profile} />
             </span>
           </div>
         </nav>
 
         <div className={styles.score}>
           {/* <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' control={true} /> */}
-          <ScoreDisplayContainer file='/musicxml/Beethoven_AnDieFerneGeliebte.xml' control={true} isChatOpen={chatWindow} />
+          <Score file='/musicxml/Beethoven_AnDieFerneGeliebte.xml' control={true} isChatOpen={chatWindow} />
         </div>
 
         <div className={`${styles.buttons} ${menu ? styles.active:''}`}>

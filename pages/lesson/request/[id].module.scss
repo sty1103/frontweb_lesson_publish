@@ -1,0 +1,157 @@
+@import '@/styles/common.scss';
+
+.root {
+  .content {
+    padding: 0;
+    padding-top: 20px;
+    
+    .title {
+      display: flex;
+      align-items: center;
+      padding: 0 $padding--content--1;
+      margin-bottom: 20px;
+      
+      .text {
+        font-size: 1.2em;
+      }
+
+      .face {
+        margin-left: 16px;
+      }
+  
+      .dropdown {
+        margin-left: auto;
+  
+        > * {
+          min-width: 150px;
+        }
+      }
+    }
+  
+    .instruments {
+      margin-bottom: 20px;
+    
+      > div {
+        @include center;
+        color: $color--gray--3;
+        text-transform: uppercase;
+        font-size: .9em;
+        min-width: 70px;
+        padding: 6px;
+        border-radius: $radius--default;
+      }
+  
+      > div.active {
+        background: $color--gray--6;
+        color: black;
+        font-weight: bold;
+      }
+    }
+  
+    .teachers {
+      @include center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0 $padding--content--1;
+
+      .teacher.active {
+        padding: 14px;
+        border: 3px solid $color--system--3;
+        background: rgb(92, 254, 212, .1);
+
+        > div {
+          opacity: .5;
+        }
+
+        > div:nth-of-type(2) {
+          opacity: 1;
+
+          > div {
+            opacity: .5;
+          }
+
+          > div:nth-of-type(1) {
+            opacity: 1;
+            background: rgba(0, 0, 0, .5);
+            
+            > :last-child {
+              @include center;
+            }
+          }
+
+          > div:nth-of-type(2) {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  
+  > button {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0;
+    background: $color--system--6;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: $color--gray--1;   
+    z-index: 100;
+  }
+}
+
+@media (max-width: 1199px) {
+  .root {
+    .content {
+      .title {
+        padding: 0 $padding--content--2;
+      }
+
+      .teachers {
+        padding: 0 $padding--content--2;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+
+    .content {
+      .title {
+        .text {
+          display: none;
+        }
+
+        .face {
+          margin: 0;
+        }
+      }
+
+      .teachers {
+        .teacher {
+          // flex: 1 1 calc(50% - 10px);
+          // max-width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .content {
+      .title {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .dropdown {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

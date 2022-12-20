@@ -1,13 +1,13 @@
-import Button from '@/components/common/Button';
-import PageContent from '@/components/common/layout/PageContent';
-import PageRoot from '@/components/common/layout/PageRoot';
-import TextToggleButton from '@/components/common/TextToggleButton';
-import PostsContainer from '@/containers/posts/PostsContainer';
-import SongContainer from '@/containers/songs/SongContainer';
-import styles from '@/styles/matching/Matching.module.scss';
+import styles from './index.module.scss';
 import Image from "next/legacy/image";
 import React, { useState } from 'react';
 import { IoMdMusicalNote } from 'react-icons/io';
+import PageRoot from '@/components/layout/page/PageRoot';
+import TextToggleButton from '@/components/button/toggle/TextToggleButton';
+import PageContent from '@/components/layout/page/PageContent';
+import PostList from '@/components/list/PostList';
+import Button from '@/components/button/Button';
+import SongItem from '@/components/item/song/SongItem';
 
 export default function Matching() {
   const [subMenu, setSubMenu] = useState<string>('songs');
@@ -34,7 +34,7 @@ export default function Matching() {
 
       <PageContent className={styles.content}>
         { subMenu==='posts' && 
-          <PostsContainer
+          <PostList
             showTitle={false}
             showFilterInstrument={false}
             showFilterOrder={false}
@@ -77,7 +77,7 @@ export default function Matching() {
                     </div>
                   </div>
                   <div className={styles.right}>
-                    <SongContainer data={songData} />
+                    <SongItem data={songData} />
                   </div>
                 </div>
               )

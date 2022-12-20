@@ -1,0 +1,234 @@
+@import '@/styles/common.scss';
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+  background: $color--gray--8;
+
+  > .content, > .content--mobile {
+    padding: 0 $padding--content--1;
+    // max-width: $width--content--1;
+    // margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .content {
+    .logo {
+      cursor: pointer;
+      margin-right: 50px;
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 30px;
+
+      li {
+        cursor: pointer;
+        padding: 18px 0px;
+        padding-bottom: 15px;
+        color: $color--gray--2;
+        border-bottom: 3px solid $color--gray--8;
+      }
+      
+      li.active {
+        color: $color--gray--1;
+        border-bottom: 3px solid $color--system--2;
+      }
+    }
+
+    // .search {
+    //   @include center;
+    //   gap: 6px;
+    //   padding: 3px 12px;
+    //   padding-right: 60px;
+    //   font-size: 12px;
+    //   margin-left: auto;
+    //   margin-right: 16px;
+    //   cursor: pointer;
+
+    //   color: $color--gray--4;
+    //   background: $color--gray--6;
+    //   border-radius: $radius--half;
+    //   border: 1px solid $color--gray--5;
+
+    //   & > :first-child {
+    //     font-size: 22px;
+    //     color: $color--gray--4;
+    //   }
+    // }
+
+    .search {
+      color: $color--gray--2;
+      font-size: 1.4em;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: 16px;
+    }
+
+    .sign {
+      @include center;
+      border-radius: $radius--half;
+      overflow: hidden;
+      background: $color--system--6;
+
+      button {
+        border-radius: 0;
+        background: transparent;
+        color: white;
+      }
+
+      .seperator {
+        border-left: 1px solid white;
+        height: 12px;
+      }
+    }
+
+    .upload {
+      margin-right: 40px;
+      svg {
+        margin-right: 4px;
+        font-size: 1.2em;
+        color: $color--system--3;
+      }
+    }
+  }
+
+  .content--mobile {
+    display: none;
+  }
+
+  @media (max-width: 1080px) {
+    .content {
+      display: none;
+    }
+
+    .content--mobile {
+      // max-width: $width--content--2;
+      display: flex;
+      height: 60px;
+      padding: 0 16px;
+      position: relative;
+
+      .menu {
+        font-size: 1.6em;
+        margin-right: 16px;
+      }
+      
+      .search {
+        font-size: 1.6em;
+        margin-left: auto;
+      }
+
+      .background {
+        z-index: 9;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100vw;
+        // max-height: calc(100vh - 60px);
+        height: calc(100vh - 60px);
+        // background: rgba(0,0,0,.4);
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      .menu-popup {
+        position: fixed;
+        left: -260px;
+        top: 60px;
+        width: 260px;
+        // max-height: calc(100vh - 60px);
+        height: calc(100vh - 60px);
+        z-index: 10;
+        padding: 16px;
+        margin: 0;
+        background: $color--gray--8;
+        overflow-y: auto;
+        border-bottom: 1px solid $color--gray--5;
+        border-right: 1px solid $color--gray--5;
+        border-top: 1px solid $color--gray--5;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+        transition: all .2s;
+        
+        li {
+          font-size: 1.1em;
+          padding: 10px 16px;
+        }
+
+        .signin, .signup {
+          border-bottom: 1px solid $color--gray--5;
+          font-weight: bold;
+        }
+
+        .profile {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          border-bottom: 1px solid $color--gray--5;
+          padding-bottom: 20px;
+
+          .img {
+            width: 70px;
+            height: 70px;
+            background: $color--gray--1;
+            border-radius: 50%;
+          }
+
+          .name {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+
+            svg {
+              margin-left: 6px;
+              color: $color--gray--4;
+            }
+          }
+
+          .level {
+            width: fit-content;
+            border: 1px solid $color--system--5;
+            border-radius: $radius--half;
+            color: $color--system--5;
+            font-size: 0.8em;
+            padding: 0 12px;
+            font-weight: normal;
+          }
+  
+          .rate {
+            font-weight: normal;
+            
+            svg {
+              color: $color--system--3;
+              margin-right: 4px;
+            }
+          }
+
+          .signout {
+            color: $color--gray--4;
+          }
+        }
+
+        li.posts:nth-child(2) {
+          margin-top: 16px;
+        }
+
+        &.active {
+          left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,21 +1,21 @@
-import styles from '@/styles/profile/Profile.module.scss';
-import PageRoot from "@/components/common/layout/PageRoot";
+import styles from './[id].module.scss';
 import { GetServerSideProps, NextPage, NextPageContext } from "next";
-import PageContent from '@/components/common/layout/PageContent';
 import { MdArrowForwardIos, MdLocationPin } from 'react-icons/md';
 import Image from "next/legacy/image";
-import Button from '@/components/common/Button';
 import React, { useState } from 'react';
-import PostsContainer from '@/containers/posts/PostsContainer';
-import MyPageLikesContainer from '@/containers/profile/ProfileLikesContainer';
-import { IData } from '@/containers/songs/SongContainer';
-import MyPageLessonsContainer from '@/containers/profile/ProfileLessonsContainer';
-import MyPageReviewsContainer from '@/containers/profile/ProfileReviewsContainer';
-import { moveUrl } from '@/lib/utils';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
 import { AiFillStar, AiOutlineArrowLeft, AiOutlineHeart } from 'react-icons/ai';
 import router from 'next/router';
+import { ISongData } from '@/components/item/song/SongItem';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageContent from '@/components/layout/page/PageContent';
+import { moveUrl } from '@/utils/common';
+import Button from '@/components/button/Button';
+import PostList from '@/components/list/PostList';
+import LikePostList from '@/components/list/LikePostList';
+import LessonList from '@/components/list/LessonList';
+import ReviewList from '@/components/list/ReviewList';
 
 interface Props {
   id: string;
@@ -34,12 +34,7 @@ const Profile: NextPage<Props> = ({ id }) => {
   }
 
   const [ subMenu, setSubMenu ] = useState<string>('posts');
-
-  const songData: IData[] = [ ...Array(12) ];
-  songData.map((v,k) => {
-    songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
-  })
-
+  
   return (
     <PageRoot className={styles.root}>
       <PageContent className={styles.content}>
@@ -170,7 +165,7 @@ const Profile: NextPage<Props> = ({ id }) => {
         </nav>
         
         { subMenu==='posts' &&
-          <PostsContainer
+          <PostList
             className={styles.posts} 
             showFilterPost={false}
             showTitle={false}
@@ -180,7 +175,7 @@ const Profile: NextPage<Props> = ({ id }) => {
 
         <div className={styles.content}>
           { subMenu==='likes' &&
-            <MyPageLikesContainer />
+            <LikePostList />
           }
 
           {/* { subMenu==='playings' &&
@@ -188,7 +183,7 @@ const Profile: NextPage<Props> = ({ id }) => {
           } */}
 
           { subMenu==='lessons' &&
-            <MyPageLessonsContainer songData={songData} />
+            <LessonList />
           }
 
           {/* { subMenu==='requests' &&
@@ -196,7 +191,7 @@ const Profile: NextPage<Props> = ({ id }) => {
           } */}
 
           { subMenu==='reviews' &&
-            <MyPageReviewsContainer />
+            <ReviewList />
           }
         </div>
       </PageContent>

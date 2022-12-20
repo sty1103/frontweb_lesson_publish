@@ -1,12 +1,12 @@
-import styles from '@/styles/songs/SongUpload.module.scss';
-import PageContent from '@/components/common/layout/PageContent';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageRoot from '@/components/common/layout/PageRoot';
+import styles from './upload.module.scss';
 import { NextPage } from 'next';
 import { Form } from 'react-bootstrap';
 import { BsFillCameraFill } from 'react-icons/bs';
-import Button from '@/components/common/Button';
 import React, { useState } from 'react';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PageContent from '@/components/layout/page/PageContent';
+import Button from '@/components/button/Button';
 
 const SongUpload: NextPage = () => {
   const [instrument, setInstrument] = useState<number>(0);

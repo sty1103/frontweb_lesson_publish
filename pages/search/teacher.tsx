@@ -1,11 +1,11 @@
-import PageContent from '@/components/common/layout/PageContent';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageRoot from '@/components/common/layout/PageRoot';
-import TextToggleButton from '@/components/common/TextToggleButton';
-import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
-import { moveUrl } from '@/lib/utils';
-import styles from '@/styles/search/SearchTeacher.module.scss';
+import styles from './teacher.module.scss';
 import { GetServerSideProps, NextPage } from 'next';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import TextToggleButton from '@/components/button/toggle/TextToggleButton';
+import PageContent from '@/components/layout/page/PageContent';
+import TeacherListItem from '@/components/item/teacher/TeacherListItem';
+import { moveUrl } from '@/utils/common';
 
 interface Props {
   word: string;
@@ -26,7 +26,7 @@ const SearchTeacher: NextPage = () => {
       <PageContent className={styles.content}>
         {[...Array(12)].map((v,k) => {
           return (
-            <TeacherBoxContainer key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
+            <TeacherListItem key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
           )
         })}
       </PageContent>

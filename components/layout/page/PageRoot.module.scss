@@ -1,0 +1,11 @@
+@import '@/styles/common.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background: $color--gray--6;
+  padding-top: $padding--content--top;
+  padding-bottom: 100px;
+  min-height: 100%;
+}

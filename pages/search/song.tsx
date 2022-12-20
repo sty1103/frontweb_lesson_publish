@@ -1,17 +1,17 @@
-import PageContent from '@/components/common/layout/PageContent';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageRoot from '@/components/common/layout/PageRoot';
-import SongsContainer, { IData } from '@/containers/songs/SongContainer';
-import { moveUrl } from '@/lib/utils';
-import styles from '@/styles/search/SearchSong.module.scss';
+import styles from './song.module.scss';
 import { GetServerSideProps, NextPage } from 'next';
+import SongItem, { ISongData } from '@/components/item/song/SongItem';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PageContent from '@/components/layout/page/PageContent';
+import { moveUrl } from '@/utils/common';
 
 interface Props {
   word: string;
 }
 
 const SearchSong: NextPage = () => {
-  const songData: IData[] = [ ...Array(20) ];
+  const songData: ISongData[] = [ ...Array(20) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })
@@ -25,7 +25,7 @@ const SearchSong: NextPage = () => {
       <PageContent className={styles.content}>
         {songData.map((v,k) => {
           return (
-            <SongsContainer
+            <SongItem
             className={styles.item}
               data={v}
               onClickSong={() => moveUrl('/song/"songId"')}

@@ -1,0 +1,200 @@
+@import '@/styles/common.scss';
+
+.root {
+  .header {
+    @include center;
+    justify-content: flex-start;
+    padding: 20px;
+    border-bottom: 1px solid $color--gray--5;
+  }
+
+  > div > .header {
+    svg {
+      margin-left: auto;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: $color--gray--4;
+    }
+  }
+
+  .content {
+    max-height: calc(80vh - 40px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px;
+    
+    .songs {  
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+
+      .item {
+        flex: 1 1 calc(25% - 10px);
+        max-width: calc(25% - 10px);
+      }
+    }
+
+    .curriculum {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background: $color--gray--6;
+      border-radius: $radius--default;
+      margin-bottom: 50px;
+
+      .rate {
+        color: $color--gray--5;
+        margin-left: 10px;
+
+        .active {
+          color: $color--system--5;
+        }
+      }
+
+      .instrument {
+        font-size: .8em;
+        border-radius: $radius--default;
+        background: $color--system--7;
+        padding: 2px 8px;
+      }
+
+      .desc {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .instrument {
+          margin-left: auto;
+        }
+      }
+
+      .desc--mobile {
+        display: none;
+        margin-bottom: 16px;
+
+        > div:last-child {
+          display: flex;
+          margin-top: 6px;
+
+          .rate {
+            color: $color--gray--5;
+            margin-left: 10px;
+
+            .active {
+              color: $color--system--5;
+            }
+          }
+        }
+      }
+
+      .lesson {
+        @include center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+        background: $color--gray--8;
+        border-radius: $radius--half;
+        border: 2px solid $color--gray--6;
+        padding: 5px;
+
+        .order {
+          background: $color--gray--6;
+          border-radius: $radius--half;
+          padding: 6px 14px;
+          font-size: .9em;
+          text-transform: uppercase;
+          margin-right: 20px;
+          flex-shrink: 0;
+
+          svg {
+            font-size: 1.4em;
+            color: $color--system--5;
+            margin-right: 4px;
+          }
+        }
+
+        .title {
+          @include ellipsis;
+          margin: 0;
+          text-transform: capitalize;
+        }
+
+        .rate {
+          flex-shrink: 0;
+          padding: 0;
+          margin-left: auto;
+          margin-right: 10px;
+        }
+      }
+
+      .lesson:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .footer {
+    button {
+      width: 100%;
+      height: 40px;
+      margin-top: auto;   
+      font-size: 1em;
+      border-radius: $radius--default;
+      background: $color--gray--5;
+      color: $color--gray--2;
+      cursor: default;
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    > div:last-child {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+
+      .content {
+        max-height: calc(100vh - 105px);
+        height: 100%;
+
+        .songs {
+          .item {
+            flex: 1 1 calc(50% - 10px);
+            max-width: calc(50% - 10px);
+          }
+        }
+
+        .curriculum {
+          .desc {
+            display: none;
+          }
+
+          .desc--mobile {
+            display: block;
+          }
+
+          .lesson {
+            .rate {
+              display: none;
+            }
+
+            .text {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+@import '@/styles/common.scss';
+
+.root {
+  @include center;
+  flex-direction: column;
+  border: 1px solid $color--gray--5;
+
+  > div {
+    width: 100%;
+  }
+
+  .top {
+    display: flex;
+    padding: 20px;
+
+    .info {
+      flex: 1;
+      width: 100%;
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        cursor: pointer;
+        @include ellipsis;
+        // max-width: calc(100% - 20px);
+
+        .type {
+          background: $color--system--7;
+          color: $color--system--5;
+          padding: 2px 4px;
+          border-radius: $radius--default;
+          font-size: .9em;
+          margin-right: 10px;
+          font-weight: normal;  
+        }
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: .8em;
+        color: $color--gray--3;
+        width: fit-content;
+
+        :nth-child(1) {
+          display: flex;
+          
+          > :first-child {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: $color--gray--1;;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+        }
+
+        :nth-child(1) {
+          color: $color--gray--1;;
+          font-weight: bold;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+        :nth-child(3) {
+          width: 1px;
+          height: 10px;
+          border-right: 1px solid $color--gray--3;
+          margin: 0 5px;
+        }
+      }
+    }
+
+    button {
+      margin-left: auto;
+
+      svg {
+        margin-right: 4px;
+        font-size: 1.2em;
+        color: $color--system--7;
+      }
+    }
+  }
+
+  .middle {
+    @include center;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+
+    .title {
+      // @include center;
+      width: fit-content;
+      padding: 4px 14px;
+      font-size: .9em;
+      border-radius: $radius--half;
+      background: $color--gray--6;
+      margin-bottom: 20px;
+      cursor: pointer;
+      @include ellipsis;
+      max-width: calc(100% - 40px);
+      
+
+      svg {
+        font-size: 1.4em;
+        color: $color--system--5;
+        margin-right: 4px;
+      }
+    }
+
+    .score {
+      max-height: 240px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      padding: 20px;
+    }
+  }
+
+  .bottom {
+    @include post_bottom;
+
+    .like {
+      .on { color: $color--red--2; display: none; }
+      .off { display: block; }
+    }
+
+    .like.active {
+      .on { display: block; }
+      .off { display: none; }
+    }
+
+    .lesson {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .top {
+      button {
+        display: none;
+      }
+    }
+
+    .middle {
+      .score {
+        max-height: 160px;
+      }
+    }
+
+    .bottom {
+      .lesson {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  .root {
+    .bottom {
+      button {
+        font-size: .8em;
+        
+        svg {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

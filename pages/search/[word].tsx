@@ -1,16 +1,16 @@
-import PageContent from '@/components/common/layout/PageContent';
-import PageRoot from '@/components/common/layout/PageRoot';
-import TextToggleButton from '@/components/common/TextToggleButton';
-import SearchInput from '@/components/search/SearchInput';
-import SongsContainer, { IData } from '@/containers/songs/SongContainer';
-import TeacherBoxContainer from '@/containers/TeacherBoxContainer';
-import { moveUrl } from '@/lib/utils';
 import { userAtom } from '@/store/common';
-import styles from '@/styles/search/SearchResult.module.scss';
+import styles from './[word].module.scss';
 import { GetServerSideProps, NextPage } from 'next';
 import { useState } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { useRecoilValue } from 'recoil';
+import SongItem, { ISongData } from '@/components/item/song/SongItem';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageContent from '@/components/layout/page/PageContent';
+import SearchInput from '@/components/input/search/SearchInput';
+import { moveUrl } from '@/utils/common';
+import TextToggleButton from '@/components/button/toggle/TextToggleButton';
+import TeacherListItem from '@/components/item/teacher/TeacherListItem';
 
 interface Props {
   word: string;
@@ -18,7 +18,7 @@ interface Props {
 
 const SearchResult: NextPage<Props> = ({ word }) => {
   const user = useRecoilValue(userAtom);
-  const songData: IData[] = [ ...Array(8) ];
+  const songData: ISongData[] = [ ...Array(8) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })
@@ -37,7 +37,7 @@ const SearchResult: NextPage<Props> = ({ word }) => {
         <div className={styles.songs}>
           {songData.map((v,k) => {
             return (
-              <SongsContainer
+              <SongItem
                 className={styles.item}
                 data={v}
                 onClickSong={() => moveUrl('/song/1a2b3c')}
@@ -64,7 +64,7 @@ const SearchResult: NextPage<Props> = ({ word }) => {
             <div className={styles.teachers}>
               {[...Array(6)].map((v,k) => {
                 return (
-                  <TeacherBoxContainer key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
+                  <TeacherListItem key={k} onClick={() => moveUrl('/profile/1a2b3c')} />
                 )
               })}
             </div>

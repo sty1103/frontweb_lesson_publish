@@ -18,8 +18,8 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
-      "@/containers/*": ["containers/*"],
-      "@/lib/*": ["lib/*"],
+      "@/modules/*": ["modules/*"],
+      "@/utils/*": ["utils/*"],
       "@/public/*": ["public/*"],
       "@/store/*": ["store/*"],
       "@/hooks/*": ["hooks/*"],

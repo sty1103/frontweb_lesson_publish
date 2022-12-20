@@ -1,0 +1,48 @@
+@import '@/styles/common.scss';
+
+.root {
+  .header {
+    @include center;
+    padding: 20px;
+    border-bottom: 1px solid $color--gray--5;
+
+    svg {
+      margin-left: auto;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: $color--gray--4;
+    }
+  }
+
+  .content {
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 16px;
+    padding: 20px;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    > div:last-child {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: white;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+
+      .content {
+        max-height: calc(100vh - 65px);
+        height: 100%;
+      }
+    }
+  }
+}

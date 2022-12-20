@@ -1,16 +1,16 @@
-import Button from '@/components/common/Button';
-import styles from '@/styles/sign/SignIn.module.scss';
+import styles from './index.module.scss';
 import Form from 'react-bootstrap/Form';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { FcGoogle } from 'react-icons/fc';
 import { BsApple} from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
-import SignContainer from '@/components/sign/SignContainer';
 import { NextPage } from 'next';
-import { moveUrl } from '@/lib/utils';
 import { useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import { userAtom } from '@/store/common';
+import SignPageContent from '@/components/layout/sign/SignPageContent';
+import Button from '@/components/button/Button';
+import { moveUrl } from '@/utils/common';
 
 interface Props {
   socials: [];
@@ -22,7 +22,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
   const pwdRef = useRef<HTMLInputElement>(null);
 
   return (
-    <SignContainer className={styles.root}>
+    <SignPageContent className={styles.root}>
       <div className={styles.logo}>
         {/* <img src='' /> */}
         LESSON NOTE
@@ -43,7 +43,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
           <input type='checkbox' />
           로그인 유지
         </label>
-        <div className={styles.forgot} onClick={() => moveUrl('/forgotpass')}>
+        <div className={styles.forgot} onClick={() => moveUrl('/password')}>
           비밀번호 찾기
           <MdArrowForwardIos />
         </div>
@@ -64,7 +64,7 @@ const SignIn: NextPage<Props> = ({ socials }) => {
           회원가입
         </span>
       </div>
-    </SignContainer>
+    </SignPageContent>
   )
 
   function login() {

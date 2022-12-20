@@ -1,6 +1,6 @@
-import PostArticleDetailContainer from "@/containers/posts/PostArticleDetailContainer";
-import PostCurriculumnDetailContainer from "@/containers/posts/PostCurriculumnDetailContainer";
-import PostPracticeDetailContainer from "@/containers/posts/PostPracticeDetailContainer";
+import PostArticleDetail from "@/components/item/post/PostArticleDetail";
+import PostCurriculumDetail from "@/components/item/post/PostCurriculumDetail";
+import PostPracticeDetail from "@/components/item/post/PostPracticeDetail";
 import { GetServerSideProps, NextPage } from "next";
 
 interface Props {
@@ -11,11 +11,11 @@ interface Props {
 const PostDetail: NextPage<Props> = ({ type }) => {
   switch( type ) {
     case 'practice':
-      return <PostPracticeDetailContainer />;
+      return <PostPracticeDetail />;
     case 'article':
-      return <PostArticleDetailContainer />;
+      return <PostArticleDetail />;
     default:
-      return <PostCurriculumnDetailContainer />;
+      return <PostCurriculumDetail />;
   }
 }
 

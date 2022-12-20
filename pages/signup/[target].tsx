@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import router from 'next/router';
-import SignContainer from '@/components/sign/SignContainer';
-import styles from '@/styles/sign/SignUpStep.module.scss';
+import styles from './[target].module.scss';
 
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -11,16 +10,17 @@ import { CgPiano } from 'react-icons/cg';
 import { FaGuitar } from 'react-icons/fa';
 
 import { Dropdown, Form, SSRProvider } from 'react-bootstrap';
-import Button from '@/components/common/Button';
-import termsService from '@/public/terms/service';
 import termsPrivacy from '@/public/terms/privacy';
 import termsPromotion from '@/public/terms/promotion';
-import { nl2br } from '@/lib/utils';
-import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Image from "next/legacy/image";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { tempUserData, userAtom } from '@/store/common';
+import SignPageContent from '@/components/layout/sign/SignPageContent';
+import { nl2br } from '@/utils/common';
+import Button from '@/components/button/Button';
+import KakaoMap from '@/components/contents/KakaoMap';
+import termsService from '@/public/terms/service';
 
 interface Props {
   target: string;
@@ -103,7 +103,7 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
   const users = useRecoilValue(tempUserData);
 
   return (
-    <SignContainer className={styles.root}>
+    <SignPageContent className={styles.root}>
       <div className={styles.top}>
         <span>0{stepNum}</span>
         <span className={styles.seperator}>/</span>
@@ -359,14 +359,14 @@ const SignUpStep: NextPage<Props> = ({ target }) => {
         <div className={styles.step6}>
           동네인증을 해주세요
           <div className={styles.map}>
-            <KakaoMapContainer />
+            <KakaoMap />
           </div>
           <Button shape='react' onClick={clickDone}>
             완료
           </Button>
         </div>
       </div>
-    </SignContainer>
+    </SignPageContent>
   )
 
   function clickPrev() {

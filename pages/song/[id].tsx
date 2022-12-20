@@ -1,16 +1,16 @@
 import { NextPage } from 'next';
-import styles from '@/styles/songs/SongDetail.module.scss';
-import PageRoot from '@/components/common/layout/PageRoot';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageContent from '@/components/common/layout/PageContent';
+import styles from './[id].module.scss';
 import Image from "next/legacy/image";
 import { IoMdMusicalNote } from 'react-icons/io';
-import Button from '@/components/common/Button';
 import { BsList } from 'react-icons/bs';
-import ScoreDisplayContainer from '@/containers/score/ScoreDisplayContainer';
-import { moveUrl } from '@/lib/utils';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PageContent from '@/components/layout/page/PageContent';
+import Button from '@/components/button/Button';
+import { moveUrl } from '@/utils/common';
+import Score from '@/components/score/Score';
 
 const SongDetail: NextPage = () => {
   const user = useRecoilValue(userAtom);
@@ -82,7 +82,7 @@ const SongDetail: NextPage = () => {
                   <Button onClick={()=>{}}>
                   <IoMdMusicalNote /> 연습하기
                   </Button>
-                  <Button onClick={() => moveUrl('/song/request/"songid"')}>
+                  <Button onClick={() => moveUrl('/lesson/request/"songid"')}>
                     <IoMdMusicalNote /> 레슨 신청하기
                   </Button>
                 </div>
@@ -132,7 +132,7 @@ const SongDetail: NextPage = () => {
         </div>
 
         <div className={styles.score}>
-          <ScoreDisplayContainer file='/musicxml/For_Exhibition_I will.xml' />
+          <Score file='/musicxml/For_Exhibition_I will.xml' />
           </div>
       </PageContent>
     </PageRoot>

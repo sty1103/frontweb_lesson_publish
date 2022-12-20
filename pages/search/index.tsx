@@ -1,14 +1,14 @@
-import PageContent from '@/components/common/layout/PageContent';
-import PageRoot from '@/components/common/layout/PageRoot';
-import SearchInput from '@/components/search/SearchInput';
-import { moveUrl } from '@/lib/utils';
-import styles from '@/styles/search/Search.module.scss';
+import styles from './index.module.scss';
 import { NextPage } from "next";
 import Image from "next/legacy/image";
 import { IoMdMusicalNote } from 'react-icons/io';
 import { useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageContent from '@/components/layout/page/PageContent';
+import SearchInput from '@/components/input/search/SearchInput';
+import { moveUrl } from '@/utils/common';
 
 
 const Search: NextPage = () => {

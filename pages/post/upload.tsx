@@ -1,17 +1,17 @@
 import { NextPage } from 'next';
-import styles from '@/styles/posts/PostUpload.module.scss';
-import ToggleButton from '@/components/common/ToggleButton';
+import styles from './upload.module.scss';
 import React, { useEffect, useRef, useState } from 'react';
-import Button from '@/components/common/Button';
 import { BsSearch } from 'react-icons/bs';
 import router from 'next/router';
-import PopUp from '@/components/common/PopUp';
-import SongContainer, { IData } from '@/containers/songs/SongContainer';
-import PageRoot from '@/components/common/layout/PageRoot';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageContent from '@/components/common/layout/PageContent';
 import { useRecoilValue } from 'recoil';
 import { userAtom } from '@/store/common';
+import SongItem, { ISongData } from '@/components/item/song/SongItem';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PageContent from '@/components/layout/page/PageContent';
+import ToggleButton from '@/components/button/toggle/ToggleButton';
+import Button from '@/components/button/Button';
+import PopUp from '@/components/popup/PopUp';
 
 const PostUpload: NextPage = () => {
   const user = useRecoilValue(userAtom);
@@ -26,7 +26,7 @@ const PostUpload: NextPage = () => {
     // titleRef.current!.focus();
   })
 
-  const songData: IData[] = [ ...Array(16) ];
+  const songData: ISongData[] = [ ...Array(16) ];
   songData.map((v,k) => {
     songData[k] = { title: '너를 만나', artist: '풀킴', rate:4 };
   })
@@ -102,7 +102,7 @@ const PostUpload: NextPage = () => {
         <div className={styles.middle}>
           {songData.map((v,k) => {
             return (
-              <SongContainer
+              <SongItem
                 className={styles.item}
                 onClickSong={clickSong}
                 data={v}

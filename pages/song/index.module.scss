@@ -1,0 +1,37 @@
+@import '@/styles/common.scss';
+
+.root {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+
+    .item {
+      flex: 1 1 calc(16% - 5px);
+      max-width: calc(16% - 5px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    .content {
+      .item {
+        flex: 1 1 calc(25% - 10px);
+        max-width: calc(25% - 10px);
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .content {
+      .item {
+        flex: 1 1 calc(50% - 5px);
+        max-width: calc(50% - 5px);
+      }
+    }
+  }
+}

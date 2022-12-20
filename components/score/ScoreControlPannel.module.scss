@@ -1,0 +1,268 @@
+@import '@/styles/common.scss';
+
+.root {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .measure {
+    position: absolute;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    .indicator {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      gap: 4px;
+      
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 34px;
+        min-height: 34px;
+        background: black;
+        position: static;
+
+        font-size: 1em;
+        font-weight: bold;
+        color: $color--system--3;
+        text-align: center;
+
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        opacity: 1;
+        cursor: pointer;
+
+        padding: 0;
+
+        &.active > div {
+          background: white;
+          color: white;
+        }
+      }
+
+      .memo {
+        svg {
+          display: block;
+        }
+
+        label {
+          display: none;
+          cursor: pointer;
+        }
+
+        &.active {
+          position: absolute;
+          min-width: 100%;
+          border-radius: 10px;
+          z-index: 2;
+
+          svg {
+            display: none;
+          }
+
+          label {
+            display: block
+          }
+        }
+      }
+
+      .recording {
+        left: 40px;
+
+        & > * {
+          display: block;
+          color: red;
+        }
+
+        .audio-wrapper {
+          display: none;
+          align-items: center;
+          justify-content: center;
+
+          position: absolute;
+          top: 0px;
+          left: 0;
+          width: 300px;
+          max-width: 100%;
+          z-index: 3;
+
+          audio {
+            width: 100%;
+            height: 30px;
+            margin-right: 2px;
+            border: 2px solid gray;
+            border-radius: 28px;
+          }
+
+          button {
+            background: gray;
+            color: white;
+            position: absolute;
+            right: 16px;
+            width: 26px;
+            height: 26px;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        &.active {
+          // width: 100%;
+          background: white;
+          border: 0;
+
+          & > * {
+            display: none;
+          }
+
+          .audio-wrapper {
+            display: flex;
+          }
+        }
+        
+      }
+
+      .hide {
+        display: none;
+      }
+    }
+
+    button.menu {
+      display: none;
+      width: 32px;
+      height: 30px;
+      margin-right: 10px;
+      padding: 0;
+      font-size: 1.4em;
+      background: $color--system--6;
+      border: 1px solid $color--system--5;
+      color: $color--gray--1;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .dropdown {
+      list-style: none;
+      position: absolute;
+      display: none;
+      top: 40px;
+      background: white;
+      border: 1px solid black;
+      border-radius: 6px;
+      padding: 0;
+      z-index: 1;
+
+      &.active {
+        display: block;
+      }
+
+      li {
+        padding: 8px 16px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+
+        svg {
+          // color: $color--system--5;
+          margin-right: 6px;
+        }
+      }
+
+      li:first-child {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+      }
+
+      li:last-child {
+        border: 0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      li:hover {
+        background: #eee;
+      }
+    }
+
+    &:hover {
+      background: rgba(92, 254, 212, .2);
+
+      button {
+        display: flex;
+      }
+    }
+
+    &.active {
+      @keyframes blink {
+        0% {
+          background: rgba(0,0,255,1)
+        }
+        50% {
+          background: rgba(0,0,255,0.0)
+        }
+        100% {
+          background: rgba(0,0,255,1)
+        }
+      }
+  
+      opacity: .3;
+      animation: blink normal 1s infinite ease-in-out;
+      animation-iteration-count: 1.5;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .memoInput {
+    position: absolute;
+    z-index: 3;
+    border: 2px solid $color--system--5;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.hideContent {
+  position: fixed;
+  bottom: 15px;
+  right: calc(20% + 34px);
+
+  & > * {
+    cursor: pointer;
+  }
+
+  & > :first-child {
+    display: block;
+  }
+
+  & > :last-child {
+    display: none;
+  }
+
+  &.active {
+    & > :first-child {
+      display: none;
+    }
+
+    & > :last-child {
+      display: block;
+    }
+  }
+}

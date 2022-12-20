@@ -1,10 +1,5 @@
-import Button from '@/components/common/Button';
-import PageContent from '@/components/common/layout/PageContent';
-import PageHeader from '@/components/common/layout/PageHeader';
-import PageRoot from '@/components/common/layout/PageRoot';
-import KakaoMapContainer from '@/containers/common/KakaoMapContainer';
 import { userAtom } from '@/store/common';
-import styles from '@/styles/profile/ProfileUpdate.module.scss';
+import styles from './update.module.scss';
 import { NextPage } from 'next';
 import Image from "next/legacy/image";
 import { useState } from 'react';
@@ -13,6 +8,11 @@ import { CgPiano } from 'react-icons/cg';
 import { FaGuitar } from 'react-icons/fa';
 import { GiAccordion, GiDrumKit, GiHarp, GiPipeOrgan, GiViolin, GiXylophone } from 'react-icons/gi';
 import { useRecoilValue } from 'recoil';
+import PageRoot from '@/components/layout/page/PageRoot';
+import PageHeader from '@/components/layout/page/PageHeader';
+import PageContent from '@/components/layout/page/PageContent';
+import KakaoMap from '@/components/contents/KakaoMap';
+import Button from '@/components/button/Button';
 
 const ProfileUpdate: NextPage = () => {
   const user = useRecoilValue(userAtom);
@@ -193,7 +193,7 @@ const ProfileUpdate: NextPage = () => {
         
         <div className={styles.title} style={{margin:'0'}}>동네인증</div>
         <div className={styles.map}>
-          <KakaoMapContainer />
+          <KakaoMap />
         </div>
       </PageContent>
       <Button onClick={()=>{}}>

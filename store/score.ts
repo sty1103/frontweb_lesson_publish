@@ -1,4 +1,4 @@
-import OSMDExtends from '@/lib/OSMDExtends';
+import OSMDExtends from '@/modules/OSMDExtends';
 import { atom, selector } from 'recoil';
 
 export interface IMeasureData {

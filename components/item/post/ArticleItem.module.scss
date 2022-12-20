@@ -1,0 +1,86 @@
+@import '@/styles/common.scss';
+
+.root {
+  @include center;
+  flex-direction: column;
+  border: 1px solid $color--gray--5;
+  cursor: pointer;
+
+  > div {
+    width: 100%;
+  }
+
+  .top {
+    display: flex;
+    padding: 20px;
+
+    .info {
+      flex: 1;
+      width: 100%;
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        cursor: pointer;
+        @include ellipsis;
+
+        .type {
+          background: $color--system--7;
+          color: $color--system--5;
+          padding: 2px 4px;
+          border-radius: $radius--default;
+          font-size: .9em;
+          margin-right: 10px;
+          font-weight: normal;  
+        }
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+        font-size: .8em;
+        color: $color--gray--3;
+      }
+    }
+  }
+
+  .middle {
+    @include center;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+
+    .img {
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .desc {
+      padding: 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      max-height: 96px;
+    }
+  }
+
+  .bottom {
+    margin-top: 14px;
+    @include post_bottom;
+  }
+}
+
+@media (max-width: 540px) {
+  .root {
+    .middle {
+      .img {
+        height: 200px;
+      }
+    }
+  }
+}

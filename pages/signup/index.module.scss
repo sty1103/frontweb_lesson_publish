@@ -1,0 +1,42 @@
+@import '@/styles/common.scss';
+
+.root {
+  @include center;
+
+  > div {
+    @include center;
+    max-height: 100vh;
+    height: auto;
+    align-items: center;
+
+    .content{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      min-height: 600px;
+  
+      .buttons {
+        @include center;
+        flex-direction: column;
+        margin-top: 20px;
+  
+        button {
+          width: 220px;
+          font-size: 1.1em;
+          margin-bottom: 10px;
+          border: 1px solid $color--gray--5;
+          border-radius: $radius--default;
+          // transition: all .1s;
+        }
+  
+        button:hover {
+          border: 1px solid $color--system--2;
+          background: $color--system--6;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import OSMDExtends from '@/modules/OSMDExtends';
 import { osmdAtom } from '@/store/score';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
+import ScoreControlPannel from '@/components/score/ScoreControlPannel';
 
 interface Props {
   control?: boolean; // 컨트롤러 포함 여부
@@ -52,5 +53,12 @@ export default function Score({ control=false, title=false, subtitle=false, file
     });
   }, [loadScore]);
 
-  return (<div ref={divRef} />);
+  return (
+    <>
+      <div ref={divRef} />
+      { control && 
+        <ScoreControlPannel />
+      }
+    </>
+  );
 }

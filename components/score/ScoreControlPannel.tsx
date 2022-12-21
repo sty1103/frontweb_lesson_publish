@@ -1,6 +1,6 @@
 import styles from './ScoreControlPannel.module.scss';
 import OSMDExtends, { TMeasures } from "@/modules/OSMDExtends";
-import { curMeasureAtom, IMeasureData, linkedMeasureAtom, measureDataAtom } from "@/store/score";
+import { curMeasureAtom, IMeasureData, linkedMeasureAtom, measureDataAtom, osmdAtom } from "@/store/score";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Button from "@/components/button/Button";
@@ -12,13 +12,9 @@ import { userAtom } from '@/store/common';
 import LessonVideoPopup from '@/components/popup/lesson/LessonVideoPopup';
 import LessonRecordingPopup from '@/components/popup/lesson/LessonRecordingPopup';
 
-interface Props {
-  osmd: OSMDExtends | null;
-}
-
 const initMemoInputState = { display:'none', top:0, left:0, width:0 } // 메모 input의 위치
 
-export default function ScoreControlPannel({ osmd }: Props) {
+export default function ScoreControlPannel() {
   const [ measures, setMeasures ] = useState<TMeasures>([]); // 마디들의 위치와 크기 정보 저장
   const [ measureData, setMeasureData ] = useRecoilState(measureDataAtom); // 마디 유저 데이터
   const [ curMeasure, setCurMeasure ] = useRecoilState(curMeasureAtom); // 현재 활성화된 마디/보표 번호
@@ -31,6 +27,24 @@ export default function ScoreControlPannel({ osmd }: Props) {
   
   const noteRef = useRef<HTMLInputElement | null>(null); // 노트 작성 input reference
   const user = useRecoilValue(userAtom);
+
+  const [ osmd, setOsmd ] = useRecoilState(osmdAtom);
+
+  // 창 크기가 변경되면 악보의 크기가 자동으로 조절되는데, 컨트롤러의 사이즈도 악보에 맞춰서 다시 렌더를 해줘야 함
+  let timeout: ReturnType<typeof setTimeout>;
+  const renderControlPannel = () => {
+    if ( timeout )
+      clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+      if ( osmd ) {
+        let newOsmd = Object.assign(Object.create(Object.getPrototypeOf(osmd)), osmd);
+        setOsmd(newOsmd);
+      }
+
+      window.removeEventListener('resize', renderControlPannel);
+    }, 400);
+  }
   
   useEffect(() => {
     // 데이터베이스에서 마디 정보 fetch
@@ -47,6 +61,7 @@ export default function ScoreControlPannel({ osmd }: Props) {
       setMeasures(osmd.getMeasurePosition());
 
     noteRef.current!.focus();
+    window.addEventListener('resize', renderControlPannel);
   }, [osmd, memoInputState, measureData.length, setMeasureData]);
 
   return (

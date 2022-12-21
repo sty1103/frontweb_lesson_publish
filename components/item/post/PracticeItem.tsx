@@ -96,6 +96,6 @@ export default function PracticeItem() {
   }
 
   function clickComment() {
-    moveUrl('/post/1a2b3c?type=practice&comment=1', false);
+    moveUrl('/post/practice/1a2b3c?&comment=1', false);
   }
 }

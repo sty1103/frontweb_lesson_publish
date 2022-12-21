@@ -52,7 +52,7 @@ export default function BestPracticeList() {
     if (clientX !== e.clientX ) {
       e.preventDefault()
     } else {
-      moveUrl('/post/"postId"?type=practice');
+      moveUrl('/post/practice/"postId"');
     }
   }
 }
